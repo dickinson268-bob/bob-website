@@ -12,12 +12,14 @@ exports.handler = async (event) => {
   const response = await fetch("https://www.strava.com/oauth/token", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      client_id: process.env.STRAVA_CLIENT_ID,
-      client_secret: process.env.STRAVA_CLIENT_SECRET,
-      code,
-      grant_type: "authorization_code",
-    }),
+const siteUrl = process.env.SITE_URL || process.env.URL;
+body: JSON.stringify({
+  client_id: process.env.STRAVA_CLIENT_ID,
+  client_secret: process.env.STRAVA_CLIENT_SECRET,
+  code,
+  grant_type: "authorization_code",
+  redirect_uri: `${siteUrl}/.netlify/functions/strava-callback`,
+}),
   });
 
   const data = await response.json();
