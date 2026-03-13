@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* --- The CSS (The Paint & Style) --- */
+        
+        /* 1. We changed the background to near-black and updated the font to be ultra-modern */
+        body {
+            background-color: #0a0a0a; 
+            color: #e5e7eb; 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        nav a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        
+        /* 2. Hover color changed to Neon Mint */
+        nav a:hover {
+            color: #00ffcc; 
+        }
+
+        /* Main Content Area */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            max-width: 800px;
+        }
+
+        /* 3. The Neon Gradient Name - Now Mint Green to Electric Purple */
+        h1 {
+            font-size: 6rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(90deg, #00ffcc, #bf00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #a1a1aa;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #71717a;
+        }
+
+        /* 4. Buttons - Updated to match the new color scheme */
+        .btn-container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px; /* Made the buttons pill-shaped for a modern look */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px); /* Makes the button float up slightly on hover */
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.2); /* Adds a neon green glow */
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #00ffcc, #bf00ff);
+            color: #000; /* Black text for high contrast against the bright neon */
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #00ffcc;
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Your Name</h1> 
+        <h2>Innovator. Designer. Developer.</h2>
+        <p>Welcome to my digital space. I build things, break things, and occasionally write about them. Explore my projects below.</p>
+        
+        <div class="btn-container">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </div>
+
+</body>
+</html>
