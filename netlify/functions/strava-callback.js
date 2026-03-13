@@ -27,11 +27,12 @@ exports.handler = async (event) => {
   }
 
   // Redirect back to the homepage, passing the token in the URL
-  return {
-    statusCode: 302,
-    headers: {
-      Location: `/?token=${data.access_token}`,
-    },
-    body: "",
-  };
+const siteUrl = process.env.SITE_URL || process.env.URL;
+return {
+  statusCode: 302,
+  headers: {
+    Location: `${siteUrl}/?token=${data.access_token}`,
+  },
+  body: "",
+};
 };
