@@ -5,242 +5,267 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bob Dickinson</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0c0c0b;
-    --surface: #141413;
-    --border: rgba(255,255,255,0.07);
-    --border-hover: rgba(255,255,255,0.18);
-    --text: #f0ede6;
-    --muted: #6b6860;
-    --accent: #e8c97a;
-    --strava: #fc4c02;
-    --instagram: #e1306c;
-    --linkedin: #0a66c2;
+    --bg: #09091a;
+    --surface: #10112a;
+    --surface2: #14163a;
+    --neon-cyan: #5ef0ff;
+    --neon-pink: #ff6eb4;
+    --neon-lavender: #c084fc;
+    --strava: #ff7a45;
+    --instagram: #ff6eb4;
+    --linkedin: #60a5fa;
+    --text: #e8eaf8;
+    --muted: #5a5d8a;
+    --grid: rgba(94,240,255,0.035);
   }
 
-  html, body {
-    height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Crimson Pro', Georgia, serif;
-    overflow-x: hidden;
-  }
+  html, body { height: 100%; background: var(--bg); overflow-x: hidden; }
 
-  /* subtle grain overlay */
+  /* soft grid */
   body::before {
     content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 56px 56px;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.6;
+  }
+
+  /* dreamy horizon */
+  body::after {
+    content: '';
+    position: fixed; bottom: 0; left: 0; right: 0; height: 55vh;
+    background: radial-gradient(ellipse 90% 65% at 50% 110%,
+      rgba(96,165,250,0.16) 0%,
+      rgba(192,132,252,0.12) 35%,
+      rgba(255,110,180,0.08) 60%,
+      transparent 75%);
+    pointer-events: none; z-index: 0;
   }
 
   .page {
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 24px;
-    gap: 56px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 52px 24px 72px; gap: 52px;
   }
 
-  /* ── Identity block ── */
+  /* ── Identity ── */
   .identity {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(16px);
-    animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 18px; text-align: center;
+    opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
   }
+
+  .avatar-wrap { position: relative; width: 114px; height: 114px; }
 
   .avatar-ring {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 1px solid rgba(232,201,122,0.35);
-    padding: 4px;
-    position: relative;
+    position: absolute; inset: -5px; border-radius: 50%;
+    background: conic-gradient(
+      var(--neon-cyan) 0deg, var(--neon-pink) 130deg,
+      var(--neon-lavender) 250deg, var(--neon-cyan) 360deg
+    );
+    animation: spinRing 5s linear infinite;
+    filter: blur(2px);
   }
+
+  @keyframes spinRing { to { transform: rotate(360deg); } }
 
   .avatar-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative; z-index: 1;
+    width: 100%; height: 100%; border-radius: 50%;
+    background: var(--surface); border: 4px solid var(--bg);
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
   }
 
-  .avatar-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  .avatar-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .avatar-placeholder {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    letter-spacing: 0.05em;
-    color: var(--muted);
+    font-family: 'Comfortaa', cursive; font-size: 28px; font-weight: 700;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 16px var(--neon-cyan), 0 0 32px rgba(94,240,255,0.4);
   }
 
   .name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 10vw, 88px);
-    letter-spacing: 0.04em;
-    line-height: 0.9;
+    font-family: 'Comfortaa', cursive; font-weight: 700;
+    font-size: clamp(34px, 7.5vw, 72px);
+    letter-spacing: 0.05em; line-height: 1;
     color: var(--text);
+    text-shadow: 0 0 40px rgba(94,240,255,0.15);
+    position: relative;
   }
 
-  .name span {
-    display: block;
-    color: var(--accent);
+  /* soft glitch — gentler than before */
+  .name::before, .name::after {
+    content: attr(data-text);
+    position: absolute; inset: 0;
+    font-family: inherit; font-size: inherit;
+    font-weight: inherit; letter-spacing: inherit;
+  }
+  .name::before {
+    color: var(--neon-cyan); opacity: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+    animation: glitchTop 7s infinite;
+  }
+  .name::after {
+    color: var(--neon-pink); opacity: 0;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    animation: glitchBot 7s infinite;
+  }
+
+  @keyframes glitchTop {
+    0%,92%,100% { transform: translate(0); opacity: 0; }
+    93% { transform: translate(-2px,-1px); opacity: 0.6; }
+    95% { transform: translate(2px,0); opacity: 0.4; }
+    97% { transform: translate(0); opacity: 0; }
+  }
+  @keyframes glitchBot {
+    0%,93%,100% { transform: translate(0); opacity: 0; }
+    94% { transform: translate(2px,1px); opacity: 0.5; }
+    96% { transform: translate(-1px,0); opacity: 0.3; }
+    98% { transform: translate(0); opacity: 0; }
   }
 
   .tagline {
-    font-size: 15px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--muted);
-    letter-spacing: 0.06em;
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 14px; letter-spacing: 0.12em;
+    color: var(--neon-lavender); opacity: 0.75;
   }
 
   /* ── Tiles ── */
   .tiles {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: 100%;
-    max-width: 720px;
+    gap: 20px; width: 100%; max-width: 760px;
   }
 
   .tile {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 28px 24px 24px;
-    border-radius: 3px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    padding: 32px 26px 26px;
+    border-radius: 24px;
     background: var(--surface);
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.25s, transform 0.25s;
-    opacity: 0;
-    transform: translateY(20px);
-    min-height: 180px;
+    border: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none; color: var(--text);
+    overflow: hidden; cursor: pointer; min-height: 230px;
+    opacity: 0; transform: translateY(24px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
+                border-color 0.35s, box-shadow 0.35s;
   }
 
-  .tile.visible {
-    animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
-  }
+  .tile.visible { animation: tileIn 0.65s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+  @keyframes tileIn { to { opacity: 1; transform: translateY(0) scale(1); } }
 
   .tile:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: 0 0 40px rgba(0,0,0,0.4), 0 0 60px var(--tile-glow);
   }
 
-  .tile:hover .tile-arrow {
-    opacity: 1;
-    transform: translate(2px, -2px);
-  }
-
-  /* Colour bar at bottom */
-  .tile::after {
+  /* soft inner glow strip at top */
+  .tile::before {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    border-radius: 24px 24px 0 0;
+    background: var(--tile-gradient);
+    opacity: 0.7;
+    transition: opacity 0.35s;
   }
+  .tile:hover::before { opacity: 1; }
 
-  .tile:hover::after { transform: scaleX(1); }
+  /* ambient glow behind tile */
+  .tile .glow-bg {
+    position: absolute; inset: -30px; z-index: -1;
+    background: radial-gradient(circle, var(--tile-color) 0%, transparent 65%);
+    filter: blur(40px); opacity: 0;
+    transition: opacity 0.4s; pointer-events: none;
+  }
+  .tile:hover .glow-bg { opacity: 0.12; }
 
-  .tile-strava::after { background: var(--strava); }
-  .tile-instagram::after { background: var(--instagram); }
-  .tile-linkedin::after { background: var(--linkedin); }
+  /* scanlines */
+  .tile .scanlines {
+    position: absolute; inset: 0; border-radius: 24px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 6px
+    );
+    opacity: 0; pointer-events: none; transition: opacity 0.35s;
+  }
+  .tile:hover .scanlines { opacity: 1; }
 
-  /* Icon */
+  .tile-strava    { --tile-color: var(--strava);     --tile-glow: rgba(255,122,69,0.2);   --tile-gradient: linear-gradient(90deg, #ff7a45, #ffb347); }
+  .tile-instagram { --tile-color: var(--instagram);  --tile-glow: rgba(255,110,180,0.2);  --tile-gradient: linear-gradient(90deg, #ff6eb4, #ffb86c); }
+  .tile-linkedin  { --tile-color: var(--linkedin);   --tile-glow: rgba(96,165,250,0.2);   --tile-gradient: linear-gradient(90deg, #60a5fa, #a78bfa); }
+
   .tile-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 20px;
-    flex-shrink: 0;
+    width: 46px; height: 46px; margin-bottom: 20px;
+    filter: drop-shadow(0 0 8px var(--tile-color));
+    transition: filter 0.35s, transform 0.35s;
+  }
+  .tile:hover .tile-icon {
+    filter: drop-shadow(0 0 18px var(--tile-color));
+    transform: scale(1.08);
   }
 
   .tile-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 0.06em;
-    line-height: 1;
-    margin-bottom: 6px;
+    font-family: 'Comfortaa', cursive; font-weight: 700;
+    font-size: 24px; letter-spacing: 0.02em;
+    color: var(--tile-color);
+    text-shadow: 0 0 14px var(--tile-color);
+    margin-bottom: 8px; line-height: 1;
   }
 
   .tile-desc {
-    font-size: 13px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--muted);
-    line-height: 1.45;
-    flex-grow: 1;
+    font-family: 'Quicksand', sans-serif; font-weight: 400;
+    font-size: 13px; color: var(--muted);
+    line-height: 1.65; flex-grow: 1;
   }
 
-  .tile-arrow {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 16px;
-    color: var(--muted);
-    opacity: 0;
-    transition: opacity 0.2s, transform 0.2s;
+  /* ── CTA Button ── */
+  .tile-cta {
+    position: relative; margin-top: 22px; overflow: hidden;
+    font-family: 'Quicksand', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--bg); padding: 10px 20px; border-radius: 999px;
+    background: var(--tile-gradient);
+    box-shadow: 0 0 12px var(--tile-glow), 0 2px 8px rgba(0,0,0,0.4);
+    transition: box-shadow 0.35s, transform 0.2s;
+    white-space: nowrap;
   }
 
-  /* Strava accent */
-  .tile-strava .tile-label { color: var(--strava); }
-  .tile-instagram .tile-label { color: var(--instagram); }
-  .tile-linkedin .tile-label { color: var(--linkedin); }
+  /* shimmer sweep */
+  .tile-cta::before {
+    content: '';
+    position: absolute; top: 0; left: -70%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg); transition: left 0s;
+  }
+
+  .tile:hover .tile-cta {
+    box-shadow: 0 0 22px var(--tile-glow), 0 0 50px var(--tile-glow), 0 2px 8px rgba(0,0,0,0.5);
+    transform: scale(1.05);
+  }
+
+  .tile:hover .tile-cta::before {
+    left: 150%; transition: left 0.55s ease;
+  }
 
   /* ── Animations ── */
-  @keyframes rise {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
   /* ── Responsive ── */
-  @media (max-width: 560px) {
-    .tiles {
-      grid-template-columns: 1fr;
-      max-width: 360px;
-    }
-    .tile { min-height: 130px; flex-direction: row; align-items: center; gap: 20px; }
-    .tile-icon { margin-bottom: 0; }
-    .tile::after { width: 3px; height: auto; top: 0; bottom: 0; right: auto; transform: scaleY(0); transform-origin: bottom; }
-    .tile:hover::after { transform: scaleY(1); }
-    .tile-strava::after, .tile-instagram::after, .tile-linkedin::after { background: inherit; }
-    .tile-strava::after { background: var(--strava); }
-    .tile-instagram::after { background: var(--instagram); }
-    .tile-linkedin::after { background: var(--linkedin); }
+  @media (max-width: 620px) {
+    .tiles { grid-template-columns: 1fr; max-width: 380px; }
   }
 </style>
 </head>
@@ -248,77 +273,70 @@
 <main class="page">
 
   <div class="identity">
-    <div class="avatar-ring">
-      <div class="avatar-inner" id="avatar-inner">
-        <!-- Replace the line below with: <img src="your-photo.jpg" alt="Bob Dickinson"> -->
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar-inner">
+        <!-- Swap for: <img src="your-photo.jpg" alt="Bob Dickinson"> -->
         <span class="avatar-placeholder">BD</span>
       </div>
     </div>
-    <h1 class="name">
-      Bob<span>Dickinson</span>
-    </h1>
-    <p class="tagline">Find me on the road, the track, or online.</p>
+    <h1 class="name" data-text="Bob Dickinson">Bob Dickinson</h1>
+    <p class="tagline">Find me on the road, the track, or online</p>
   </div>
 
   <div class="tiles">
 
-    <!-- STRAVA -->
     <a class="tile tile-strava"
        href="https://www.strava.com/athletes/YOUR_STRAVA_ID"
        target="_blank" rel="noopener noreferrer">
-      <svg class="tile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10.714 13.8L8 8.4 5.286 13.8H7.43l.57-1.26.57 1.26h2.144z" fill="#fc4c02"/>
-        <path d="M12.857 18l-2.143-4.2H8.571L12.857 22 17.143 13.8H14L12.857 18z" fill="#fc4c02" opacity="0.7"/>
-        <path d="M12.857 2L8 13.8h4.857l3-7.2 3 7.2H24L19.143 2H16L14.5 5.8 13 2h-.143z" fill="#fc4c02" opacity="0.4"/>
+      <div class="scanlines"></div>
+      <div class="glow-bg"></div>
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 22L11 12 6 22h3.5l1.5-3 1.5 3H16z" fill="#ff7a45"/>
+        <path d="M19.5 30l-3.5-8H11l8.5 16L28 22h-5L19.5 30z" fill="#ff7a45" opacity="0.6"/>
       </svg>
-      <div>
-        <div class="tile-label">Strava</div>
-        <div class="tile-desc">Activities, routes &amp; personal bests.</div>
-      </div>
-      <span class="tile-arrow">↗</span>
+      <div class="tile-label">Strava</div>
+      <div class="tile-desc">Routes, rides &amp; personal bests. Every km logged.</div>
+      <span class="tile-cta">View Activity ↗</span>
     </a>
 
-    <!-- INSTAGRAM -->
     <a class="tile tile-instagram"
        href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE"
        target="_blank" rel="noopener noreferrer">
-      <svg class="tile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#e1306c" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="4.5" stroke="#e1306c" stroke-width="1.5"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="#e1306c"/>
+      <div class="scanlines"></div>
+      <div class="glow-bg"></div>
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="30" height="30" rx="10" stroke="#ff6eb4" stroke-width="2"/>
+        <circle cx="20" cy="20" r="7" stroke="#ff6eb4" stroke-width="2"/>
+        <circle cx="29" cy="11" r="2" fill="#ff6eb4"/>
       </svg>
-      <div>
-        <div class="tile-label">Instagram</div>
-        <div class="tile-desc">Photos, moments &amp; what I'm up to.</div>
-      </div>
-      <span class="tile-arrow">↗</span>
+      <div class="tile-label">Instagram</div>
+      <div class="tile-desc">Photos, moments &amp; what I'm up to day to day.</div>
+      <span class="tile-cta">See Photos ↗</span>
     </a>
 
-    <!-- LINKEDIN -->
     <a class="tile tile-linkedin"
        href="https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE"
        target="_blank" rel="noopener noreferrer">
-      <svg class="tile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="3.5" stroke="#0a66c2" stroke-width="1.5"/>
-        <path d="M7 10v7M7 7.5v.5" stroke="#0a66c2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M11 17v-3.5A1.5 1.5 0 0 1 14.5 12v5" stroke="#0a66c2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M11 10v2" stroke="#0a66c2" stroke-width="1.5" stroke-linecap="round"/>
+      <div class="scanlines"></div>
+      <div class="glow-bg"></div>
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="30" height="30" rx="8" stroke="#60a5fa" stroke-width="2"/>
+        <path d="M13 17v12M13 13v1" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M19 29v-6a4 4 0 0 1 8 0v6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19 17v4" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <div>
-        <div class="tile-label">LinkedIn</div>
-        <div class="tile-desc">Professional profile &amp; experience.</div>
-      </div>
-      <span class="tile-arrow">↗</span>
+      <div class="tile-label">LinkedIn</div>
+      <div class="tile-desc">Professional profile, career &amp; experience.</div>
+      <span class="tile-cta">Connect ↗</span>
     </a>
 
   </div>
 
 </main>
-
 <script>
-  // Staggered tile entrance
   document.querySelectorAll('.tile').forEach((tile, i) => {
-    setTimeout(() => tile.classList.add('visible'), 400 + i * 100);
+    setTimeout(() => tile.classList.add('visible'), 500 + i * 130);
   });
 </script>
 </body>
