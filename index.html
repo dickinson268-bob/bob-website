@@ -1,129 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bob Dickinson</title>
-    <style>
-        /* --- The CSS (The Paint & Style) --- */
-        
-        /* 1. We changed the background to near-black and updated the font to be ultra-modern */
-        body {
-            background-color: #0a0a0a; 
-            color: #e5e7eb; 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bob Dickinson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Navigation Bar */
-        nav {
-            width: 100%;
-            padding: 30px 0;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-        nav a {
-            color: #a1a1aa;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-        
-        /* 2. Hover color changed to Neon Mint */
-        nav a:hover {
-            color: #00ffcc; 
-        }
+  :root {
+    --bg: #0c0c0b;
+    --surface: #141413;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede6;
+    --muted: #6b6860;
+    --accent: #e8c97a;
+    --strava: #fc4c02;
+    --instagram: #e1306c;
+    --linkedin: #0a66c2;
+  }
 
-        /* Main Content Area */
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-            max-width: 800px;
-        }
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    overflow-x: hidden;
+  }
 
-        /* 3. The Neon Gradient Name - Now Mint Green to Electric Purple */
-        h1 {
-            font-size: 6rem;
-            margin: 0;
-            font-weight: 900;
-            letter-spacing: -2px;
-            background: linear-gradient(90deg, #00ffcc, #bf00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  /* subtle grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
 
-        h2 {
-            font-size: 1.8rem;
-            color: #a1a1aa;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
+  .page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    gap: 56px;
+  }
 
-        p {
-            line-height: 1.8;
-            font-size: 1.2rem;
-            color: #71717a;
-        }
+  /* ── Identity block ── */
+  .identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+  }
 
-        /* 4. Buttons - Updated to match the new color scheme */
-        .btn-container {
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .btn {
-            padding: 16px 32px;
-            border-radius: 50px; /* Made the buttons pill-shaped for a modern look */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            transform: translateY(-3px); /* Makes the button float up slightly on hover */
-            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.2); /* Adds a neon green glow */
-        }
-        .btn-primary {
-            background: linear-gradient(90deg, #00ffcc, #bf00ff);
-            color: #000; /* Black text for high contrast against the bright neon */
-        }
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid #00ffcc;
-            color: #00ffcc;
-        }
-    </style>
+  .avatar-ring {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(232,201,122,0.35);
+    padding: 4px;
+    position: relative;
+  }
+
+  .avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .avatar-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+
+  .name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 88px);
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    color: var(--text);
+  }
+
+  .name span {
+    display: block;
+    color: var(--accent);
+  }
+
+  .tagline {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Tiles ── */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px 24px 24px;
+    border-radius: 3px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.25s, transform 0.25s;
+    opacity: 0;
+    transform: translateY(20px);
+    min-height: 180px;
+  }
+
+  .tile.visible {
+    animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+
+  .tile:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+  }
+
+  .tile:hover .tile-arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+  /* Colour bar at bottom */
+  .tile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .tile:hover::after { transform: scaleX(1); }
+
+  .tile-strava::after { background: var(--strava); }
+  .tile-instagram::after { background: var(--instagram); }
+  .tile-linkedin::after { background: var(--linkedin); }
+
+  /* Icon */
+  .tile-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .tile-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .tile-desc {
+    font-size: 13px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.45;
+    flex-grow: 1;
+  }
+
+  .tile-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  /* Strava accent */
+  .tile-strava .tile-label { color: var(--strava); }
+  .tile-instagram .tile-label { color: var(--instagram); }
+  .tile-linkedin .tile-label { color: var(--linkedin); }
+
+  /* ── Animations ── */
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 560px) {
+    .tiles {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+    .tile { min-height: 130px; flex-direction: row; align-items: center; gap: 20px; }
+    .tile-icon { margin-bottom: 0; }
+    .tile::after { width: 3px; height: auto; top: 0; bottom: 0; right: auto; transform: scaleY(0); transform-origin: bottom; }
+    .tile:hover::after { transform: scaleY(1); }
+    .tile-strava::after, .tile-instagram::after, .tile-linkedin::after { background: inherit; }
+    .tile-strava::after { background: var(--strava); }
+    .tile-instagram::after { background: var(--instagram); }
+    .tile-linkedin::after { background: var(--linkedin); }
+  }
+</style>
 </head>
 <body>
+<main class="page">
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="horse-tips.html">Horse Tips</a>
-    </nav>
-
-    <div class="hero">
-        <h1>Bob Dickinson</h1> 
-        <h2>Webpage</h2>
-        <p>This website is under construction. Cheers</p>
-        
-        <div class="btn-container">
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-        </div>
+  <div class="identity">
+    <div class="avatar-ring">
+      <div class="avatar-inner" id="avatar-inner">
+        <!-- Replace the line below with: <img src="your-photo.jpg" alt="Bob Dickinson"> -->
+        <span class="avatar-placeholder">BD</span>
+      </div>
     </div>
+    <h1 class="name">
+      Bob<span>Dickinson</span>
+    </h1>
+    <p class="tagline">Find me on the road, the track, or online.</p>
+  </div>
 
+  <div class="tiles">
+
+    <!-- STRAVA -->
+    <a class="tile tile-strava"
+       href="https://www.strava.com/athletes/YOUR_STRAVA_ID"
+       target="_blank" rel="noopener noreferrer">
+      <svg class="tile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.714 13.8L8 8.4 5.286 13.8H7.43l.57-1.26.57 1.26h2.144z" fill="#fc4c02"/>
+        <path d="M12.857 18l-2.143-4.2H8.571L12.857 22 17.143 13.8H14L12.857 18z" fill="#fc4c02" opacity="0.7"/>
+        <path d="M12.857 2L8 13.8h4.857l3-7.2 3 7.2H24L19.143 2H16L14.5 5.8 13 2h-.143z" fill="#fc4c02" opacity="0.4"/>
+      </svg>
+      <div>
+        <div class="tile-label">Strava</div>
+        <div class="tile-desc">Activities, routes &amp; personal bests.</div>
+      </div>
+      <span class="tile-arrow">↗</span>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a class="tile tile-instagram"
+       href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE"
+       target="_blank" rel="noopener noreferrer">
+      <svg class="tile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#e1306c" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4.5" stroke="#e1306c" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#e1306c"/>
+      </svg>
+      <div>
+        <div class="tile-label">Instagram</div>
+        <div class="tile-desc">Photos, moments &amp; what I'm up to.</div>
+      </div>
+      <span class="tile-arrow">↗</span>
+    </a>
+
+    <!-- LINKEDIN -->
+    <a class="tile tile-linkedin"
+       href="https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE"
+       target="_blank" rel="noopener noreferrer">
+      <svg class="tile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="3.5" stroke="#0a66c2" stroke-width="1.5"/>
+        <path d="M7 10v7M7 7.5v.5" stroke="#0a66c2" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 17v-3.5A1.5 1.5 0 0 1 14.5 12v5" stroke="#0a66c2" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M11 10v2" stroke="#0a66c2" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="tile-label">LinkedIn</div>
+        <div class="tile-desc">Professional profile &amp; experience.</div>
+      </div>
+      <span class="tile-arrow">↗</span>
+    </a>
+
+  </div>
+
+</main>
+
+<script>
+  // Staggered tile entrance
+  document.querySelectorAll('.tile').forEach((tile, i) => {
+    setTimeout(() => tile.classList.add('visible'), 400 + i * 100);
+  });
+</script>
 </body>
 </html>
