@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-20T22:50:30.582Z",
+ "updated": "2026-08-20T23:05:59.236Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,6 +7,9 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
+   "checked": "2026-08-20T23:05:55.357Z",
+   "lastModified": null,
+   "latestMatch": null,
    "teams": [
     {
      "rank": 1,
@@ -133,6 +136,9 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
+   "checked": "2026-08-20T23:05:55.772Z",
+   "lastModified": null,
+   "latestMatch": null,
    "teams": [
     {
      "rank": 1,
@@ -283,6 +289,9 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
+   "checked": "2026-08-20T23:05:56.159Z",
+   "lastModified": null,
+   "latestMatch": null,
    "teams": [
     {
      "rank": 1,
@@ -433,6 +442,9 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
+   "checked": "2026-08-20T23:05:56.538Z",
+   "lastModified": null,
+   "latestMatch": null,
    "teams": [
     {
      "rank": 1,
@@ -583,6 +595,9 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
+   "checked": "2026-08-20T23:05:56.938Z",
+   "lastModified": null,
+   "latestMatch": null,
    "teams": [
     {
      "rank": 1,
@@ -733,6 +748,9 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
+   "checked": "2026-08-20T23:05:57.432Z",
+   "lastModified": null,
+   "latestMatch": null,
    "teams": [
     {
      "rank": 1,
@@ -799,6 +817,9 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
+   "checked": "2026-08-20T23:05:58.307Z",
+   "lastModified": "Mon, 17 Aug 2026 22:49:32 GMT",
+   "latestMatch": "2026-08-15",
    "teams": [
     {
      "rank": 1,
@@ -865,6 +886,9 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
+   "checked": "2026-08-20T23:05:58.936Z",
+   "lastModified": "Mon, 17 Aug 2026 22:49:32 GMT",
+   "latestMatch": "2026-08-15",
    "teams": [
     {
      "rank": 1,
