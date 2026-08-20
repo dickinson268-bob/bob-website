@@ -118,16 +118,17 @@ button.ctl:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .srclead b{color:var(--good);font-weight:500}
 .srclead b.warm{color:var(--amber)} .srclead b.cold{color:var(--bad)}
 .srcgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-.srcrow{display:grid;grid-template-columns:minmax(0,1.3fr) 74px minmax(0,1.2fr);gap:10px;
+.srcrow{display:grid;grid-template-columns:minmax(0,1.3fr) 66px minmax(0,1.3fr);gap:10px;
   background:var(--panel2);padding:8px 12px;align-items:baseline;
   font-family:"IBM Plex Mono",monospace;font-size:11.5px}
 .srcrow .lgname{color:var(--chalk);font-family:"Archivo",sans-serif;font-size:13px;font-weight:500;
   font-variation-settings:"wdth" 88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.srcrow .via{color:var(--dim);letter-spacing:.04em}
+.srcrow .via{color:var(--dim);letter-spacing:.04em;white-space:nowrap}
 .srcrow .fresh{color:var(--mute);text-align:right}
 .fresh.warm{color:var(--amber)} .fresh.cold{color:var(--bad)}
+.fresh b.lag{color:var(--amber);font-weight:500}
 @media(max-width:620px){
-  .srcrow{grid-template-columns:minmax(0,1fr) 58px auto;font-size:10.5px;gap:8px}
+  .srcrow{grid-template-columns:minmax(0,1fr) 52px auto;font-size:10.5px;gap:8px}
   .srcrow .lgname{font-size:12px}
 }
 .key{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim)}
@@ -262,19 +263,26 @@ function renderSources(standings){
     if (!L) return `<div class="srcrow"><span class="lgname">${lg.country} ${lg.name}</span>
       <span class="via">&mdash;</span><span class="fresh cold">no table</span></div>`;
 
-    const via = L.source === 'espn' ? 'ESPN' : L.source === 'sample' ? 'sample' : 'results feed';
+    const via = L.source === 'espn' ? 'ESPN' : L.source === 'sample' ? 'sample' : 'results';
 
-    // What varies per league, and is worth knowing: how far this table reaches.
-    // The results feed dates its matches, so we can say exactly. ESPN doesn't,
-    // so we fall back to when this table last actually moved.
-    const detail = L.latestMatch ? `results to ${day(L.latestMatch)}`
-                 : L.changed     ? `moved ${ago(L.changed)}`
-                 : L.played      ? `${L.played} games played`
-                 : 'no date available';
+    // Two dates, and the gap between them is the point:
+    //   latestMatch  - the newest result actually in this table
+    //   lastFixture  - the newest result the division has actually played
+    // When they match, the table is complete. When they don't, it's behind.
+    const behind = L.latestMatch && L.lastFixture && L.lastFixture > L.latestMatch;
+    let detail;
+    if (L.latestMatch && behind)  detail = `<b class="lag">missing ${day(L.lastFixture)}</b>`;
+    else if (L.latestMatch)       detail = `complete to ${day(L.latestMatch)}`;
+    else if (L.lastFixture)       detail = `last played ${day(L.lastFixture)}`;
+    else if (L.changed)           detail = `moved ${ago(L.changed)}`;
+    else                          detail = 'no change seen yet';
 
     const tip = [
+      L.latestMatch ? `newest result in this table: ${L.latestMatch}` : null,
+      L.lastFixture ? `newest result the division has played: ${L.lastFixture}` : null,
       L.lastModified ? `source file updated ${L.lastModified}` : null,
-      L.changed ? `table last moved ${new Date(L.changed).toLocaleString('en-GB')}` : null,
+      L.changed ? `table last moved ${new Date(L.changed).toLocaleString('en-GB')}`
+                : L.watchingSince ? `unchanged since ${new Date(L.watchingSince).toLocaleString('en-GB')}` : null,
       L.checked ? `checked ${new Date(L.checked).toLocaleString('en-GB')}` : null
     ].filter(Boolean).join(' \u00b7 ');
 

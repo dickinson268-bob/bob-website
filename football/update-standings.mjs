@@ -55,6 +55,31 @@ async function fromEspn(league) {
   return { teams, lastModified: null, latestMatch: null };
 }
 
+/* ---------- independent check: when did this division last actually play? ----------
+   Asked of ESPN's scoreboard, which is date-driven rather than season-driven, so
+   it answers even for divisions whose standings are stuck on last season. This is
+   what lets the page say "the table is missing Saturday" rather than leaving you
+   to guess. Never fatal: if it fails we just don't show the cross-check. */
+const yyyymmdd = d => d.toISOString().slice(0, 10).replace(/-/g, '');
+
+async function lastFixturePlayed(league) {
+  const to = new Date();
+  const from = new Date(Date.now() - 28 * 864e5);
+  const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.espn}/scoreboard`
+            + `?dates=${yyyymmdd(from)}-${yyyymmdd(to)}&limit=400`;
+  try {
+    const res = await fetch(url, { headers: { accept: 'application/json' } });
+    if (!res.ok) return null;
+    const events = (await res.json()).events || [];
+    const done = events
+      .filter(e => e.status?.type?.completed)
+      .map(e => e.date?.slice(0, 10))
+      .filter(Boolean)
+      .sort();
+    return done.pop() || null;
+  } catch { return null; }
+}
+
 /* ---------- source 2: results CSV, table built here ---------- */
 function parseCsv(text) {
   const rows = [];
@@ -144,16 +169,21 @@ for (const league of config.leagues) {
       name: `${league.country} ${league.name}`,
       source,
       checked: new Date().toISOString(),                        // when this run asked
-      changed: moved ? new Date().toISOString() : before.changed, // when the table last moved
+      // only claim a move once we've actually watched one happen
+      changed: moved && before ? new Date().toISOString() : (before?.changed ?? null),
+      watchingSince: before?.watchingSince ?? new Date().toISOString(),
       lastModified: result.lastModified,                        // when the source file changed
-      latestMatch: result.latestMatch,                          // newest result in it
-      played: Math.max(...table.map(t => t.played || 0)),
+      latestMatch: result.latestMatch,                          // newest result in our table
+      lastFixture: await lastFixturePlayed(league),             // newest result in real life
       teams: table
     };
-    const when = result.latestMatch ? `, results to ${result.latestMatch}` : '';
+    const L = leagues[league.key];
+    const behind = L.latestMatch && L.lastFixture && L.lastFixture > L.latestMatch;
+    const when = L.latestMatch ? `, latest result ${L.latestMatch}` : '';
+    const lag = behind ? `  ** table is missing fixtures from ${L.lastFixture} **` : '';
     if (!moved && before) notes.push('table unchanged since last run');
     const via = source === 'espn' ? '' : `  (via ${source} — ${notes[0]})`;
-    console.log(`ok   ${label} ${table.length} teams, ${table[0].played} played${when}, top: ${table[0].name}${via}`);
+    console.log(`ok   ${label} ${table.length} teams${when}, top: ${table[0].name}${via}${lag}`);
   } else if (previous?.leagues?.[league.key]) {
     leagues[league.key] = previous.leagues[league.key];
     failed.push(`${league.key}: ${notes.join(' | ')}`);
