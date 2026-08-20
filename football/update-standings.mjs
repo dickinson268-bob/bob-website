@@ -1,39 +1,48 @@
-// Pulls the eight league tables and writes standings.json next to index.html.
-// Run it with:  API_FOOTBALL_KEY=xxxx node update-standings.mjs
+// Fetches the eight league tables and writes standings.json next to index.html.
 //
-// Costs 8 API calls per run. The free API-Football plan allows 100 a day,
-// so four runs a day leaves plenty of headroom.
+//   node update-standings.mjs
+//
+// Source: ESPN's own JSON endpoints — the ones that power espn.com's league
+// tables. No key, no sign-up, no daily limit, and the positions update as
+// results come in rather than at the end of a game week.
+//
+// These endpoints are undocumented, so ESPN could change them without warning.
+// If a league starts failing, the script keeps the previous run's table and
+// says so in the log rather than blanking the page.
 
 import { readFile, writeFile } from 'node:fs/promises';
 
-const KEY = process.env.API_FOOTBALL_KEY;
-if (!KEY) { console.error('Set API_FOOTBALL_KEY first.'); process.exit(1); }
-
 const config = JSON.parse(await readFile('players.json', 'utf8'));
-const SEASON = config.season;          // 2026 = the 2026/27 season
 const OUT = 'standings.json';
 
-// Keep last week's numbers so the page can show movement, and so one bad
-// API day never wipes the board.
 let previous = null;
 try { previous = JSON.parse(await readFile(OUT, 'utf8')); } catch { /* first run */ }
 
-async function fetchTable(league) {
-  const url = `https://v3.football.api-sports.io/standings?league=${league.apiFootballId}&season=${SEASON}`;
-  const res = await fetch(url, { headers: { 'x-apisports-key': KEY } });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const body = await res.json();
+const stat = (entry, name) => entry.stats.find(s => s.name === name)?.value ?? 0;
 
-  if (body.errors && Object.keys(body.errors).length) {
-    throw new Error(JSON.stringify(body.errors));
-  }
-  // response[0].league.standings is an array of groups; a straight league has one.
-  const group = body.response?.[0]?.league?.standings?.[0];
-  if (!group?.length) throw new Error('no standings returned — check the league id and season');
+async function fetchTable(league) {
+  const url = `https://site.api.espn.com/apis/v2/sports/soccer/${league.espn}/standings`;
+  const res = await fetch(url, { headers: { accept: 'application/json' } });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+  const body = await res.json();
+  // the current season sits in children[0]; note the /apis/v2/ path —
+  // /apis/site/v2/ returns an empty object for standings
+  const entries = body.children?.[0]?.standings?.entries;
+  if (!entries?.length) throw new Error('no standings in the response');
 
   return {
     name: `${league.country} ${league.name}`,
-    teams: group.map(row => ({ rank: row.rank, name: row.team.name, played: row.all.played, points: row.points }))
+    espn: league.espn,
+    teams: entries
+      .map(e => ({
+        rank: stat(e, 'rank'),
+        name: e.team.displayName,
+        played: stat(e, 'gamesPlayed'),
+        points: stat(e, 'points'),
+        deductions: stat(e, 'deductions')
+      }))
+      .sort((a, b) => a.rank - b.rank)
   };
 }
 
@@ -43,47 +52,58 @@ const failed = [];
 for (const league of config.leagues) {
   try {
     leagues[league.key] = await fetchTable(league);
-    console.log(`ok   ${league.key.padEnd(18)} ${leagues[league.key].teams.length} teams`);
+    const t = leagues[league.key].teams;
+    console.log(`ok   ${league.key.padEnd(18)} ${t.length} teams, ${t[0].played} games played, top: ${t[0].name}`);
   } catch (err) {
     failed.push(`${league.key}: ${err.message}`);
-    // fall back to whatever we had last time rather than dropping the league
     if (previous?.leagues?.[league.key]) {
       leagues[league.key] = previous.leagues[league.key];
       console.warn(`old  ${league.key.padEnd(18)} kept last run's table (${err.message})`);
     } else {
-      console.error(`FAIL ${league.key.padEnd(18)} ${err.message}`);
+      console.error(`FAIL ${league.key.padEnd(18)} ${err.message}  <- ${league.espn}`);
     }
   }
-  await new Promise(r => setTimeout(r, 400)); // be gentle with the rate limit
+  await new Promise(r => setTimeout(r, 300)); // be a good guest
 }
 
-const out = {
+await writeFile(OUT, JSON.stringify({
   updated: new Date().toISOString(),
-  source: 'api-football',
-  season: SEASON,
+  source: 'espn',
+  season: config.season,
   failed,
   leagues
-};
-
-await writeFile(OUT, JSON.stringify(out, null, 1));
+}, null, 1));
 console.log(`\nwrote ${OUT}${failed.length ? ` with ${failed.length} problem(s)` : ''}`);
 
-// Warn about any pick that won't resolve, before anyone sees a dash on the page.
-const norm = s => s.toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').replace(/\b(FC|AFC|THE)\b/g, ' ').replace(/\s+/g, ' ').trim();
-const unmatched = new Set();
-for (const player of config.players) {
-  for (const league of config.leagues) {
-    const picked = player.picks[league.key];
-    const table = leagues[league.key]?.teams || [];
-    const target = norm(config.aliases[picked] || picked);
-    const hit = table.some(t => {
-      const n = norm(t.name);
-      return n === target || n.startsWith(target) || target.startsWith(n);
-    });
-    if (!hit) unmatched.add(`${league.key}: ${picked} (alias "${config.aliases[picked] || '—'}")`);
+/* --- flag any pick that won't resolve, and say what it probably meant --- */
+const norm = s => s.toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+
+function sharedStart(a, b) {
+  let n = 0;
+  for (let i = 0; i < Math.min(a.length, b.length); i++) { if (a[i] !== b[i]) break; n++; }
+  return n;
+}
+
+const problems = new Map();
+for (const league of config.leagues) {
+  const table = leagues[league.key]?.teams || [];
+  for (const picked of new Set(config.players.map(p => p.picks[league.key]))) {
+    const want = norm(config.aliases[picked] || picked);
+    if (table.some(t => norm(t.name) === want)) continue;
+
+    const suggestions = table
+      .map(t => ({ name: t.name, score: sharedStart(norm(t.name), want) }))
+      .filter(s => s.score > 1)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map(s => `"${s.name}"`);
+    problems.set(`${league.key} / ${picked}`, suggestions.join(' or ') || 'nothing similar in this division');
   }
 }
-if (unmatched.size) {
-  console.warn('\nPicks that need an alias in players.json:');
-  for (const u of unmatched) console.warn('  ' + u);
+
+if (problems.size) {
+  console.warn('\nThese picks did not match a club. Put the right spelling into "aliases" in players.json:');
+  for (const [pick, suggestion] of problems) console.warn(`  ${pick.padEnd(36)} did you mean ${suggestion}?`);
+} else {
+  console.log('every pick matched a club');
 }

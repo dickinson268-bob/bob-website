@@ -6,70 +6,80 @@
    "key": "eng_premier",
    "name": "Premier League",
    "country": "England",
-   "apiFootballId": 39
+   "espn": "eng.1"
   },
   {
    "key": "eng_championship",
    "name": "Championship",
    "country": "England",
-   "apiFootballId": 40
+   "espn": "eng.2"
   },
   {
    "key": "eng_league_one",
    "name": "League One",
    "country": "England",
-   "apiFootballId": 41
+   "espn": "eng.3"
   },
   {
    "key": "eng_league_two",
    "name": "League Two",
    "country": "England",
-   "apiFootballId": 42
+   "espn": "eng.4"
   },
   {
    "key": "eng_national",
    "name": "National League",
    "country": "England",
-   "apiFootballId": 43
+   "espn": "eng.5"
   },
   {
    "key": "sco_championship",
    "name": "Championship",
    "country": "Scotland",
-   "apiFootballId": 180
+   "espn": "sco.2"
   },
   {
    "key": "sco_league_one",
    "name": "League One",
    "country": "Scotland",
-   "apiFootballId": 183
+   "espn": "sco.3"
   },
   {
    "key": "sco_league_two",
    "name": "League Two",
    "country": "Scotland",
-   "apiFootballId": 184
+   "espn": "sco.4"
   }
  ],
  "aliases": {
-  "SPURS": "Tottenham",
+  "ARSENAL": "Arsenal",
+  "CHELSEA": "Chelsea",
+  "LIVERPOOL": "Liverpool",
   "MAN UTD": "Manchester United",
   "MAN CITY": "Manchester City",
+  "SPURS": "Tottenham Hotspur",
   "WEST HAM": "West Ham United",
+  "WOLVES": "Wolverhampton Wanderers",
   "WEST BROM": "West Bromwich Albion",
   "MIDDLESBOROUGH": "Middlesbrough",
-  "WOLVES": "Wolverhampton Wanderers",
   "BIRMINGHAM": "Birmingham City",
+  "WREXHAM": "Wrexham",
+  "SOUTHAMPTON": "Southampton",
   "SHEFFIELD UNITED": "Sheffield United",
   "SHEFFIELD WEDNESDAY": "Sheffield Wednesday",
   "LUTON": "Luton Town",
   "LEICESTER": "Leicester City",
   "BRADFORD": "Bradford City",
+  "BLACKPOOL": "Blackpool",
   "STOCKPORT": "Stockport County",
+  "BRISTOL ROVERS": "Bristol Rovers",
   "SALFORD": "Salford City",
+  "PORT VALE": "Port Vale",
+  "BARNET": "Barnet",
+  "SWINDON TOWN": "Swindon Town",
+  "CHESTERFIELD": "Chesterfield",
   "GRIMSBY": "Grimsby Town",
   "FLEETWOOD": "Fleetwood Town",
-  "SWINDON TOWN": "Swindon Town",
   "CARLISLE": "Carlisle United",
   "HARTLEPOOL": "Hartlepool United",
   "HARROGATE": "Harrogate Town",
@@ -78,32 +88,22 @@
   "SUTTON": "Sutton United",
   "BOREHAMWOOD": "Boreham Wood",
   "LIVINGSTONE": "Livingston",
+  "PARTICK THISTLE": "Partick Thistle",
+  "RAITH ROVERS": "Raith Rovers",
   "ST JOHNSTON": "St Johnstone",
+  "AYR UNITED": "Ayr United",
   "DUNFERMILINE": "Dunfermline Athletic",
+  "ROSS COUNTY": "Ross County",
   "INVERNESS": "Inverness Caledonian Thistle",
   "HAMILTON": "Hamilton Academical",
   "AIRDRIE": "Airdrieonians",
-  "SPARTANS": "The Spartans",
-  "AYR UNITED": "Ayr United",
-  "RAITH ROVERS": "Raith Rovers",
-  "PARTICK THISTLE": "Partick Thistle",
-  "ROSS COUNTY": "Ross County",
   "EAST KILBRIDE": "East Kilbride",
+  "SPARTANS": "The Spartans",
+  "CLYDE": "Clyde",
   "STIRLING ALBION": "Stirling Albion",
   "ELGIN CITY": "Elgin City",
   "KELTY HEARTS": "Kelty Hearts",
-  "STRANRAER": "Stranraer",
-  "CLYDE": "Clyde",
-  "ARSENAL": "Arsenal",
-  "CHELSEA": "Chelsea",
-  "LIVERPOOL": "Liverpool",
-  "WREXHAM": "Wrexham",
-  "SOUTHAMPTON": "Southampton",
-  "BLACKPOOL": "Blackpool",
-  "BRISTOL ROVERS": "Bristol Rovers",
-  "PORT VALE": "Port Vale",
-  "BARNET": "Barnet",
-  "CHESTERFIELD": "Chesterfield"
+  "STRANRAER": "Stranraer"
  },
  "players": [
   {
@@ -652,5 +652,6 @@
     "sco_league_two": "KELTY HEARTS"
    }
   }
- ]
+ ],
+ "you": "BOB DICKINSON"
 }
