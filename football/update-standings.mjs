@@ -119,6 +119,8 @@ async function fromResults(league) {
   return { teams: table, lastModified, latestMatch };
 }
 
+const fingerprint = teams => teams.map(t => `${t.rank}:${t.name}:${t.points}`).join('|');
+
 /* ---------- go ---------- */
 const leagues = {};
 const failed = [];
@@ -135,15 +137,21 @@ for (const league of config.leagues) {
 
   if (result) {
     const table = result.teams;
+    const before = previous?.leagues?.[league.key];
+    const moved = !before || fingerprint(before.teams) !== fingerprint(table);
+
     leagues[league.key] = {
       name: `${league.country} ${league.name}`,
       source,
-      checked: new Date().toISOString(),          // when this run asked
-      lastModified: result.lastModified,          // when the source file changed
-      latestMatch: result.latestMatch,            // date of the newest result in it
+      checked: new Date().toISOString(),                        // when this run asked
+      changed: moved ? new Date().toISOString() : before.changed, // when the table last moved
+      lastModified: result.lastModified,                        // when the source file changed
+      latestMatch: result.latestMatch,                          // newest result in it
+      played: Math.max(...table.map(t => t.played || 0)),
       teams: table
     };
     const when = result.latestMatch ? `, results to ${result.latestMatch}` : '';
+    if (!moved && before) notes.push('table unchanged since last run');
     const via = source === 'espn' ? '' : `  (via ${source} — ${notes[0]})`;
     console.log(`ok   ${label} ${table.length} teams, ${table[0].played} played${when}, top: ${table[0].name}${via}`);
   } else if (previous?.leagues?.[league.key]) {

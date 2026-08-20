@@ -114,6 +114,9 @@ button.ctl:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .rules h2{font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 12px;font-weight:500}
 .rules p{margin:0 0 10px;max-width:64ch}
 .srchead{font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:26px 0 12px;font-weight:500}
+.srclead{margin:0 0 12px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--mute)}
+.srclead b{color:var(--good);font-weight:500}
+.srclead b.warm{color:var(--amber)} .srclead b.cold{color:var(--bad)}
 .srcgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 .srcrow{display:grid;grid-template-columns:minmax(0,1.3fr) 74px minmax(0,1.2fr);gap:10px;
   background:var(--panel2);padding:8px 12px;align-items:baseline;
@@ -165,6 +168,7 @@ button.ctl:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
   <p>Each entry picked one team to win each of the eight leagues before a ball was kicked, and those picks are locked for the season. Every week the table below takes each team's live league position and adds the eight numbers together. Pick the champion of every league and you finish on 8.</p>
   <p id="prov"></p>
   <h2 class="srchead">Where each table came from</h2>
+  <p class="srclead" id="srclead"></p>
   <div class="srcgrid" id="sources"></div>
 
   <div class="key">
@@ -243,25 +247,41 @@ function ago(iso){
 const day = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
 
 function renderSources(standings){
+  // One clock for the whole thing: every league is fetched in the same run,
+  // so "when did we last look" belongs above the table, said once.
+  const checked = Object.values(standings.leagues).map(l => l.checked).filter(Boolean).sort().pop()
+                  || standings.updated;
+  const hrs = (Date.now() - new Date(checked)) / 36e5;
+  const heat = hrs < 6 ? '' : hrs < 36 ? 'warm' : 'cold';
+  document.getElementById('srclead').innerHTML =
+    `Last looked for changes <b class="${heat}">${ago(checked) ?? 'at an unknown time'}</b>.`;
+
   const box = document.getElementById('sources');
   box.innerHTML = CONFIG.leagues.map(lg => {
     const L = standings.leagues[lg.key];
     if (!L) return `<div class="srcrow"><span class="lgname">${lg.country} ${lg.name}</span>
-      <span class="via">—</span><span class="fresh cold">no table</span></div>`;
+      <span class="via">&mdash;</span><span class="fresh cold">no table</span></div>`;
 
-    const hrs = L.checked ? (Date.now() - new Date(L.checked)) / 36e5 : 999;
-    const heat = hrs < 6 ? '' : hrs < 36 ? 'warm' : 'cold';
-    // ESPN gives no "as at" stamp, so we can only say when we last asked it.
-    // The results feed does, so we can say how far the table actually reaches.
-    const detail = L.latestMatch
-      ? `results to ${day(L.latestMatch)}`
-      : `checked ${ago(L.checked) ?? 'unknown'}`;
-    const via = L.source === 'espn' ? 'ESPN' : L.source === 'sample' ? 'sample' : 'results';
+    const via = L.source === 'espn' ? 'ESPN' : L.source === 'sample' ? 'sample' : 'results feed';
+
+    // What varies per league, and is worth knowing: how far this table reaches.
+    // The results feed dates its matches, so we can say exactly. ESPN doesn't,
+    // so we fall back to when this table last actually moved.
+    const detail = L.latestMatch ? `results to ${day(L.latestMatch)}`
+                 : L.changed     ? `moved ${ago(L.changed)}`
+                 : L.played      ? `${L.played} games played`
+                 : 'no date available';
+
+    const tip = [
+      L.lastModified ? `source file updated ${L.lastModified}` : null,
+      L.changed ? `table last moved ${new Date(L.changed).toLocaleString('en-GB')}` : null,
+      L.checked ? `checked ${new Date(L.checked).toLocaleString('en-GB')}` : null
+    ].filter(Boolean).join(' \u00b7 ');
 
     return `<div class="srcrow">
       <span class="lgname">${lg.country} ${lg.name}</span>
       <span class="via">${via}</span>
-      <span class="fresh ${heat}" title="last checked ${ago(L.checked) ?? 'unknown'}">${detail}</span>
+      <span class="fresh" title="${tip}">${detail}</span>
     </div>`;
   }).join('');
 }
