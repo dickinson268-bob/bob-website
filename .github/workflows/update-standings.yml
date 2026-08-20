@@ -2,7 +2,7 @@ name: Update football standings
 
 on:
   schedule:
-    - cron: '0 6,12,18,22 * * *'
+    - cron: '0 */3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -20,8 +20,6 @@ jobs:
 
       - name: Fetch the eight league tables
         working-directory: football
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: node update-standings.mjs
 
       - name: Save the new standings
