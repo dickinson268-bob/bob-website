@@ -41,7 +41,7 @@ async function fromEspn(league) {
   const year = standings.season ?? body.children[0].season?.year;
   if (year !== SEASON) throw new Error(`ESPN is still on the ${year}/${(year + 1) % 100} season`);
 
-  return standings.entries
+  const teams = standings.entries
     .map(e => ({
       rank: stat(e, 'rank'),
       name: e.team.displayName,
@@ -49,6 +49,10 @@ async function fromEspn(league) {
       points: stat(e, 'points')
     }))
     .sort((a, b) => a.rank - b.rank);
+
+  // ESPN publishes no "as at" timestamp on standings, so the only honest
+  // freshness signal is when we asked and how many games have been played.
+  return { teams, lastModified: null, latestMatch: null };
 }
 
 /* ---------- source 2: results CSV, table built here ---------- */
@@ -76,7 +80,9 @@ async function fromResults(league) {
   const url = `https://www.football-data.co.uk/mmz4281/${SEASON_CODE}/${league.div}.csv`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const lastModified = res.headers.get('last-modified') || null;
 
+  let latestMatch = null;
   const teams = new Map();
   const get = n => {
     if (!teams.has(n)) teams.set(n, { name: n, played: 0, gf: 0, ga: 0, points: 0 });
@@ -86,6 +92,13 @@ async function fromResults(league) {
   for (const m of parseCsv(await res.text())) {
     const hg = Number(m.FTHG), ag = Number(m.FTAG);
     if (!m.HomeTeam || !m.AwayTeam || m.FTHG === '' || !Number.isFinite(hg) || !Number.isFinite(ag)) continue;
+
+    // dates come as dd/mm/yyyy or dd/mm/yy
+    const [d, mo, y] = (m.Date || '').split('/');
+    if (d && mo && y) {
+      const iso = `${y.length === 2 ? '20' + y : y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
+      if (!latestMatch || iso > latestMatch) latestMatch = iso;
+    }
     const h = get(m.HomeTeam), a = get(m.AwayTeam);
     h.played++; a.played++;
     h.gf += hg; h.ga += ag; a.gf += ag; a.ga += hg;
@@ -98,10 +111,12 @@ async function fromResults(league) {
   if (!teams.size) throw new Error('no matches played yet');
 
   // points, then goal difference, then goals scored, then alphabetically
-  return [...teams.values()]
+  const table = [...teams.values()]
     .map(t => ({ ...t, gd: t.gf - t.ga }))
     .sort((x, y) => y.points - x.points || y.gd - x.gd || y.gf - x.gf || x.name.localeCompare(y.name))
     .map((t, i) => ({ rank: i + 1, name: t.name, played: t.played, points: t.points }));
+
+  return { teams: table, lastModified, latestMatch };
 }
 
 /* ---------- go ---------- */
@@ -111,17 +126,26 @@ const failed = [];
 for (const league of config.leagues) {
   const label = league.key.padEnd(18);
   const notes = [];
-  let table = null, source = null;
+  let result = null, source = null;
 
   for (const [name, fn] of [['espn', fromEspn], ['football-data.co.uk', fromResults]]) {
-    try { table = await fn(league); source = name; break; }
+    try { result = await fn(league); source = name; break; }
     catch (err) { notes.push(`${name}: ${err.message}`); }
   }
 
-  if (table) {
-    leagues[league.key] = { name: `${league.country} ${league.name}`, source, teams: table };
+  if (result) {
+    const table = result.teams;
+    leagues[league.key] = {
+      name: `${league.country} ${league.name}`,
+      source,
+      checked: new Date().toISOString(),          // when this run asked
+      lastModified: result.lastModified,          // when the source file changed
+      latestMatch: result.latestMatch,            // date of the newest result in it
+      teams: table
+    };
+    const when = result.latestMatch ? `, results to ${result.latestMatch}` : '';
     const via = source === 'espn' ? '' : `  (via ${source} — ${notes[0]})`;
-    console.log(`ok   ${label} ${table.length} teams, ${table[0].played} played, top: ${table[0].name}${via}`);
+    console.log(`ok   ${label} ${table.length} teams, ${table[0].played} played${when}, top: ${table[0].name}${via}`);
   } else if (previous?.leagues?.[league.key]) {
     leagues[league.key] = previous.leagues[league.key];
     failed.push(`${league.key}: ${notes.join(' | ')}`);
