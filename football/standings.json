@@ -1,0 +1,16 @@
+{
+ "updated": "2026-08-20T22:09:56.986Z",
+ "source": "api-football",
+ "season": 2026,
+ "failed": [
+  "eng_premier: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "eng_championship: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "eng_league_one: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "eng_league_two: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "eng_national: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "sco_championship: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "sco_league_one: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}",
+  "sco_league_two: {\"plan\":\"Free plans do not have access to this season, try from 2022 to 2024.\"}"
+ ],
+ "leagues": {}
+}
