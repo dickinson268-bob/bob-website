@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-20T23:05:59.236Z",
+ "updated": "2026-08-20T23:09:09.795Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,9 +7,10 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-08-20T23:05:55.357Z",
+   "checked": "2026-08-20T23:09:05.040Z",
    "lastModified": null,
    "latestMatch": null,
+   "played": 0,
    "teams": [
     {
      "rank": 1,
@@ -136,9 +137,10 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-08-20T23:05:55.772Z",
+   "checked": "2026-08-20T23:09:05.636Z",
    "lastModified": null,
    "latestMatch": null,
+   "played": 1,
    "teams": [
     {
      "rank": 1,
@@ -289,9 +291,10 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-08-20T23:05:56.159Z",
+   "checked": "2026-08-20T23:09:06.262Z",
    "lastModified": null,
    "latestMatch": null,
+   "played": 2,
    "teams": [
     {
      "rank": 1,
@@ -442,9 +445,10 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-08-20T23:05:56.538Z",
+   "checked": "2026-08-20T23:09:06.690Z",
    "lastModified": null,
    "latestMatch": null,
+   "played": 1,
    "teams": [
     {
      "rank": 1,
@@ -595,9 +599,10 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-08-20T23:05:56.938Z",
+   "checked": "2026-08-20T23:09:07.074Z",
    "lastModified": null,
    "latestMatch": null,
+   "played": 2,
    "teams": [
     {
      "rank": 1,
@@ -748,9 +753,10 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-08-20T23:05:57.432Z",
+   "checked": "2026-08-20T23:09:07.597Z",
    "lastModified": null,
    "latestMatch": null,
+   "played": 2,
    "teams": [
     {
      "rank": 1,
@@ -817,9 +823,10 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-08-20T23:05:58.307Z",
+   "checked": "2026-08-20T23:09:08.712Z",
    "lastModified": "Mon, 17 Aug 2026 22:49:32 GMT",
    "latestMatch": "2026-08-15",
+   "played": 3,
    "teams": [
     {
      "rank": 1,
@@ -886,9 +893,10 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-08-20T23:05:58.936Z",
+   "checked": "2026-08-20T23:09:09.495Z",
    "lastModified": "Mon, 17 Aug 2026 22:49:32 GMT",
    "latestMatch": "2026-08-15",
+   "played": 3,
    "teams": [
     {
      "rank": 1,
