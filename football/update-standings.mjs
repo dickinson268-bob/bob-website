@@ -2,81 +2,154 @@
 //
 //   node update-standings.mjs
 //
-// Source: ESPN's own JSON endpoints — the ones that power espn.com's league
-// tables. No key, no sign-up, no daily limit, and the positions update as
-// results come in rather than at the end of a game week.
+// Two sources, tried in order, per league:
 //
-// These endpoints are undocumented, so ESPN could change them without warning.
-// If a league starts failing, the script keeps the previous run's table and
-// says so in the log rather than blanking the page.
+//   1. ESPN's own JSON (live, updates as results come in, deductions applied)
+//   2. football-data.co.uk results CSV, from which we build the table ourselves
+//
+// ESPN is preferred because it publishes the finished table, but it does not
+// always roll the smaller divisions over to the new season on time. So the
+// script checks which season ESPN handed back and drops to source 2 if it is
+// showing last year's clubs. Neither needs a key.
 
 import { readFile, writeFile } from 'node:fs/promises';
 
 const config = JSON.parse(await readFile('players.json', 'utf8'));
 const OUT = 'standings.json';
+const SEASON = config.season;
+
+// 2026 -> "2627", the folder football-data.co.uk uses for the 2026/27 season
+const yy = SEASON % 100;
+const SEASON_CODE = `${String(yy).padStart(2, '0')}${String((yy + 1) % 100).padStart(2, '0')}`;
 
 let previous = null;
 try { previous = JSON.parse(await readFile(OUT, 'utf8')); } catch { /* first run */ }
 
+/* ---------- source 1: ESPN ---------- */
 const stat = (entry, name) => entry.stats.find(s => s.name === name)?.value ?? 0;
 
-async function fetchTable(league) {
-  const url = `https://site.api.espn.com/apis/v2/sports/soccer/${league.espn}/standings`;
+async function fromEspn(league) {
+  // note /apis/v2/ — /apis/site/v2/ returns an empty object for standings
+  const url = `https://site.api.espn.com/apis/v2/sports/soccer/${league.espn}/standings?season=${SEASON}`;
   const res = await fetch(url, { headers: { accept: 'application/json' } });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
   const body = await res.json();
-  // the current season sits in children[0]; note the /apis/v2/ path —
-  // /apis/site/v2/ returns an empty object for standings
-  const entries = body.children?.[0]?.standings?.entries;
-  if (!entries?.length) throw new Error('no standings in the response');
+  const standings = body.children?.[0]?.standings;
+  if (!standings?.entries?.length) throw new Error('no standings in the response');
 
-  return {
-    name: `${league.country} ${league.name}`,
-    espn: league.espn,
-    teams: entries
-      .map(e => ({
-        rank: stat(e, 'rank'),
-        name: e.team.displayName,
-        played: stat(e, 'gamesPlayed'),
-        points: stat(e, 'points'),
-        deductions: stat(e, 'deductions')
-      }))
-      .sort((a, b) => a.rank - b.rank)
-  };
+  const year = standings.season ?? body.children[0].season?.year;
+  if (year !== SEASON) throw new Error(`ESPN is still on the ${year}/${(year + 1) % 100} season`);
+
+  return standings.entries
+    .map(e => ({
+      rank: stat(e, 'rank'),
+      name: e.team.displayName,
+      played: stat(e, 'gamesPlayed'),
+      points: stat(e, 'points')
+    }))
+    .sort((a, b) => a.rank - b.rank);
 }
 
+/* ---------- source 2: results CSV, table built here ---------- */
+function parseCsv(text) {
+  const rows = [];
+  let row = [], field = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else field += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+    else if (c !== '\r') field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  const header = rows.shift().map(h => h.trim());
+  return rows.filter(r => r.length > 3 && r.some(v => v !== ''))
+             .map(r => Object.fromEntries(header.map((h, i) => [h, (r[i] ?? '').trim()])));
+}
+
+async function fromResults(league) {
+  const url = `https://www.football-data.co.uk/mmz4281/${SEASON_CODE}/${league.div}.csv`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+  const teams = new Map();
+  const get = n => {
+    if (!teams.has(n)) teams.set(n, { name: n, played: 0, gf: 0, ga: 0, points: 0 });
+    return teams.get(n);
+  };
+
+  for (const m of parseCsv(await res.text())) {
+    const hg = Number(m.FTHG), ag = Number(m.FTAG);
+    if (!m.HomeTeam || !m.AwayTeam || m.FTHG === '' || !Number.isFinite(hg) || !Number.isFinite(ag)) continue;
+    const h = get(m.HomeTeam), a = get(m.AwayTeam);
+    h.played++; a.played++;
+    h.gf += hg; h.ga += ag; a.gf += ag; a.ga += hg;
+    if (hg > ag) h.points += 3; else if (ag > hg) a.points += 3; else { h.points++; a.points++; }
+  }
+
+  for (const [team, docked] of Object.entries(config.deductions?.[league.key] || {})) {
+    if (teams.has(team)) teams.get(team).points -= docked;
+  }
+  if (!teams.size) throw new Error('no matches played yet');
+
+  // points, then goal difference, then goals scored, then alphabetically
+  return [...teams.values()]
+    .map(t => ({ ...t, gd: t.gf - t.ga }))
+    .sort((x, y) => y.points - x.points || y.gd - x.gd || y.gf - x.gf || x.name.localeCompare(y.name))
+    .map((t, i) => ({ rank: i + 1, name: t.name, played: t.played, points: t.points }));
+}
+
+/* ---------- go ---------- */
 const leagues = {};
 const failed = [];
 
 for (const league of config.leagues) {
-  try {
-    leagues[league.key] = await fetchTable(league);
-    const t = leagues[league.key].teams;
-    console.log(`ok   ${league.key.padEnd(18)} ${t.length} teams, ${t[0].played} games played, top: ${t[0].name}`);
-  } catch (err) {
-    failed.push(`${league.key}: ${err.message}`);
-    if (previous?.leagues?.[league.key]) {
-      leagues[league.key] = previous.leagues[league.key];
-      console.warn(`old  ${league.key.padEnd(18)} kept last run's table (${err.message})`);
-    } else {
-      console.error(`FAIL ${league.key.padEnd(18)} ${err.message}  <- ${league.espn}`);
-    }
+  const label = league.key.padEnd(18);
+  const notes = [];
+  let table = null, source = null;
+
+  for (const [name, fn] of [['espn', fromEspn], ['football-data.co.uk', fromResults]]) {
+    try { table = await fn(league); source = name; break; }
+    catch (err) { notes.push(`${name}: ${err.message}`); }
   }
-  await new Promise(r => setTimeout(r, 300)); // be a good guest
+
+  if (table) {
+    leagues[league.key] = { name: `${league.country} ${league.name}`, source, teams: table };
+    const via = source === 'espn' ? '' : `  (via ${source} — ${notes[0]})`;
+    console.log(`ok   ${label} ${table.length} teams, ${table[0].played} played, top: ${table[0].name}${via}`);
+  } else if (previous?.leagues?.[league.key]) {
+    leagues[league.key] = previous.leagues[league.key];
+    failed.push(`${league.key}: ${notes.join(' | ')}`);
+    console.warn(`old  ${label} kept last run's table — ${notes.join(' | ')}`);
+  } else {
+    failed.push(`${league.key}: ${notes.join(' | ')}`);
+    console.error(`FAIL ${label} ${notes.join(' | ')}`);
+  }
+  await new Promise(r => setTimeout(r, 300));
 }
 
 await writeFile(OUT, JSON.stringify({
   updated: new Date().toISOString(),
-  source: 'espn',
-  season: config.season,
+  source: Object.values(leagues).every(l => l.source === 'espn') ? 'espn' : 'mixed',
+  season: SEASON,
   failed,
   leagues
 }, null, 1));
 console.log(`\nwrote ${OUT}${failed.length ? ` with ${failed.length} problem(s)` : ''}`);
 
-/* --- flag any pick that won't resolve, and say what it probably meant --- */
-const norm = s => s.toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+/* ---------- check every pick resolves ---------- */
+const norm = s => s.toUpperCase()
+  .replace(/[^A-Z0-9 ]/g, ' ')
+  .replace(/\bUTD\b/g, 'UNITED')
+  .replace(/\b(FC|AFC|THE)\b/g, ' ')
+  .replace(/\s+/g, ' ').trim();
+
+const variants = picked => [].concat(config.aliases[picked] ?? picked).map(norm);
 
 function sharedStart(a, b) {
   let n = 0;
@@ -88,22 +161,24 @@ const problems = new Map();
 for (const league of config.leagues) {
   const table = leagues[league.key]?.teams || [];
   for (const picked of new Set(config.players.map(p => p.picks[league.key]))) {
-    const want = norm(config.aliases[picked] || picked);
-    if (table.some(t => norm(t.name) === want)) continue;
+    const want = variants(picked);
+    if (table.some(t => want.includes(norm(t.name)))) continue;
 
-    const suggestions = table
-      .map(t => ({ name: t.name, score: sharedStart(norm(t.name), want) }))
+    const near = table
+      .map(t => ({ name: t.name, score: Math.max(...want.map(w => sharedStart(norm(t.name), w))) }))
       .filter(s => s.score > 1)
       .sort((a, b) => b.score - a.score)
       .slice(0, 3)
       .map(s => `"${s.name}"`);
-    problems.set(`${league.key} / ${picked}`, suggestions.join(' or ') || 'nothing similar in this division');
+    problems.set(`${league.key} / ${picked}`,
+      near.length ? `did you mean ${near.join(' or ')}?`
+                  : 'no club with a similar name is in that division — check the source is on the right season');
   }
 }
 
 if (problems.size) {
-  console.warn('\nThese picks did not match a club. Put the right spelling into "aliases" in players.json:');
-  for (const [pick, suggestion] of problems) console.warn(`  ${pick.padEnd(36)} did you mean ${suggestion}?`);
+  console.warn('\nThese picks did not match a club:');
+  for (const [pick, note] of problems) console.warn(`  ${pick.padEnd(36)} ${note}`);
 } else {
   console.log('every pick matched a club');
 }

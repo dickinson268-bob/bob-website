@@ -6,49 +6,57 @@
    "key": "eng_premier",
    "name": "Premier League",
    "country": "England",
-   "espn": "eng.1"
+   "espn": "eng.1",
+   "div": "E0"
   },
   {
    "key": "eng_championship",
    "name": "Championship",
    "country": "England",
-   "espn": "eng.2"
+   "espn": "eng.2",
+   "div": "E1"
   },
   {
    "key": "eng_league_one",
    "name": "League One",
    "country": "England",
-   "espn": "eng.3"
+   "espn": "eng.3",
+   "div": "E2"
   },
   {
    "key": "eng_league_two",
    "name": "League Two",
    "country": "England",
-   "espn": "eng.4"
+   "espn": "eng.4",
+   "div": "E3"
   },
   {
    "key": "eng_national",
    "name": "National League",
    "country": "England",
-   "espn": "eng.5"
+   "espn": "eng.5",
+   "div": "EC"
   },
   {
    "key": "sco_championship",
    "name": "Championship",
    "country": "Scotland",
-   "espn": "sco.2"
+   "espn": "sco.2",
+   "div": "SC1"
   },
   {
    "key": "sco_league_one",
    "name": "League One",
    "country": "Scotland",
-   "espn": "sco.3"
+   "espn": "sco.3",
+   "div": "SC2"
   },
   {
    "key": "sco_league_two",
    "name": "League Two",
    "country": "Scotland",
-   "espn": "sco.4"
+   "espn": "sco.4",
+   "div": "SC3"
   }
  ],
  "aliases": {
@@ -57,26 +65,44 @@
   "LIVERPOOL": "Liverpool",
   "MAN UTD": "Manchester United",
   "MAN CITY": "Manchester City",
-  "SPURS": "Tottenham Hotspur",
+  "SPURS": [
+   "Tottenham Hotspur",
+   "Tottenham"
+  ],
   "WEST HAM": "West Ham United",
-  "WOLVES": "Wolverhampton Wanderers",
-  "WEST BROM": "West Bromwich Albion",
+  "WOLVES": [
+   "Wolverhampton Wanderers",
+   "Wolves"
+  ],
+  "WEST BROM": [
+   "West Bromwich Albion",
+   "West Brom"
+  ],
   "MIDDLESBOROUGH": "Middlesbrough",
   "BIRMINGHAM": "Birmingham City",
   "WREXHAM": "Wrexham",
   "SOUTHAMPTON": "Southampton",
   "SHEFFIELD UNITED": "Sheffield United",
-  "SHEFFIELD WEDNESDAY": "Sheffield Wednesday",
+  "SHEFFIELD WEDNESDAY": [
+   "Sheffield Wednesday",
+   "Sheffield Weds"
+  ],
   "LUTON": "Luton Town",
   "LEICESTER": "Leicester City",
   "BRADFORD": "Bradford City",
   "BLACKPOOL": "Blackpool",
   "STOCKPORT": "Stockport County",
-  "BRISTOL ROVERS": "Bristol Rovers",
+  "BRISTOL ROVERS": [
+   "Bristol Rovers",
+   "Bristol Rvs"
+  ],
   "SALFORD": "Salford City",
   "PORT VALE": "Port Vale",
   "BARNET": "Barnet",
-  "SWINDON TOWN": "Swindon Town",
+  "SWINDON TOWN": [
+   "Swindon Town",
+   "Swindon"
+  ],
   "CHESTERFIELD": "Chesterfield",
   "GRIMSBY": "Grimsby Town",
   "FLEETWOOD": "Fleetwood Town",
@@ -86,22 +112,60 @@
   "FOREST GREEN": "Forest Green Rovers",
   "SOUTHEND": "Southend United",
   "SUTTON": "Sutton United",
-  "BOREHAMWOOD": "Boreham Wood",
+  "BOREHAMWOOD": [
+   "Boreham Wood",
+   "Borehamwood"
+  ],
   "LIVINGSTONE": "Livingston",
-  "PARTICK THISTLE": "Partick Thistle",
+  "PARTICK THISTLE": [
+   "Partick Thistle",
+   "Partick"
+  ],
   "RAITH ROVERS": "Raith Rovers",
-  "ST JOHNSTON": "St Johnstone",
-  "AYR UNITED": "Ayr United",
-  "DUNFERMILINE": "Dunfermline Athletic",
+  "ST JOHNSTON": [
+   "St Johnstone",
+   "St. Johnstone"
+  ],
+  "AYR UNITED": [
+   "Ayr United",
+   "Ayr"
+  ],
+  "DUNFERMILINE": [
+   "Dunfermline Athletic",
+   "Dunfermline"
+  ],
   "ROSS COUNTY": "Ross County",
-  "INVERNESS": "Inverness Caledonian Thistle",
-  "HAMILTON": "Hamilton Academical",
-  "AIRDRIE": "Airdrieonians",
+  "INVERNESS": [
+   "Inverness Caledonian Thistle",
+   "Inverness CT",
+   "Inverness C",
+   "Inverness"
+  ],
+  "HAMILTON": [
+   "Hamilton Academical",
+   "Hamilton"
+  ],
+  "AIRDRIE": [
+   "Airdrieonians",
+   "Airdrie Utd",
+   "Airdrie United",
+   "Airdrie"
+  ],
   "EAST KILBRIDE": "East Kilbride",
-  "SPARTANS": "The Spartans",
+  "SPARTANS": [
+   "Spartans",
+   "The Spartans",
+   "Spartans FC"
+  ],
   "CLYDE": "Clyde",
-  "STIRLING ALBION": "Stirling Albion",
-  "ELGIN CITY": "Elgin City",
+  "STIRLING ALBION": [
+   "Stirling Albion",
+   "Stirling"
+  ],
+  "ELGIN CITY": [
+   "Elgin City",
+   "Elgin"
+  ],
   "KELTY HEARTS": "Kelty Hearts",
   "STRANRAER": "Stranraer"
  },
@@ -653,5 +717,6 @@
    }
   }
  ],
- "you": "BOB DICKINSON"
+ "you": "BOB DICKINSON",
+ "deductions": {}
 }
