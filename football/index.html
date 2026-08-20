@@ -118,17 +118,20 @@ button.ctl:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .srclead b{color:var(--good);font-weight:500}
 .srclead b.warm{color:var(--amber)} .srclead b.cold{color:var(--bad)}
 .srcgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-.srcrow{display:grid;grid-template-columns:minmax(0,1.3fr) 66px minmax(0,1.3fr);gap:10px;
+.srcrow{display:grid;grid-template-columns:minmax(0,1.15fr) 58px 104px minmax(0,1.25fr);gap:10px;
   background:var(--panel2);padding:8px 12px;align-items:baseline;
   font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+.srcrow.hdr{background:var(--panel);color:var(--dim);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+.srcrow.hdr span{color:var(--dim)!important}
+.srcrow .played{color:var(--mute);white-space:nowrap}
 .srcrow .lgname{color:var(--chalk);font-family:"Archivo",sans-serif;font-size:13px;font-weight:500;
   font-variation-settings:"wdth" 88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .srcrow .via{color:var(--dim);letter-spacing:.04em;white-space:nowrap}
 .srcrow .fresh{color:var(--mute);text-align:right}
 .fresh.warm{color:var(--amber)} .fresh.cold{color:var(--bad)}
-.fresh b.lag{color:var(--amber);font-weight:500}
+.fresh.lag{color:var(--amber)}
 @media(max-width:620px){
-  .srcrow{grid-template-columns:minmax(0,1fr) 52px auto;font-size:10.5px;gap:8px}
+  .srcrow{grid-template-columns:minmax(0,1fr) 46px 76px minmax(0,1fr);font-size:9.5px;gap:6px;padding:8px 9px}
   .srcrow .lgname{font-size:12px}
 }
 .key{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim)}
@@ -258,38 +261,47 @@ function renderSources(standings){
     `Last looked for changes <b class="${heat}">${ago(checked) ?? 'at an unknown time'}</b>.`;
 
   const box = document.getElementById('sources');
-  box.innerHTML = CONFIG.leagues.map(lg => {
+  const head = `<div class="srcrow hdr"><span>League</span><span>Source</span>
+    <span>Last played</span><span class="fresh">Status</span></div>`;
+
+  box.innerHTML = head + CONFIG.leagues.map(lg => {
     const L = standings.leagues[lg.key];
     if (!L) return `<div class="srcrow"><span class="lgname">${lg.country} ${lg.name}</span>
-      <span class="via">&mdash;</span><span class="fresh cold">no table</span></div>`;
+      <span class="via">&mdash;</span><span class="played">&mdash;</span>
+      <span class="fresh cold">no table</span></div>`;
 
     const via = L.source === 'espn' ? 'ESPN' : L.source === 'sample' ? 'sample' : 'results';
 
-    // Two dates, and the gap between them is the point:
-    //   latestMatch  - the newest result actually in this table
-    //   lastFixture  - the newest result the division has actually played
-    // When they match, the table is complete. When they don't, it's behind.
-    const behind = L.latestMatch && L.lastFixture && L.lastFixture > L.latestMatch;
-    let detail;
-    if (L.latestMatch && behind)  detail = `<b class="lag">missing ${day(L.lastFixture)}</b>`;
-    else if (L.latestMatch)       detail = `complete to ${day(L.latestMatch)}`;
-    else if (L.lastFixture)       detail = `last played ${day(L.lastFixture)}`;
-    else if (L.changed)           detail = `moved ${ago(L.changed)}`;
-    else                          detail = 'no change seen yet';
+    // Last played: the newest fixture the division has actually completed,
+    // checked against ESPN's scoreboard regardless of which source built the table.
+    const played = L.lastFixture ? day(L.lastFixture) : '\u2014';
+
+    // Status: ESPN publishes the finished table and gives us no date to test,
+    // so we take it on trust. The results feed dates every match, so we can
+    // compare what's in the table against what's been played.
+    let status, cls = '';
+    if (L.source === 'espn') {
+      status = 'Complete';
+    } else if (L.latestMatch && L.lastFixture && L.lastFixture > L.latestMatch) {
+      status = `Missing ${day(L.lastFixture)}`; cls = 'lag';
+    } else if (L.latestMatch) {
+      status = `Complete &ndash; including ${day(L.latestMatch)}`;
+    } else {
+      status = 'Unknown'; cls = 'warm';
+    }
 
     const tip = [
       L.latestMatch ? `newest result in this table: ${L.latestMatch}` : null,
       L.lastFixture ? `newest result the division has played: ${L.lastFixture}` : null,
       L.lastModified ? `source file updated ${L.lastModified}` : null,
-      L.changed ? `table last moved ${new Date(L.changed).toLocaleString('en-GB')}`
-                : L.watchingSince ? `unchanged since ${new Date(L.watchingSince).toLocaleString('en-GB')}` : null,
       L.checked ? `checked ${new Date(L.checked).toLocaleString('en-GB')}` : null
     ].filter(Boolean).join(' \u00b7 ');
 
     return `<div class="srcrow">
       <span class="lgname">${lg.country} ${lg.name}</span>
       <span class="via">${via}</span>
-      <span class="fresh" title="${tip}">${detail}</span>
+      <span class="played">${played}</span>
+      <span class="fresh ${cls}" title="${tip}">${status}</span>
     </div>`;
   }).join('');
 }
