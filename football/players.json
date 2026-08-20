@@ -1,0 +1,656 @@
+{
+ "competition": "Football Competition 2026/27",
+ "season": 2026,
+ "leagues": [
+  {
+   "key": "eng_premier",
+   "name": "Premier League",
+   "country": "England",
+   "apiFootballId": 39
+  },
+  {
+   "key": "eng_championship",
+   "name": "Championship",
+   "country": "England",
+   "apiFootballId": 40
+  },
+  {
+   "key": "eng_league_one",
+   "name": "League One",
+   "country": "England",
+   "apiFootballId": 41
+  },
+  {
+   "key": "eng_league_two",
+   "name": "League Two",
+   "country": "England",
+   "apiFootballId": 42
+  },
+  {
+   "key": "eng_national",
+   "name": "National League",
+   "country": "England",
+   "apiFootballId": 43
+  },
+  {
+   "key": "sco_championship",
+   "name": "Championship",
+   "country": "Scotland",
+   "apiFootballId": 180
+  },
+  {
+   "key": "sco_league_one",
+   "name": "League One",
+   "country": "Scotland",
+   "apiFootballId": 183
+  },
+  {
+   "key": "sco_league_two",
+   "name": "League Two",
+   "country": "Scotland",
+   "apiFootballId": 184
+  }
+ ],
+ "aliases": {
+  "SPURS": "Tottenham",
+  "MAN UTD": "Manchester United",
+  "MAN CITY": "Manchester City",
+  "WEST HAM": "West Ham United",
+  "WEST BROM": "West Bromwich Albion",
+  "MIDDLESBOROUGH": "Middlesbrough",
+  "WOLVES": "Wolverhampton Wanderers",
+  "BIRMINGHAM": "Birmingham City",
+  "SHEFFIELD UNITED": "Sheffield United",
+  "SHEFFIELD WEDNESDAY": "Sheffield Wednesday",
+  "LUTON": "Luton Town",
+  "LEICESTER": "Leicester City",
+  "BRADFORD": "Bradford City",
+  "STOCKPORT": "Stockport County",
+  "SALFORD": "Salford City",
+  "GRIMSBY": "Grimsby Town",
+  "FLEETWOOD": "Fleetwood Town",
+  "SWINDON TOWN": "Swindon Town",
+  "CARLISLE": "Carlisle United",
+  "HARTLEPOOL": "Hartlepool United",
+  "HARROGATE": "Harrogate Town",
+  "FOREST GREEN": "Forest Green Rovers",
+  "SOUTHEND": "Southend United",
+  "SUTTON": "Sutton United",
+  "BOREHAMWOOD": "Boreham Wood",
+  "LIVINGSTONE": "Livingston",
+  "ST JOHNSTON": "St Johnstone",
+  "DUNFERMILINE": "Dunfermline Athletic",
+  "INVERNESS": "Inverness Caledonian Thistle",
+  "HAMILTON": "Hamilton Academical",
+  "AIRDRIE": "Airdrieonians",
+  "SPARTANS": "The Spartans",
+  "AYR UNITED": "Ayr United",
+  "RAITH ROVERS": "Raith Rovers",
+  "PARTICK THISTLE": "Partick Thistle",
+  "ROSS COUNTY": "Ross County",
+  "EAST KILBRIDE": "East Kilbride",
+  "STIRLING ALBION": "Stirling Albion",
+  "ELGIN CITY": "Elgin City",
+  "KELTY HEARTS": "Kelty Hearts",
+  "STRANRAER": "Stranraer",
+  "CLYDE": "Clyde",
+  "ARSENAL": "Arsenal",
+  "CHELSEA": "Chelsea",
+  "LIVERPOOL": "Liverpool",
+  "WREXHAM": "Wrexham",
+  "SOUTHAMPTON": "Southampton",
+  "BLACKPOOL": "Blackpool",
+  "BRISTOL ROVERS": "Bristol Rovers",
+  "PORT VALE": "Port Vale",
+  "BARNET": "Barnet",
+  "CHESTERFIELD": "Chesterfield"
+ },
+ "players": [
+  {
+   "name": "JASON COLE",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WOLVES",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "BOB DICKINSON",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "DEAN SHERIDAN",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "WOLVES",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "CARLISLE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "LIAM FOLEY",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "ROBB FORTY",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN UTD",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LUTON",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "HARTLEPOOL",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "KELTY HEARTS"
+   }
+  },
+  {
+   "name": "MAURICE PEARCE",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "BRADFORD",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "HAMILTON",
+    "sco_league_two": "SPARTANS"
+   }
+  },
+  {
+   "name": "DAN THOMAS",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "CHELSEA",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LUTON",
+    "eng_league_two": "SALFORD",
+    "eng_national": "HARTLEPOOL",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "SIMON HALL",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "HARTLEPOOL",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "PAUL McGURK",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "SHEFFIELD WEDNESDAY",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "HARTLEPOOL",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "KELTY HEARTS"
+   }
+  },
+  {
+   "name": "DAVE LODER",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WOLVES",
+    "eng_league_one": "LUTON",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "HAMILTON",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "KIM KNIGHT",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "PHIL PHILLIPS",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "EAST KILBRIDE",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "TONY SMITH",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "TERRY SMITH",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SWINDON TOWN",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "MARTIN LANE",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "SHEFFIELD WEDNESDAY",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "HARROGATE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "AIRDRIE",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "ADAM WATTS",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "FOREST GREEN",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "BARNEY LANE",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SWINDON TOWN",
+    "eng_national": "CARLISLE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "KEVEN KNIGHT",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "AIRDRIE",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "STEPHEN GODDARD",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LUTON",
+    "eng_league_two": "BARNET",
+    "eng_national": "FOREST GREEN",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "CHRIS CROOK",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "HAMILTON",
+    "sco_league_two": "SPARTANS"
+   }
+  },
+  {
+   "name": "KEN WILSON",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "RUSS NORTON",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN UTD",
+    "eng_championship": "WREXHAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "MARK CUSACK",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LUTON",
+    "eng_league_two": "CHESTERFIELD",
+    "eng_national": "FOREST GREEN",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "BILLY WATTS",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "PORT VALE",
+    "eng_national": "HARROGATE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "ELGIN CITY"
+   }
+  },
+  {
+   "name": "CONNOR SALT",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WOLVES",
+    "eng_league_one": "BRADFORD",
+    "eng_league_two": "PORT VALE",
+    "eng_national": "FOREST GREEN",
+    "sco_championship": "AYR UNITED",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "SPARTANS"
+   }
+  },
+  {
+   "name": "NEIL STEPHENS",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "MIDDLESBOROUGH",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "GARY GOODWIN",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "SHEFFIELD WEDNESDAY",
+    "eng_league_two": "CHESTERFIELD",
+    "eng_national": "HARROGATE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "ELGIN CITY"
+   }
+  },
+  {
+   "name": "NEIL OSMOND",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "SPURS",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LUTON",
+    "eng_league_two": "BARNET",
+    "eng_national": "CARLISLE",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "EAST KILBRIDE",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "DAVID WILLIAMS",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "SHEFFIELD UNITED",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "HARTLEPOOL",
+    "sco_championship": "DUNFERMILINE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "DAVE BENSON",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "SHEFFIELD WEDNESDAY",
+    "eng_league_two": "BRISTOL ROVERS",
+    "eng_national": "BOREHAMWOOD",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "EAST KILBRIDE",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "STUART CRAWFORD",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN UTD",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SWINDON TOWN",
+    "eng_national": "FOREST GREEN",
+    "sco_championship": "RAITH ROVERS",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STIRLING ALBION"
+   }
+  },
+  {
+   "name": "NIGEL FREETH",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "MIDDLESBOROUGH",
+    "eng_league_one": "STOCKPORT",
+    "eng_league_two": "BARNET",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "SPARTANS"
+   }
+  },
+  {
+   "name": "TOM BAMBRICK",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "SWINDON TOWN",
+    "eng_national": "HARTLEPOOL",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "HAMILTON",
+    "sco_league_two": "KELTY HEARTS"
+   }
+  },
+  {
+   "name": "RIVER SHERIDAN",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "SHEFFIELD WEDNESDAY",
+    "eng_league_two": "GRIMSBY",
+    "eng_national": "CARLISLE",
+    "sco_championship": "DUNFERMILINE",
+    "sco_league_one": "HAMILTON",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "JENNY SMITH",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "BIRMINGHAM",
+    "eng_league_one": "SHEFFIELD WEDNESDAY",
+    "eng_league_two": "BARNET",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "STRANRAER"
+   }
+  },
+  {
+   "name": "COLIN COOPER",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN UTD",
+    "eng_championship": "SOUTHAMPTON",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "CHESTERFIELD",
+    "eng_national": "FOREST GREEN",
+    "sco_championship": "LIVINGSTONE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "KELTY HEARTS"
+   }
+  },
+  {
+   "name": "DAVE BENTLEY",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "ARSENAL",
+    "eng_championship": "WEST HAM",
+    "eng_league_one": "BLACKPOOL",
+    "eng_league_two": "BARNET",
+    "eng_national": "SUTTON",
+    "sco_championship": "AYR UNITED",
+    "sco_league_one": "EAST KILBRIDE",
+    "sco_league_two": "CLYDE"
+   }
+  },
+  {
+   "name": "CRAIG SMITH",
+   "paid": "YES",
+   "picks": {
+    "eng_premier": "MAN UTD",
+    "eng_championship": "MIDDLESBOROUGH",
+    "eng_league_one": "BLACKPOOL",
+    "eng_league_two": "SALFORD",
+    "eng_national": "CARLISLE",
+    "sco_championship": "DUNFERMILINE",
+    "sco_league_one": "AIRDRIE",
+    "sco_league_two": "STRANRAER"
+   }
+  },
+  {
+   "name": "CHRIS BARNES",
+   "paid": "NO",
+   "picks": {
+    "eng_premier": "MAN CITY",
+    "eng_championship": "WEST BROM",
+    "eng_league_one": "LEICESTER",
+    "eng_league_two": "FLEETWOOD",
+    "eng_national": "SOUTHEND",
+    "sco_championship": "PARTICK THISTLE",
+    "sco_league_one": "ROSS COUNTY",
+    "sco_league_two": "KELTY HEARTS"
+   }
+  }
+ ]
+}
