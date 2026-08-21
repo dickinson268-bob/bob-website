@@ -1,6 +1,6 @@
-# netlify.toml
-# Tells Netlify where your serverless functions live.
-# If you already have a netlify.toml, just add the [functions] block to it.
-
-[functions]
-  directory = "netlify/functions"
+# Cancel the Netlify build when a commit only changes the standings data.
+# Netlify treats exit code 0 from this command as "nothing to do, skip the
+# deploy", and anything else as "go ahead and build". So the site only
+# redeploys when the site itself changes, not when the scores do.
+[build]
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)football/standings.json'"
