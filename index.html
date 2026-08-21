@@ -1,343 +1,564 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bob Dickinson</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nigel's Football Predictions &middot; 2026/27</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --pitch:#0C1310; --panel:#131D18; --panel2:#18241E; --line:#26362E; --line2:#33473C;
+  --chalk:#EDF3EF; --mute:#8CA396; --dim:#5F7469;
+  --amber:#FFB627; --good:#57D28F; --mid:#E8C25A; --bad:#F2613F;
+  --pad:clamp(14px,4vw,32px);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--pitch);
+  background-image:repeating-linear-gradient(180deg,rgba(255,255,255,.012) 0 68px,transparent 68px 136px);
+  color:var(--chalk);
+  font-family:"Archivo",system-ui,sans-serif;
+  font-variation-settings:"wdth" 100;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 var(--pad) 72px}
 
-  :root {
-    --bg: #09091a;
-    --surface: #10112a;
-    --surface2: #14163a;
-    --neon-cyan: #5ef0ff;
-    --neon-pink: #ff6eb4;
-    --neon-lavender: #c084fc;
-    --strava: #ff7a45;
-    --instagram: #ff6eb4;
-    --linkedin: #60a5fa;
-    --text: #e8eaf8;
-    --muted: #5a5d8a;
-    --grid: rgba(94,240,255,0.035);
-  }
+/* ---------- header ---------- */
+header{padding:clamp(28px,7vw,56px) 0 22px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--amber);margin:0 0 14px
+}
+h1{
+  margin:0;font-size:clamp(32px,9vw,72px);line-height:.9;font-weight:800;
+  font-variation-settings:"wdth" 78;text-transform:uppercase;letter-spacing:-.01em;
+}
+h1 em{font-style:normal;color:var(--dim)}
+.tagline{margin:16px 0 0;max-width:46ch;color:var(--mute);font-size:15px;line-height:1.5}
 
-  html, body { height: 100%; background: var(--bg); overflow-x: hidden; }
+.status{
+  display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;
+  margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;color:var(--dim)
+}
+.status b{color:var(--chalk);font-weight:500}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block;margin-right:7px;vertical-align:1px}
+.dot.stale{background:var(--amber)}
+.dot.sample{background:var(--bad)}
 
-  /* soft grid */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 56px 56px;
-    pointer-events: none;
-    z-index: 0;
-  }
+.controls{display:flex;gap:8px;margin:22px 0 10px;flex-wrap:wrap}
+button.ctl{
+  background:transparent;border:1px solid var(--line2);color:var(--mute);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 13px;border-radius:2px;cursor:pointer;transition:.15s
+}
+button.ctl:hover{border-color:var(--amber);color:var(--amber)}
+button.ctl[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#10180F}
+button.ctl:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 
-  /* dreamy horizon */
-  body::after {
-    content: '';
-    position: fixed; bottom: 0; left: 0; right: 0; height: 55vh;
-    background: radial-gradient(ellipse 90% 65% at 50% 110%,
-      rgba(96,165,250,0.16) 0%,
-      rgba(192,132,252,0.12) 35%,
-      rgba(255,110,180,0.08) 60%,
-      transparent 75%);
-    pointer-events: none; z-index: 0;
-  }
+/* ---------- table ---------- */
+.head,.row{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) 132px 52px;
+  gap:12px;align-items:center
+}
+.head{
+  padding:0 12px 9px;font-family:"IBM Plex Mono",monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+  position:sticky;top:0;background:var(--pitch);z-index:2;padding-top:10px;
+  border-bottom:1px solid var(--line)
+}
+.head .r,.row .r{text-align:right}
 
-  .page {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 52px 24px 72px; gap: 52px;
-  }
+.entry{border-bottom:1px solid var(--line)}
+.row{
+  width:100%;background:none;border:0;color:inherit;font:inherit;text-align:left;
+  padding:13px 12px;cursor:pointer;transition:background .15s
+}
+.row:hover{background:var(--panel)}
+.row:focus-visible{outline:2px solid var(--amber);outline-offset:-2px}
+.entry.open .row{background:var(--panel)}
 
-  /* ── Identity ── */
-  .identity {
-    display: flex; flex-direction: column;
-    align-items: center; gap: 18px; text-align: center;
-    opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
-  }
+.pos{font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--mute);font-weight:500}
+.entry.lead .pos{color:var(--amber)}
+.tie{color:var(--dim);font-size:11px}
+.name{
+  font-size:clamp(15px,4vw,18px);font-weight:600;font-variation-settings:"wdth" 92;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.entry.me .name{color:var(--amber)}
+.entry.me .name::after{content:"YOU";font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.14em;
+  border:1px solid var(--amber);border-radius:2px;padding:1px 4px;margin-left:9px;vertical-align:2px}
+.total{font-family:"IBM Plex Mono",monospace;font-size:20px;font-weight:600;text-align:right}
 
-  .avatar-wrap { position: relative; width: 114px; height: 114px; }
+/* the gap strip: eight bars, one per league */
+.strip{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;align-items:end;height:30px}
+.bar{border-radius:1px 1px 0 0;min-height:3px;position:relative}
+.bar.miss{background:repeating-linear-gradient(45deg,var(--line2) 0 2px,transparent 2px 4px);height:100%!important}
 
-  .avatar-ring {
-    position: absolute; inset: -5px; border-radius: 50%;
-    background: conic-gradient(
-      var(--neon-cyan) 0deg, var(--neon-pink) 130deg,
-      var(--neon-lavender) 250deg, var(--neon-cyan) 360deg
-    );
-    animation: spinRing 5s linear infinite;
-    filter: blur(2px);
-  }
+/* ---------- expanded ---------- */
+.detail{display:none;padding:4px 12px 22px}
+.entry.open .detail{display:block}
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.pick{background:var(--panel2);padding:10px 12px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.pick .lg{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:3px}
+.pick .tm{font-size:14px;font-weight:500;font-variation-settings:"wdth" 88}
+.pick .pt{font-family:"IBM Plex Mono",monospace;font-size:17px;font-weight:600;white-space:nowrap}
+.warn{margin:12px 0 0;font-size:12.5px;color:var(--bad);font-family:"IBM Plex Mono",monospace}
 
-  @keyframes spinRing { to { transform: rotate(360deg); } }
+/* ---------- filter rail ---------- */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:30px;align-items:start}
+.col-main{min-width:0}
+.col-side{position:sticky;top:54px}
 
-  .avatar-inner {
-    position: relative; z-index: 1;
-    width: 100%; height: 100%; border-radius: 50%;
-    background: var(--surface); border: 4px solid var(--bg);
-    overflow: hidden; display: flex; align-items: center; justify-content: center;
-  }
+.filterbox{border:1px solid var(--line);background:var(--panel)}
+.filterbox summary{
+  list-style:none;cursor:pointer;padding:12px 14px;display:flex;justify-content:space-between;
+  align-items:baseline;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line)
+}
+.filterbox summary::-webkit-details-marker{display:none}
+.filterbox[open] summary{color:var(--chalk)}
+.fbcount{letter-spacing:.04em;color:var(--amber);text-transform:none}
+.fbhint{margin:12px 14px;font-size:12px;line-height:1.5;color:var(--mute)}
+.fbclear{margin:0 14px 12px;width:calc(100% - 28px)}
 
-  .avatar-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fgroup{border-top:1px solid var(--line)}
+.fgroup h3{
+  margin:0;padding:9px 14px 5px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:500
+}
+.fteam{
+  display:flex;align-items:center;gap:9px;padding:5px 14px;cursor:pointer;
+  font-size:12.5px;color:var(--mute);transition:color .12s
+}
+.fteam:hover{color:var(--chalk)}
+.fteam input{accent-color:var(--amber);margin:0;flex:none;width:13px;height:13px}
+.fteam .tname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-variation-settings:"wdth" 88}
+.fteam .tcount{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--dim);flex:none}
+.fteam.on{color:var(--amber)}
+.fteam.on .tcount{color:var(--amber)}
 
-  .avatar-placeholder {
-    font-family: 'Comfortaa', cursive; font-size: 28px; font-weight: 700;
-    color: var(--neon-cyan);
-    text-shadow: 0 0 16px var(--neon-cyan), 0 0 32px rgba(94,240,255,0.4);
-  }
+/* what the filter does to the board */
+.filtering .entry{opacity:.26;transition:opacity .15s}
+.filtering .entry.match{opacity:1}
+.filtering .entry.match .row{background:var(--panel)}
+.entry.match .name{color:var(--amber)}
+.pick.hit{background:#1E2E22;box-shadow:inset 2px 0 0 var(--amber)}
 
-  .name {
-    font-family: 'Comfortaa', cursive; font-weight: 700;
-    font-size: clamp(34px, 7.5vw, 72px);
-    letter-spacing: 0.05em; line-height: 1;
-    color: var(--text);
-    text-shadow: 0 0 40px rgba(94,240,255,0.15);
-    position: relative;
-  }
+@media(max-width:900px){
+  .layout{display:flex;flex-direction:column}
+  .col-side{position:static;order:-1;margin-bottom:18px}
+}
 
-  /* soft glitch — gentler than before */
-  .name::before, .name::after {
-    content: attr(data-text);
-    position: absolute; inset: 0;
-    font-family: inherit; font-size: inherit;
-    font-weight: inherit; letter-spacing: inherit;
-  }
-  .name::before {
-    color: var(--neon-cyan); opacity: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
-    animation: glitchTop 7s infinite;
-  }
-  .name::after {
-    color: var(--neon-pink); opacity: 0;
-    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-    animation: glitchBot 7s infinite;
-  }
+/* ---------- footer ---------- */
+.rules{margin-top:52px;border-top:1px solid var(--line);padding-top:22px;color:var(--mute);font-size:13.5px;line-height:1.6}
+.rules h2{font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 12px;font-weight:500}
+.rules p{margin:0 0 10px;max-width:64ch}
+.srchead{font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:26px 0 12px;font-weight:500}
+.srclead{margin:0 0 12px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--mute)}
+.srclead b{color:var(--good);font-weight:500}
+.srclead b.warm{color:var(--amber)} .srclead b.cold{color:var(--bad)}
+.srcgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.srcrow{display:grid;grid-template-columns:minmax(0,1.15fr) 58px 104px minmax(0,1.25fr);gap:10px;
+  background:var(--panel2);padding:8px 12px;align-items:baseline;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+.srcrow.hdr{background:var(--panel);color:var(--dim);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+.srcrow.hdr span{color:var(--dim)!important}
+.srcrow .played{color:var(--mute);white-space:nowrap}
+.srcrow .lgname{color:var(--chalk);font-family:"Archivo",sans-serif;font-size:13px;font-weight:500;
+  font-variation-settings:"wdth" 88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srcrow .via{color:var(--dim);letter-spacing:.04em;white-space:nowrap}
+.srcrow .fresh{color:var(--mute);text-align:right}
+.fresh.warm{color:var(--amber)} .fresh.cold{color:var(--bad)}
+.fresh.lag{color:var(--amber)}
+@media(max-width:620px){
+  .srcrow{grid-template-columns:minmax(0,1fr) 46px 76px minmax(0,1fr);font-size:9.5px;gap:6px;padding:8px 9px}
+  .srcrow .lgname{font-size:12px}
+}
+.key{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim)}
+.key span{display:flex;align-items:center;gap:7px}
+.sw{width:11px;height:11px;border-radius:1px}
 
-  @keyframes glitchTop {
-    0%,92%,100% { transform: translate(0); opacity: 0; }
-    93% { transform: translate(-2px,-1px); opacity: 0.6; }
-    95% { transform: translate(2px,0); opacity: 0.4; }
-    97% { transform: translate(0); opacity: 0; }
-  }
-  @keyframes glitchBot {
-    0%,93%,100% { transform: translate(0); opacity: 0; }
-    94% { transform: translate(2px,1px); opacity: 0.5; }
-    96% { transform: translate(-1px,0); opacity: 0.3; }
-    98% { transform: translate(0); opacity: 0; }
-  }
-
-  .tagline {
-    font-family: 'Quicksand', sans-serif; font-weight: 500;
-    font-size: 14px; letter-spacing: 0.12em;
-    color: var(--neon-lavender); opacity: 0.75;
-  }
-
-  /* ── Tiles ── */
-  .tiles {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px; width: 100%; max-width: 760px;
-  }
-
-  .tile {
-    position: relative;
-    display: flex; flex-direction: column; align-items: flex-start;
-    padding: 32px 26px 26px;
-    border-radius: 24px;
-    background: var(--surface);
-    border: 1px solid rgba(255,255,255,0.06);
-    text-decoration: none; color: var(--text);
-    overflow: hidden; cursor: pointer; min-height: 230px;
-    opacity: 0; transform: translateY(24px) scale(0.97);
-    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
-                border-color 0.35s, box-shadow 0.35s;
-  }
-
-  .tile.visible { animation: tileIn 0.65s cubic-bezier(0.16,1,0.3,1) forwards; }
-
-  @keyframes tileIn { to { opacity: 1; transform: translateY(0) scale(1); } }
-
-  .tile:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: rgba(255,255,255,0.12);
-    box-shadow: 0 0 40px rgba(0,0,0,0.4), 0 0 60px var(--tile-glow);
-  }
-
-  /* soft inner glow strip at top */
-  .tile::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    border-radius: 24px 24px 0 0;
-    background: var(--tile-gradient);
-    opacity: 0.7;
-    transition: opacity 0.35s;
-  }
-  .tile:hover::before { opacity: 1; }
-
-  /* ambient glow behind tile */
-  .tile .glow-bg {
-    position: absolute; inset: -30px; z-index: -1;
-    background: radial-gradient(circle, var(--tile-color) 0%, transparent 65%);
-    filter: blur(40px); opacity: 0;
-    transition: opacity 0.4s; pointer-events: none;
-  }
-  .tile:hover .glow-bg { opacity: 0.12; }
-
-  /* scanlines */
-  .tile .scanlines {
-    position: absolute; inset: 0; border-radius: 24px;
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 3px,
-      rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 6px
-    );
-    opacity: 0; pointer-events: none; transition: opacity 0.35s;
-  }
-  .tile:hover .scanlines { opacity: 1; }
-
-  .tile-strava    { --tile-color: var(--strava);     --tile-glow: rgba(255,122,69,0.2);   --tile-gradient: linear-gradient(90deg, #ff7a45, #ffb347); }
-  .tile-instagram { --tile-color: var(--instagram);  --tile-glow: rgba(255,110,180,0.2);  --tile-gradient: linear-gradient(90deg, #ff6eb4, #ffb86c); }
-  .tile-linkedin  { --tile-color: var(--linkedin);   --tile-glow: rgba(96,165,250,0.2);   --tile-gradient: linear-gradient(90deg, #60a5fa, #a78bfa); }
-
-  .tile-icon {
-    width: 46px; height: 46px; margin-bottom: 20px;
-    filter: drop-shadow(0 0 8px var(--tile-color));
-    transition: filter 0.35s, transform 0.35s;
-  }
-  .tile:hover .tile-icon {
-    filter: drop-shadow(0 0 18px var(--tile-color));
-    transform: scale(1.08);
-  }
-
-  .tile-label {
-    font-family: 'Comfortaa', cursive; font-weight: 700;
-    font-size: 24px; letter-spacing: 0.02em;
-    color: var(--tile-color);
-    text-shadow: 0 0 14px var(--tile-color);
-    margin-bottom: 8px; line-height: 1;
-  }
-
-  .tile-desc {
-    font-family: 'Quicksand', sans-serif; font-weight: 400;
-    font-size: 13px; color: var(--muted);
-    line-height: 1.65; flex-grow: 1;
-  }
-
-  /* ── CTA Button ── */
-  .tile-cta {
-    position: relative; margin-top: 22px; overflow: hidden;
-    font-family: 'Quicksand', sans-serif; font-weight: 700;
-    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--bg); padding: 10px 20px; border-radius: 999px;
-    background: var(--tile-gradient);
-    box-shadow: 0 0 12px var(--tile-glow), 0 2px 8px rgba(0,0,0,0.4);
-    transition: box-shadow 0.35s, transform 0.2s;
-    white-space: nowrap;
-  }
-
-  /* shimmer sweep */
-  .tile-cta::before {
-    content: '';
-    position: absolute; top: 0; left: -70%;
-    width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-20deg); transition: left 0s;
-  }
-
-  .tile:hover .tile-cta {
-    box-shadow: 0 0 22px var(--tile-glow), 0 0 50px var(--tile-glow), 0 2px 8px rgba(0,0,0,0.5);
-    transform: scale(1.05);
-  }
-
-  .tile:hover .tile-cta::before {
-    left: 150%; transition: left 0.55s ease;
-  }
-
-  /* ── Animations ── */
-  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-  /* ── Responsive ── */
-  @media (max-width: 620px) {
-    .tiles { grid-template-columns: 1fr; max-width: 380px; }
-  }
+@media(max-width:620px){
+  .head,.row{grid-template-columns:30px minmax(0,1fr) 92px 44px;gap:9px}
+  .strip{height:26px;gap:2px}
+  .total{font-size:17px}
+  .head .lbl-strip{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<main class="page">
+<div class="wrap">
 
-  <div class="identity">
-    <div class="avatar-wrap">
-      <div class="avatar-ring"></div>
-      <div class="avatar-inner">
-        <!-- Swap for: <img src="BobbyDickinson.jpg" alt="Bob Dickinson"> -->
-        <img src="BobbyDickinson.jpg" alt="Bob Dickinson">
-      </div>
-    </div>
-    <h1 class="name" data-text="Bob Dickinson">Bob Dickinson</h1>
-    <p class="tagline">Principal Consultant for Hornbill ITSM, and keen runner</p>
+<header>
+  <p class="eyebrow">Season 2026/27 &middot; 39 entries</p>
+  <h1>Nigel&rsquo;s<br>Football<br><em>Predictions</em></h1>
+  <p class="tagline">One pick to win each of eight leagues. Your score is where those eight teams sit right now &mdash; add them up, lowest total leads. Perfect is 8.</p>
+  <div class="status" id="status"></div>
+</header>
+
+<div class="layout">
+<div class="col-main">
+
+<div class="controls">
+  <button class="ctl" id="expandAll" aria-pressed="false">Show every pick</button>
+  <button class="ctl" id="highlightMe" aria-pressed="false">Find me</button>
+</div>
+
+<div class="head">
+  <div>#</div><div>Player</div><div class="lbl-strip">Gap by league</div><div class="r">Pts</div>
+</div>
+<div id="board"></div>
+
+</div><!-- /col-main -->
+
+<aside class="col-side">
+  <details class="filterbox" id="filterBox">
+    <summary>
+      <span class="fbtitle">Compare picks</span>
+      <span class="fbcount" id="filterCount"></span>
+    </summary>
+    <p class="fbhint">Tick a club to pull out everyone who backed it. Tick clubs in
+      different leagues to find the entries closest to your own.</p>
+    <button class="ctl fbclear" id="clearFilter">Clear all</button>
+    <div id="filterList"></div>
+  </details>
+</aside>
+
+</div><!-- /layout -->
+
+<div class="rules">
+  <h2>How the score works</h2>
+  <p>Each entry picked one team to win each of the eight leagues before a ball was kicked, and those picks are locked for the season. Every week the table below takes each team's live league position and adds the eight numbers together. Pick the champion of every league and you finish on 8.</p>
+  <p id="prov"></p>
+  <h2 class="srchead">Where each table came from</h2>
+  <p class="srclead" id="srclead"></p>
+  <div class="srcgrid" id="sources"></div>
+
+  <div class="key">
+    <span><i class="sw" style="background:var(--good)"></i> top of the league</span>
+    <span><i class="sw" style="background:var(--mid)"></i> mid-table</span>
+    <span><i class="sw" style="background:var(--bad)"></i> way off</span>
+    <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--line2) 0 2px,transparent 2px 4px)"></i> team not found in the table</span>
   </div>
+</div>
 
-  <div class="tiles">
+</div>
 
-    <a class="tile tile-strava"
-       href="https://www.strava.com/athletes/994793"
-       target="_blank" rel="noopener noreferrer">
-      <div class="scanlines"></div>
-      <div class="glow-bg"></div>
-      <svg class="tile-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 22L11 12 6 22h3.5l1.5-3 1.5 3H16z" fill="#ff7a45"/>
-        <path d="M19.5 30l-3.5-8H11l8.5 16L28 22h-5L19.5 30z" fill="#ff7a45" opacity="0.6"/>
-      </svg>
-      <div class="tile-label">Strava</div>
-      <div class="tile-desc">Routes, rides &amp; personal bests. Every km logged.</div>
-      <span class="tile-cta">View Activity ↗</span>
-    </a>
-
-    <a class="tile tile-instagram"
-       href="https://www.instagram.com/swindonbob"
-       target="_blank" rel="noopener noreferrer">
-      <div class="scanlines"></div>
-      <div class="glow-bg"></div>
-      <svg class="tile-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="30" height="30" rx="10" stroke="#ff6eb4" stroke-width="2"/>
-        <circle cx="20" cy="20" r="7" stroke="#ff6eb4" stroke-width="2"/>
-        <circle cx="29" cy="11" r="2" fill="#ff6eb4"/>
-      </svg>
-      <div class="tile-label">Instagram</div>
-      <div class="tile-desc">Photos, moments &amp; what I'm up to day to day.</div>
-      <span class="tile-cta">See Photos ↗</span>
-    </a>
-
-    <a class="tile tile-linkedin"
-       href="https://www.linkedin.com/in/bob-dickinson"
-       target="_blank" rel="noopener noreferrer">
-      <div class="scanlines"></div>
-      <div class="glow-bg"></div>
-      <svg class="tile-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="30" height="30" rx="8" stroke="#60a5fa" stroke-width="2"/>
-        <path d="M13 17v12M13 13v1" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M19 29v-6a4 4 0 0 1 8 0v6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
-        <path d="M19 17v4" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <div class="tile-label">LinkedIn</div>
-      <div class="tile-desc">Professional profile, career &amp; experience.</div>
-      <span class="tile-cta">Connect ↗</span>
-    </a>
-
-  </div>
-
-</main>
 <script>
-  document.querySelectorAll('.tile').forEach((tile, i) => {
-    setTimeout(() => tile.classList.add('visible'), 500 + i * 130);
+// ---------------------------------------------------------------------------
+// Where to read the live standings from.
+//
+// Pointing this at GitHub means the data updates WITHOUT redeploying the site,
+// which matters because Netlify's free plan charges credits per deploy.
+// Replace USER and REPO with your GitHub username and repository name, and
+// "main" with your branch if it isn't main. The repository must be public.
+//
+// Leave it as null to just read ./standings.json sitting next to this page.
+const DATA_URL = null;
+// ---------------------------------------------------------------------------
+
+const CONFIG = {"competition":"Football Competition 2026/27","season":2026,"leagues":[{"key":"eng_premier","name":"Premier League","country":"England","espn":"eng.1","div":"E0"},{"key":"eng_championship","name":"Championship","country":"England","espn":"eng.2","div":"E1"},{"key":"eng_league_one","name":"League One","country":"England","espn":"eng.3","div":"E2"},{"key":"eng_league_two","name":"League Two","country":"England","espn":"eng.4","div":"E3"},{"key":"eng_national","name":"National League","country":"England","espn":"eng.5","div":"EC"},{"key":"sco_championship","name":"Championship","country":"Scotland","espn":"sco.2","div":"SC1"},{"key":"sco_league_one","name":"League One","country":"Scotland","espn":"sco.3","div":"SC2"},{"key":"sco_league_two","name":"League Two","country":"Scotland","espn":"sco.4","div":"SC3"}],"aliases":{"ARSENAL":"Arsenal","CHELSEA":"Chelsea","LIVERPOOL":"Liverpool","MAN UTD":"Manchester United","MAN CITY":"Manchester City","SPURS":["Tottenham Hotspur","Tottenham"],"WEST HAM":"West Ham United","WOLVES":["Wolverhampton Wanderers","Wolves"],"WEST BROM":["West Bromwich Albion","West Brom"],"MIDDLESBOROUGH":"Middlesbrough","BIRMINGHAM":"Birmingham City","WREXHAM":"Wrexham","SOUTHAMPTON":"Southampton","SHEFFIELD UNITED":"Sheffield United","SHEFFIELD WEDNESDAY":["Sheffield Wednesday","Sheffield Weds"],"LUTON":"Luton Town","LEICESTER":"Leicester City","BRADFORD":"Bradford City","BLACKPOOL":"Blackpool","STOCKPORT":"Stockport County","BRISTOL ROVERS":["Bristol Rovers","Bristol Rvs"],"SALFORD":"Salford City","PORT VALE":"Port Vale","BARNET":"Barnet","SWINDON TOWN":["Swindon Town","Swindon"],"CHESTERFIELD":"Chesterfield","GRIMSBY":"Grimsby Town","FLEETWOOD":"Fleetwood Town","CARLISLE":"Carlisle United","HARTLEPOOL":"Hartlepool United","HARROGATE":"Harrogate Town","FOREST GREEN":"Forest Green Rovers","SOUTHEND":"Southend United","SUTTON":"Sutton United","BOREHAMWOOD":["Boreham Wood","Borehamwood"],"LIVINGSTONE":"Livingston","PARTICK THISTLE":["Partick Thistle","Partick"],"RAITH ROVERS":"Raith Rovers","ST JOHNSTON":["St Johnstone","St. Johnstone"],"AYR UNITED":["Ayr United","Ayr"],"DUNFERMILINE":["Dunfermline Athletic","Dunfermline"],"ROSS COUNTY":"Ross County","INVERNESS":["Inverness Caledonian Thistle","Inverness CT","Inverness C","Inverness"],"HAMILTON":["Hamilton Academical","Hamilton"],"AIRDRIE":["Airdrieonians","Airdrie Utd","Airdrie United","Airdrie"],"EAST KILBRIDE":"East Kilbride","SPARTANS":["Spartans","The Spartans","Spartans FC"],"CLYDE":"Clyde","STIRLING ALBION":["Stirling Albion","Stirling"],"ELGIN CITY":["Elgin City","Elgin"],"KELTY HEARTS":"Kelty Hearts","STRANRAER":"Stranraer"},"players":[{"name":"JASON COLE","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WOLVES","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"BOB DICKINSON","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"DEAN SHERIDAN","paid":"NO","picks":{"eng_premier":"MAN CITY","eng_championship":"WOLVES","eng_league_one":"LEICESTER","eng_league_two":"BRISTOL ROVERS","eng_national":"CARLISLE","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"LIAM FOLEY","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"ROBB FORTY","paid":"NO","picks":{"eng_premier":"MAN UTD","eng_championship":"WEST HAM","eng_league_one":"LUTON","eng_league_two":"BRISTOL ROVERS","eng_national":"HARTLEPOOL","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"KELTY HEARTS"}},{"name":"MAURICE PEARCE","paid":"YES","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"BRADFORD","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"LIVINGSTONE","sco_league_one":"HAMILTON","sco_league_two":"SPARTANS"}},{"name":"DAN THOMAS","paid":"NO","picks":{"eng_premier":"CHELSEA","eng_championship":"WEST HAM","eng_league_one":"LUTON","eng_league_two":"SALFORD","eng_national":"HARTLEPOOL","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"SIMON HALL","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"HARTLEPOOL","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"PAUL McGURK","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"SHEFFIELD WEDNESDAY","eng_league_two":"BRISTOL ROVERS","eng_national":"HARTLEPOOL","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"KELTY HEARTS"}},{"name":"DAVE LODER","paid":"YES","picks":{"eng_premier":"ARSENAL","eng_championship":"WOLVES","eng_league_one":"LUTON","eng_league_two":"BRISTOL ROVERS","eng_national":"SOUTHEND","sco_championship":"PARTICK THISTLE","sco_league_one":"HAMILTON","sco_league_two":"CLYDE"}},{"name":"KIM KNIGHT","paid":"YES","picks":{"eng_premier":"MAN CITY","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"PHIL PHILLIPS","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"LIVINGSTONE","sco_league_one":"EAST KILBRIDE","sco_league_two":"CLYDE"}},{"name":"TONY SMITH","paid":"YES","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"BRISTOL ROVERS","eng_national":"SOUTHEND","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"TERRY SMITH","paid":"YES","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SWINDON TOWN","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"MARTIN LANE","paid":"YES","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"SHEFFIELD WEDNESDAY","eng_league_two":"BRISTOL ROVERS","eng_national":"HARROGATE","sco_championship":"LIVINGSTONE","sco_league_one":"AIRDRIE","sco_league_two":"STIRLING ALBION"}},{"name":"ADAM WATTS","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"FOREST GREEN","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"BARNEY LANE","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SWINDON TOWN","eng_national":"CARLISLE","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"KEVEN KNIGHT","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"LIVINGSTONE","sco_league_one":"AIRDRIE","sco_league_two":"STIRLING ALBION"}},{"name":"STEPHEN GODDARD","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LUTON","eng_league_two":"BARNET","eng_national":"FOREST GREEN","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"CHRIS CROOK","paid":"NO","picks":{"eng_premier":"MAN CITY","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"HAMILTON","sco_league_two":"SPARTANS"}},{"name":"KEN WILSON","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"SOUTHEND","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"RUSS NORTON","paid":"NO","picks":{"eng_premier":"MAN UTD","eng_championship":"WREXHAM","eng_league_one":"LEICESTER","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"MARK CUSACK","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LUTON","eng_league_two":"CHESTERFIELD","eng_national":"FOREST GREEN","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"BILLY WATTS","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"PORT VALE","eng_national":"HARROGATE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"ELGIN CITY"}},{"name":"CONNOR SALT","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WOLVES","eng_league_one":"BRADFORD","eng_league_two":"PORT VALE","eng_national":"FOREST GREEN","sco_championship":"AYR UNITED","sco_league_one":"ROSS COUNTY","sco_league_two":"SPARTANS"}},{"name":"NEIL STEPHENS","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"MIDDLESBOROUGH","eng_league_one":"LEICESTER","eng_league_two":"BRISTOL ROVERS","eng_national":"SOUTHEND","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"GARY GOODWIN","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"SHEFFIELD WEDNESDAY","eng_league_two":"CHESTERFIELD","eng_national":"HARROGATE","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"ELGIN CITY"}},{"name":"NEIL OSMOND","paid":"YES","picks":{"eng_premier":"SPURS","eng_championship":"WEST HAM","eng_league_one":"LUTON","eng_league_two":"BARNET","eng_national":"CARLISLE","sco_championship":"PARTICK THISTLE","sco_league_one":"EAST KILBRIDE","sco_league_two":"CLYDE"}},{"name":"DAVID WILLIAMS","paid":"NO","picks":{"eng_premier":"MAN CITY","eng_championship":"SHEFFIELD UNITED","eng_league_one":"LEICESTER","eng_league_two":"BRISTOL ROVERS","eng_national":"HARTLEPOOL","sco_championship":"DUNFERMILINE","sco_league_one":"ROSS COUNTY","sco_league_two":"CLYDE"}},{"name":"DAVE BENSON","paid":"YES","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"SHEFFIELD WEDNESDAY","eng_league_two":"BRISTOL ROVERS","eng_national":"BOREHAMWOOD","sco_championship":"PARTICK THISTLE","sco_league_one":"EAST KILBRIDE","sco_league_two":"CLYDE"}},{"name":"STUART CRAWFORD","paid":"NO","picks":{"eng_premier":"MAN UTD","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SWINDON TOWN","eng_national":"FOREST GREEN","sco_championship":"RAITH ROVERS","sco_league_one":"ROSS COUNTY","sco_league_two":"STIRLING ALBION"}},{"name":"NIGEL FREETH","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"MIDDLESBOROUGH","eng_league_one":"STOCKPORT","eng_league_two":"BARNET","eng_national":"SOUTHEND","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"SPARTANS"}},{"name":"TOM BAMBRICK","paid":"NO","picks":{"eng_premier":"MAN CITY","eng_championship":"WEST HAM","eng_league_one":"LEICESTER","eng_league_two":"SWINDON TOWN","eng_national":"HARTLEPOOL","sco_championship":"LIVINGSTONE","sco_league_one":"HAMILTON","sco_league_two":"KELTY HEARTS"}},{"name":"RIVER SHERIDAN","paid":"NO","picks":{"eng_premier":"MAN CITY","eng_championship":"WEST HAM","eng_league_one":"SHEFFIELD WEDNESDAY","eng_league_two":"GRIMSBY","eng_national":"CARLISLE","sco_championship":"DUNFERMILINE","sco_league_one":"HAMILTON","sco_league_two":"CLYDE"}},{"name":"JENNY SMITH","paid":"YES","picks":{"eng_premier":"MAN CITY","eng_championship":"BIRMINGHAM","eng_league_one":"SHEFFIELD WEDNESDAY","eng_league_two":"BARNET","eng_national":"SOUTHEND","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"STRANRAER"}},{"name":"COLIN COOPER","paid":"NO","picks":{"eng_premier":"MAN UTD","eng_championship":"SOUTHAMPTON","eng_league_one":"LEICESTER","eng_league_two":"CHESTERFIELD","eng_national":"FOREST GREEN","sco_championship":"LIVINGSTONE","sco_league_one":"ROSS COUNTY","sco_league_two":"KELTY HEARTS"}},{"name":"DAVE BENTLEY","paid":"NO","picks":{"eng_premier":"ARSENAL","eng_championship":"WEST HAM","eng_league_one":"BLACKPOOL","eng_league_two":"BARNET","eng_national":"SUTTON","sco_championship":"AYR UNITED","sco_league_one":"EAST KILBRIDE","sco_league_two":"CLYDE"}},{"name":"CRAIG SMITH","paid":"YES","picks":{"eng_premier":"MAN UTD","eng_championship":"MIDDLESBOROUGH","eng_league_one":"BLACKPOOL","eng_league_two":"SALFORD","eng_national":"CARLISLE","sco_championship":"DUNFERMILINE","sco_league_one":"AIRDRIE","sco_league_two":"STRANRAER"}},{"name":"CHRIS BARNES","paid":"NO","picks":{"eng_premier":"MAN CITY","eng_championship":"WEST BROM","eng_league_one":"LEICESTER","eng_league_two":"FLEETWOOD","eng_national":"SOUTHEND","sco_championship":"PARTICK THISTLE","sco_league_one":"ROSS COUNTY","sco_league_two":"KELTY HEARTS"}}],"you":"BOB DICKINSON","deductions":{}};
+const SAMPLE = {"updated":"2026-08-20T09:00:00Z","source":"sample","leagues":{"eng_premier":{"name":"England Premier League","teams":[{"rank":1,"name":"Arsenal"},{"rank":2,"name":"Manchester United"},{"rank":3,"name":"Chelsea"},{"rank":4,"name":"Manchester City"},{"rank":5,"name":"Tottenham Hotspur"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"eng_championship":{"name":"England Championship","teams":[{"rank":1,"name":"Wolverhampton Wanderers"},{"rank":2,"name":"West Ham United"},{"rank":3,"name":"Sheffield United"},{"rank":4,"name":"Birmingham City"},{"rank":5,"name":"Wrexham"},{"rank":6,"name":"Middlesbrough"},{"rank":7,"name":"Southampton"},{"rank":8,"name":"West Bromwich Albion"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"eng_league_one":{"name":"England League One","teams":[{"rank":1,"name":"Luton Town"},{"rank":2,"name":"Sheffield Wednesday"},{"rank":3,"name":"Leicester City"},{"rank":4,"name":"Bradford City"},{"rank":5,"name":"Blackpool"},{"rank":6,"name":"Stockport County"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"eng_league_two":{"name":"England League Two","teams":[{"rank":1,"name":"Bristol Rovers"},{"rank":2,"name":"Salford City"},{"rank":3,"name":"Port Vale"},{"rank":4,"name":"Barnet"},{"rank":5,"name":"Swindon Town"},{"rank":6,"name":"Chesterfield"},{"rank":7,"name":"Grimsby Town"},{"rank":8,"name":"Fleetwood Town"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"eng_national":{"name":"England National League","teams":[{"rank":1,"name":"Carlisle United"},{"rank":2,"name":"Hartlepool United"},{"rank":3,"name":"Harrogate Town"},{"rank":4,"name":"Forest Green Rovers"},{"rank":5,"name":"Southend United"},{"rank":6,"name":"Sutton United"},{"rank":7,"name":"Boreham Wood"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"sco_championship":{"name":"Scotland Championship","teams":[{"rank":1,"name":"Livingston"},{"rank":2,"name":"Partick Thistle"},{"rank":3,"name":"Raith Rovers"},{"rank":4,"name":"St Johnstone"},{"rank":5,"name":"Ayr United"},{"rank":6,"name":"Dunfermline Athletic"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"sco_league_one":{"name":"Scotland League One","teams":[{"rank":1,"name":"Ross County"},{"rank":2,"name":"Inverness Caledonian Thistle"},{"rank":3,"name":"Hamilton Academical"},{"rank":4,"name":"Airdrieonians"},{"rank":5,"name":"East Kilbride"}],"source":"sample","checked":"2026-08-20T09:00:00Z"},"sco_league_two":{"name":"Scotland League Two","teams":[{"rank":1,"name":"Spartans"},{"rank":2,"name":"Clyde"},{"rank":3,"name":"Stirling Albion"},{"rank":4,"name":"Elgin City"},{"rank":5,"name":"Kelty Hearts"},{"rank":6,"name":"Stranraer"}],"source":"sample","checked":"2026-08-20T09:00:00Z"}}};
+
+/* ---------- matching sheet names to whatever the data feed calls a club ---------- */
+const norm = s => s.toUpperCase()
+  .replace(/[^A-Z0-9 ]/g, ' ')
+  .replace(/\bUTD\b/g, 'UNITED')
+  .replace(/\b(FC|AFC|THE)\b/g, ' ')
+  .replace(/\s+/g, ' ').trim();
+
+// a pick's alias can be one name or several, because the two data sources
+// spell some clubs differently ("The Spartans" / "Spartans FC" / "Spartans")
+const variants = picked => [].concat(CONFIG.aliases[picked] ?? picked).map(norm);
+
+function findTeam(table, pickedName){
+  const want = variants(pickedName).concat(norm(pickedName));
+  for (const t of table){ if (want.includes(norm(t.name))) return t; }
+  // one name contained in the other ("Luton" vs "Luton Town")
+  for (const t of table){
+    const n = norm(t.name);
+    if (want.some(w => n.startsWith(w) || w.startsWith(n))) return t;
+  }
+  return null;
+}
+
+/* ---------- scoring ---------- */
+function score(standings){
+  const rows = CONFIG.players.map(p => {
+    const picks = CONFIG.leagues.map(lg => {
+      const table = (standings.leagues[lg.key] || {}).teams || [];
+      const team = findTeam(table, p.picks[lg.key]);
+      return { league: lg, picked: p.picks[lg.key], pos: team ? team.rank : null, size: table.length || 24 };
+    });
+    const missing = picks.filter(x => x.pos === null).length;
+    const total = picks.reduce((a,x) => a + (x.pos || 0), 0);
+    return { name: p.name, picks, total, missing };
   });
+  // sort on total, then alphabetically so the order is stable week to week
+  rows.sort((a,b) => a.total - b.total || a.name.localeCompare(b.name));
+  let rank = 0, seen = 0, last = null;
+  rows.forEach(r => { seen++; if (r.total !== last){ rank = seen; last = r.total; r.shared = false; } else r.shared = true; r.rank = rank; });
+  rows.forEach(r => { r.tied = rows.filter(o => o.total === r.total).length > 1; });
+  return rows;
+}
+
+/* green at the top of a league, red at the bottom of it */
+function shade(pos, size){
+  const t = Math.min(1, (pos - 1) / Math.max(6, size - 1));
+  const hue = 148 - 138 * Math.pow(t, .7);
+  return `hsl(${hue} 62% ${58 - 6*t}%)`;
+}
+
+function ago(iso){
+  if (!iso) return null;
+  const mins = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (mins < 2) return 'just now';
+  if (mins < 60) return `${mins} min ago`;
+  const hrs = Math.round(mins / 60);
+  if (hrs < 36) return `${hrs} hr ago`;
+  return `${Math.round(hrs / 24)} days ago`;
+}
+
+const day = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+
+function renderSources(standings){
+  // One clock for the whole thing: every league is fetched in the same run,
+  // so "when did we last look" belongs above the table, said once.
+  const checked = Object.values(standings.leagues).map(l => l.checked).filter(Boolean).sort().pop()
+                  || standings.updated;
+  const hrs = (Date.now() - new Date(checked)) / 36e5;
+  const heat = hrs < 6 ? '' : hrs < 36 ? 'warm' : 'cold';
+  document.getElementById('srclead').innerHTML =
+    `Last looked for changes <b class="${heat}">${ago(checked) ?? 'at an unknown time'}</b>.`;
+
+  const box = document.getElementById('sources');
+  const head = `<div class="srcrow hdr"><span>League</span><span>Source</span>
+    <span>Last played</span><span class="fresh">Status</span></div>`;
+
+  box.innerHTML = head + CONFIG.leagues.map(lg => {
+    const L = standings.leagues[lg.key];
+    if (!L) return `<div class="srcrow"><span class="lgname">${lg.country} ${lg.name}</span>
+      <span class="via">&mdash;</span><span class="played">&mdash;</span>
+      <span class="fresh cold">no table</span></div>`;
+
+    const via = L.source === 'espn' ? 'ESPN' : L.source === 'sample' ? 'sample' : 'results';
+
+    // Last played: the newest fixture the division has actually completed,
+    // checked against ESPN's scoreboard regardless of which source built the table.
+    const played = L.lastFixture ? day(L.lastFixture) : '\u2014';
+
+    // Status: ESPN publishes the finished table and gives us no date to test,
+    // so we take it on trust. The results feed dates every match, so we can
+    // compare what's in the table against what's been played.
+    let status, cls = '';
+    if (L.source === 'espn') {
+      status = 'Complete';
+    } else if (L.latestMatch && L.lastFixture && L.lastFixture > L.latestMatch) {
+      status = `Missing ${day(L.lastFixture)}`; cls = 'lag';
+    } else if (L.latestMatch) {
+      status = `Complete &ndash; including ${day(L.latestMatch)}`;
+    } else {
+      status = 'Unknown'; cls = 'warm';
+    }
+
+    const tip = [
+      L.latestMatch ? `newest result in this table: ${L.latestMatch}` : null,
+      L.lastFixture ? `newest result the division has played: ${L.lastFixture}` : null,
+      L.lastModified ? `source file updated ${L.lastModified}` : null,
+      L.checked ? `checked ${new Date(L.checked).toLocaleString('en-GB')}` : null
+    ].filter(Boolean).join(' \u00b7 ');
+
+    return `<div class="srcrow">
+      <span class="lgname">${lg.country} ${lg.name}</span>
+      <span class="via">${via}</span>
+      <span class="played">${played}</span>
+      <span class="fresh ${cls}" title="${tip}">${status}</span>
+    </div>`;
+  }).join('');
+}
+
+function render(standings){
+  const rows = score(standings);
+  const board = document.getElementById('board');
+  board.innerHTML = '';
+  rows.forEach(r => {
+    const worst = Math.max(...r.picks.map(p => p.pos || 12), 8);
+    const bars = r.picks.map(p => p.pos === null
+      ? `<i class="bar miss" title="${p.picked} — not found"></i>`
+      : `<i class="bar" style="height:${Math.max(10, 100 * p.pos / worst)}%;background:${shade(p.pos, p.size)}" title="${p.picked} — ${p.pos}"></i>`
+    ).join('');
+    const cells = r.picks.map(p => `<div class="pick" data-league="${p.league.key}" data-team="${p.picked}">
+        <div><span class="lg">${p.league.country} ${p.league.name}</span><span class="tm">${p.picked}</span></div>
+        <span class="pt" style="color:${p.pos ? shade(p.pos, p.size) : 'var(--dim)'}">${p.pos ?? '—'}</span>
+      </div>`).join('');
+
+    const el = document.createElement('div');
+    el.className = 'entry' + (r.rank === 1 ? ' lead' : '');
+    el.dataset.name = r.name;
+    el._row = r;
+    el.innerHTML = `
+      <button class="row" aria-expanded="false">
+        <span class="pos">${r.tied ? '<span class="tie">=</span>' : ''}${r.rank}</span>
+        <span class="name">${r.name}</span>
+        <span class="strip">${bars}</span>
+        <span class="total r">${r.total}</span>
+      </button>
+      <div class="detail">
+        <div class="picks">${cells}</div>
+        ${r.missing ? `<p class="warn">${r.missing} pick${r.missing>1?'s':''} couldn't be matched to a league table — add the club to the alias list.</p>` : ''}
+      </div>`;
+    const btn = el.querySelector('.row');
+    btn.addEventListener('click', () => {
+      const open = el.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    board.appendChild(el);
+  });
+
+  const when = new Date(standings.updated);
+  const hrs = (Date.now() - when) / 36e5;
+  const live = standings.source !== 'sample';
+  const cls = !live ? 'sample' : hrs > 30 ? 'stale' : '';
+  document.getElementById('status').innerHTML =
+    `<span><i class="dot ${cls}"></i>${live ? 'Live tables' : 'Sample data'}</span>` +
+    `<span>Updated <b>${when.toLocaleString('en-GB',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b></span>` +
+    `<span>Leader <b>${rows[0].name}</b> on <b>${rows[0].total}</b></span>`;
+  buildFilters();
+  document.getElementById('filterBox').open = window.innerWidth > 900;
+  applyFilter();
+  renderSources(standings);
+  document.getElementById('prov').textContent = live
+    ? 'Positions come straight from the live league tables and refresh a few times a day.'
+    : 'These positions are the placeholder numbers from the spreadsheet, not live tables — swap in a real standings.json to go live.';
+}
+
+/* ---------- filter rail ----------
+   Clubs nobody picked are left out entirely. Within one league the ticks are
+   an OR, because an entry only has one pick per league and an AND there could
+   never match anybody. Across leagues it's an AND, which is the bit that finds
+   the entries closest to your own. */
+const picked = new Map();   // league key -> Map(club -> how many backed it)
+
+function buildFilters(){
+  for (const lg of CONFIG.leagues){
+    const counts = new Map();
+    for (const p of CONFIG.players){
+      const club = p.picks[lg.key];
+      counts.set(club, (counts.get(club) || 0) + 1);
+    }
+    picked.set(lg.key, counts);
+  }
+
+  document.getElementById('filterList').innerHTML = CONFIG.leagues.map(lg => {
+    const clubs = [...picked.get(lg.key)]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    return `<div class="fgroup">
+      <h3>${lg.country} ${lg.name}</h3>
+      ${clubs.map(([club, n]) => `<label class="fteam">
+          <input type="checkbox" data-league="${lg.key}" value="${club}">
+          <span class="tname">${club}</span><span class="tcount">${n}</span>
+        </label>`).join('')}
+    </div>`;
+  }).join('');
+}
+
+function selections(){
+  const sel = new Map();
+  document.querySelectorAll('#filterList input:checked').forEach(cb => {
+    if (!sel.has(cb.dataset.league)) sel.set(cb.dataset.league, new Set());
+    sel.get(cb.dataset.league).add(cb.value);
+  });
+  return sel;
+}
+
+function applyFilter(){
+  const sel = selections();
+  const active = sel.size > 0;
+  document.body.classList.toggle('filtering', active);
+
+  document.querySelectorAll('.fteam').forEach(l =>
+    l.classList.toggle('on', l.querySelector('input').checked));
+
+  let matches = 0;
+  document.querySelectorAll('.entry').forEach(el => {
+    const row = el._row;
+    const hit = !active || [...sel].every(([lgKey, clubs]) =>
+      clubs.has(row.picks.find(p => p.league.key === lgKey).picked));
+
+    el.classList.toggle('match', active && hit);
+    if (active){
+      el.classList.toggle('open', hit);
+      el.querySelector('.row').setAttribute('aria-expanded', hit);
+      if (hit) matches++;
+    }
+    // mark the individual picks that caused the match
+    el.querySelectorAll('.pick').forEach(cell => {
+      const on = active && hit && sel.get(cell.dataset.league)?.has(cell.dataset.team);
+      cell.classList.toggle('hit', !!on);
+    });
+  });
+
+  const ticks = [...sel.values()].reduce((a, s) => a + s.size, 0);
+  document.getElementById('filterCount').textContent =
+    active ? `${matches} of ${CONFIG.players.length}` : '';
+  document.getElementById('clearFilter').textContent =
+    ticks ? `Clear ${ticks} tick${ticks > 1 ? 's' : ''}` : 'Clear all';
+}
+
+document.getElementById('filterList').addEventListener('change', applyFilter);
+document.getElementById('clearFilter').addEventListener('click', () => {
+  document.querySelectorAll('#filterList input:checked').forEach(cb => cb.checked = false);
+  document.querySelectorAll('.entry').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.row').setAttribute('aria-expanded', false);
+  });
+  document.getElementById('expandAll').setAttribute('aria-pressed', false);
+  document.getElementById('expandAll').textContent = 'Show every pick';
+  applyFilter();
+});
+
+/* ---------- controls ---------- */
+document.getElementById('expandAll').addEventListener('click', e => {
+  const on = e.target.getAttribute('aria-pressed') !== 'true';
+  e.target.setAttribute('aria-pressed', on);
+  e.target.textContent = on ? 'Collapse picks' : 'Show every pick';
+  document.querySelectorAll('.entry').forEach(n => {
+    n.classList.toggle('open', on);
+    n.querySelector('.row').setAttribute('aria-expanded', on);
+  });
+});
+document.getElementById('highlightMe').addEventListener('click', e => {
+  const on = e.target.getAttribute('aria-pressed') !== 'true';
+  e.target.setAttribute('aria-pressed', on);
+  document.querySelectorAll('.entry').forEach(n => n.classList.toggle('me', on && n.dataset.name === CONFIG.you));
+  if (on) document.querySelector('.entry.me')?.scrollIntoView({block:'center', behavior:'smooth'});
+});
+
+/* live file if it's there, spreadsheet numbers if it isn't */
+async function load(file){
+  const r = await fetch(file, {cache:'no-store'});
+  if (!r.ok) throw new Error(file);
+  return r.json();
+}
+(async () => {
+  // players.json is the master copy of the picks and the club-name aliases;
+  // the versions baked into this file are only a fallback for opening it offline.
+  try { Object.assign(CONFIG, await load('./players.json')); } catch {}
+  const sources = [DATA_URL, './standings.json']
+    .filter(u => u && !u.includes('/USER/REPO/'));   // ignore the unedited placeholder
+
+  for (const url of sources) {
+    try { return render(await load(url)); } catch {}
+  }
+  render(SAMPLE);
+})();
 </script>
 </body>
 </html>
