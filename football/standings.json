@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-23T12:13:01.453Z",
+ "updated": "2026-08-23T15:10:13.035Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,8 +7,8 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-08-23T12:12:57.395Z",
-   "changed": "2026-08-22T21:09:34.585Z",
+   "checked": "2026-08-23T15:10:08.712Z",
+   "changed": "2026-08-23T15:10:08.712Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
    "latestMatch": null,
@@ -16,121 +16,121 @@
    "teams": [
     {
      "rank": 1,
-     "name": "Arsenal",
+     "name": "Brighton & Hove Albion",
      "played": 1,
      "points": 3
     },
     {
      "rank": 2,
-     "name": "Brentford",
+     "name": "Arsenal",
      "played": 1,
      "points": 3
     },
     {
      "rank": 3,
-     "name": "Everton",
+     "name": "Brentford",
      "played": 1,
      "points": 3
     },
     {
      "rank": 4,
-     "name": "Hull City",
+     "name": "Everton",
      "played": 1,
      "points": 3
     },
     {
      "rank": 5,
-     "name": "Ipswich Town",
+     "name": "Hull City",
      "played": 1,
      "points": 3
     },
     {
      "rank": 6,
-     "name": "Leeds United",
+     "name": "Ipswich Town",
      "played": 1,
      "points": 3
     },
     {
      "rank": 7,
-     "name": "Aston Villa",
-     "played": 0,
-     "points": 0
+     "name": "Manchester City",
+     "played": 1,
+     "points": 3
     },
     {
      "rank": 8,
-     "name": "AFC Bournemouth",
-     "played": 0,
-     "points": 0
+     "name": "Leeds United",
+     "played": 1,
+     "points": 3
     },
     {
      "rank": 9,
-     "name": "Brighton & Hove Albion",
-     "played": 0,
-     "points": 0
-    },
-    {
-     "rank": 10,
      "name": "Chelsea",
      "played": 0,
      "points": 0
     },
     {
-     "rank": 11,
+     "rank": 10,
      "name": "Fulham",
      "played": 0,
      "points": 0
     },
     {
-     "rank": 12,
+     "rank": 11,
      "name": "Liverpool",
      "played": 0,
      "points": 0
     },
     {
-     "rank": 13,
-     "name": "Manchester City",
-     "played": 0,
-     "points": 0
-    },
-    {
-     "rank": 14,
+     "rank": 12,
      "name": "Newcastle United",
      "played": 0,
      "points": 0
     },
     {
-     "rank": 15,
+     "rank": 13,
+     "name": "AFC Bournemouth",
+     "played": 1,
+     "points": 0
+    },
+    {
+     "rank": 14,
      "name": "Sunderland",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 16,
+     "rank": 15,
      "name": "Nottingham Forest",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 17,
+     "rank": 16,
      "name": "Crystal Palace",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 18,
+     "rank": 17,
      "name": "Manchester United",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 19,
+     "rank": 18,
      "name": "Coventry City",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 20,
+     "rank": 19,
      "name": "Tottenham Hotspur",
+     "played": 1,
+     "points": 0
+    },
+    {
+     "rank": 20,
+     "name": "Aston Villa",
      "played": 1,
      "points": 0
     }
@@ -139,8 +139,8 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-08-23T12:12:57.780Z",
-   "changed": "2026-08-22T18:10:37.942Z",
+   "checked": "2026-08-23T15:10:09.106Z",
+   "changed": "2026-08-23T15:10:09.106Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
    "latestMatch": null,
@@ -154,51 +154,51 @@
     },
     {
      "rank": 2,
-     "name": "Charlton Athletic",
+     "name": "West Bromwich Albion",
      "played": 2,
      "points": 6
     },
     {
      "rank": 3,
+     "name": "Charlton Athletic",
+     "played": 2,
+     "points": 6
+    },
+    {
+     "rank": 4,
      "name": "Wolverhampton Wanderers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 4,
+     "rank": 5,
      "name": "Queens Park Rangers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 5,
+     "rank": 6,
      "name": "Blackburn Rovers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 6,
+     "rank": 7,
      "name": "Watford",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 7,
+     "rank": 8,
      "name": "Swansea City",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 8,
+     "rank": 9,
      "name": "Bolton Wanderers",
      "played": 2,
      "points": 4
-    },
-    {
-     "rank": 9,
-     "name": "West Bromwich Albion",
-     "played": 1,
-     "points": 3
     },
     {
      "rank": 10,
@@ -238,19 +238,19 @@
     },
     {
      "rank": 16,
-     "name": "Burnley",
-     "played": 1,
-     "points": 1
-    },
-    {
-     "rank": 17,
      "name": "West Ham United",
      "played": 2,
      "points": 1
     },
     {
-     "rank": 18,
+     "rank": 17,
      "name": "Derby County",
+     "played": 2,
+     "points": 1
+    },
+    {
+     "rank": 18,
+     "name": "Burnley",
      "played": 2,
      "points": 1
     },
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-08-23T12:12:58.133Z",
+   "checked": "2026-08-23T15:10:09.469Z",
    "changed": "2026-08-22T21:09:35.617Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-08-23T12:12:58.516Z",
+   "checked": "2026-08-23T15:10:09.885Z",
    "changed": "2026-08-22T21:09:36.211Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-08-23T12:12:58.958Z",
+   "checked": "2026-08-23T15:10:10.757Z",
    "changed": "2026-08-22T18:10:39.344Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-08-23T12:12:59.337Z",
+   "checked": "2026-08-23T15:10:11.177Z",
    "changed": "2026-08-22T21:09:37.339Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-08-23T12:13:00.646Z",
+   "checked": "2026-08-23T15:10:12.158Z",
    "changed": null,
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 17 Aug 2026 22:49:32 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-08-23T12:13:01.127Z",
+   "checked": "2026-08-23T15:10:12.667Z",
    "changed": null,
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 17 Aug 2026 22:49:32 GMT",
