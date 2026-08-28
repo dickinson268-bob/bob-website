@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-28T14:37:34.243Z",
+ "updated": "2026-08-28T23:43:46.103Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,58 +7,58 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-08-28T14:37:30.360Z",
-   "changed": "2026-08-24T21:16:31.798Z",
+   "checked": "2026-08-28T23:43:41.769Z",
+   "changed": "2026-08-28T23:43:41.770Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-08-24",
+   "lastFixture": "2026-08-28",
    "teams": [
     {
      "rank": 1,
+     "name": "Manchester City",
+     "played": 2,
+     "points": 6
+    },
+    {
+     "rank": 2,
      "name": "Brighton & Hove Albion",
      "played": 1,
      "points": 3
     },
     {
-     "rank": 2,
+     "rank": 3,
      "name": "Arsenal",
      "played": 1,
      "points": 3
     },
     {
-     "rank": 3,
+     "rank": 4,
      "name": "Brentford",
      "played": 1,
      "points": 3
     },
     {
-     "rank": 4,
+     "rank": 5,
      "name": "Everton",
      "played": 1,
      "points": 3
     },
     {
-     "rank": 5,
+     "rank": 6,
      "name": "Hull City",
      "played": 1,
      "points": 3
     },
     {
-     "rank": 6,
+     "rank": 7,
      "name": "Chelsea",
      "played": 1,
      "points": 3
     },
     {
-     "rank": 7,
-     "name": "Ipswich Town",
-     "played": 1,
-     "points": 3
-    },
-    {
      "rank": 8,
-     "name": "Manchester City",
+     "name": "Ipswich Town",
      "played": 1,
      "points": 3
     },
@@ -106,32 +106,32 @@
     },
     {
      "rank": 16,
-     "name": "Crystal Palace",
-     "played": 1,
-     "points": 0
-    },
-    {
-     "rank": 17,
      "name": "Manchester United",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 18,
+     "rank": 17,
      "name": "Coventry City",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 19,
+     "rank": 18,
      "name": "Tottenham Hotspur",
      "played": 1,
      "points": 0
     },
     {
-     "rank": 20,
+     "rank": 19,
      "name": "Aston Villa",
      "played": 1,
+     "points": 0
+    },
+    {
+     "rank": 20,
+     "name": "Crystal Palace",
+     "played": 2,
      "points": 0
     }
    ]
@@ -139,12 +139,12 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-08-28T14:37:30.782Z",
-   "changed": "2026-08-23T15:10:09.106Z",
+   "checked": "2026-08-28T23:43:42.196Z",
+   "changed": "2026-08-28T23:43:42.196Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-08-23",
+   "lastFixture": "2026-08-28",
    "teams": [
     {
      "rank": 1,
@@ -166,74 +166,74 @@
     },
     {
      "rank": 4,
+     "name": "Birmingham City",
+     "played": 3,
+     "points": 5
+    },
+    {
+     "rank": 5,
      "name": "Wolverhampton Wanderers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 5,
+     "rank": 6,
      "name": "Queens Park Rangers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 6,
+     "rank": 7,
      "name": "Blackburn Rovers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 7,
+     "rank": 8,
      "name": "Watford",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 8,
+     "rank": 9,
      "name": "Swansea City",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 9,
+     "rank": 10,
      "name": "Bolton Wanderers",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 10,
+     "rank": 11,
      "name": "Portsmouth",
      "played": 2,
      "points": 3
     },
     {
-     "rank": 11,
+     "rank": 12,
      "name": "Middlesbrough",
      "played": 2,
      "points": 3
     },
     {
-     "rank": 12,
+     "rank": 13,
      "name": "Cardiff City",
      "played": 2,
      "points": 2
     },
     {
-     "rank": 13,
-     "name": "Wrexham",
-     "played": 2,
-     "points": 2
-    },
-    {
      "rank": 14,
-     "name": "Birmingham City",
+     "name": "Sheffield United",
      "played": 2,
      "points": 2
     },
     {
      "rank": 15,
-     "name": "Sheffield United",
-     "played": 2,
+     "name": "Wrexham",
+     "played": 3,
      "points": 2
     },
     {
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-08-28T14:37:31.224Z",
+   "checked": "2026-08-28T23:43:42.626Z",
    "changed": "2026-08-22T21:09:35.617Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-08-28T14:37:31.646Z",
+   "checked": "2026-08-28T23:43:43.043Z",
    "changed": "2026-08-22T21:09:36.211Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,155 +607,155 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-08-28T14:37:32.038Z",
-   "changed": "2026-08-28T00:07:10.975Z",
+   "checked": "2026-08-28T23:43:43.484Z",
+   "changed": "2026-08-28T23:43:43.484Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-08-27",
+   "lastFixture": "2026-08-28",
    "teams": [
     {
      "rank": 1,
+     "name": "Sutton United",
+     "played": 4,
+     "points": 12
+    },
+    {
+     "rank": 2,
      "name": "Boreham Wood",
      "played": 4,
      "points": 10
     },
     {
-     "rank": 2,
-     "name": "Southend United",
-     "played": 3,
-     "points": 9
-    },
-    {
      "rank": 3,
-     "name": "Sutton United",
-     "played": 3,
+     "name": "Southend United",
+     "played": 4,
      "points": 9
     },
     {
      "rank": 4,
-     "name": "Harrogate Town",
-     "played": 3,
-     "points": 7
+     "name": "AFC Hornchurch",
+     "played": 4,
+     "points": 9
     },
     {
      "rank": 5,
-     "name": "Hartlepool United",
-     "played": 3,
-     "points": 6
+     "name": "Eastleigh",
+     "played": 4,
+     "points": 9
     },
     {
      "rank": 6,
-     "name": "AFC Hornchurch",
-     "played": 3,
-     "points": 6
+     "name": "Yeovil Town",
+     "played": 4,
+     "points": 8
     },
     {
      "rank": 7,
-     "name": "Eastleigh",
-     "played": 3,
-     "points": 6
+     "name": "Harrogate Town",
+     "played": 4,
+     "points": 7
     },
     {
      "rank": 8,
-     "name": "Worthing",
-     "played": 3,
-     "points": 6
+     "name": "AFC Fylde",
+     "played": 4,
+     "points": 7
     },
     {
      "rank": 9,
+     "name": "Aldershot Town",
+     "played": 4,
+     "points": 7
+    },
+    {
+     "rank": 10,
+     "name": "Kidderminster Harriers",
+     "played": 4,
+     "points": 7
+    },
+    {
+     "rank": 11,
      "name": "Boston United",
      "played": 4,
      "points": 6
     },
     {
-     "rank": 10,
-     "name": "Forest Green Rovers",
-     "played": 3,
+     "rank": 12,
+     "name": "Hartlepool United",
+     "played": 4,
      "points": 6
     },
     {
-     "rank": 11,
-     "name": "Yeovil Town",
-     "played": 3,
-     "points": 5
-    },
-    {
-     "rank": 12,
-     "name": "Carlisle United",
-     "played": 3,
-     "points": 4
-    },
-    {
      "rank": 13,
-     "name": "AFC Fylde",
-     "played": 3,
-     "points": 4
+     "name": "Worthing",
+     "played": 4,
+     "points": 6
     },
     {
      "rank": 14,
-     "name": "Aldershot Town",
-     "played": 3,
-     "points": 4
+     "name": "Forest Green Rovers",
+     "played": 4,
+     "points": 6
     },
     {
      "rank": 15,
-     "name": "Kidderminster Harriers",
-     "played": 3,
-     "points": 4
+     "name": "Carlisle United",
+     "played": 4,
+     "points": 5
     },
     {
      "rank": 16,
-     "name": "FC Halifax Town",
-     "played": 3,
-     "points": 3
+     "name": "Scunthorpe United",
+     "played": 4,
+     "points": 4
     },
     {
      "rank": 17,
-     "name": "Gateshead",
-     "played": 3,
-     "points": 3
+     "name": "Tamworth",
+     "played": 4,
+     "points": 4
     },
     {
      "rank": 18,
-     "name": "Woking",
-     "played": 3,
+     "name": "FC Halifax Town",
+     "played": 4,
      "points": 3
     },
     {
      "rank": 19,
-     "name": "Scunthorpe United",
-     "played": 3,
-     "points": 1
+     "name": "Altrincham",
+     "played": 4,
+     "points": 3
     },
     {
      "rank": 20,
-     "name": "Barrow",
-     "played": 3,
-     "points": 1
+     "name": "Gateshead",
+     "played": 4,
+     "points": 3
     },
     {
      "rank": 21,
-     "name": "Wealdstone",
-     "played": 3,
-     "points": 1
+     "name": "Woking",
+     "played": 4,
+     "points": 3
     },
     {
      "rank": 22,
-     "name": "Tamworth",
-     "played": 3,
-     "points": 1
+     "name": "Wealdstone",
+     "played": 4,
+     "points": 2
     },
     {
      "rank": 23,
-     "name": "Altrincham",
-     "played": 3,
-     "points": 0
+     "name": "Barrow",
+     "played": 4,
+     "points": 1
     },
     {
      "rank": 24,
      "name": "Solihull Moors",
-     "played": 3,
+     "played": 4,
      "points": 0
     }
    ]
@@ -763,12 +763,12 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-08-28T14:37:32.429Z",
-   "changed": "2026-08-22T21:09:37.339Z",
+   "checked": "2026-08-28T23:43:43.953Z",
+   "changed": "2026-08-28T23:43:43.953Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-08-22",
+   "lastFixture": "2026-08-28",
    "teams": [
     {
      "rank": 1,
@@ -778,14 +778,14 @@
     },
     {
      "rank": 2,
-     "name": "Raith Rovers",
+     "name": "Partick Thistle",
      "played": 3,
      "points": 7
     },
     {
      "rank": 3,
-     "name": "Partick Thistle",
-     "played": 3,
+     "name": "Raith Rovers",
+     "played": 4,
      "points": 7
     },
     {
@@ -796,27 +796,27 @@
     },
     {
      "rank": 5,
+     "name": "Dunfermline Athletic",
+     "played": 4,
+     "points": 5
+    },
+    {
+     "rank": 6,
      "name": "Ayr United",
      "played": 3,
      "points": 4
     },
     {
-     "rank": 6,
+     "rank": 7,
      "name": "Arbroath",
      "played": 3,
      "points": 4
     },
     {
-     "rank": 7,
+     "rank": 8,
      "name": "Inverness Caledonian Thistle",
      "played": 3,
      "points": 3
-    },
-    {
-     "rank": 8,
-     "name": "Dunfermline Athletic",
-     "played": 3,
-     "points": 2
     },
     {
      "rank": 9,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-08-28T14:37:33.335Z",
+   "checked": "2026-08-28T23:43:45.139Z",
    "changed": "2026-08-25T00:28:16.150Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 24 Aug 2026 22:23:13 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-08-28T14:37:33.902Z",
+   "checked": "2026-08-28T23:43:45.748Z",
    "changed": "2026-08-25T00:28:16.851Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 24 Aug 2026 22:23:13 GMT",
