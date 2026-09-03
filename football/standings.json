@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-03T01:37:43.922Z",
+ "updated": "2026-09-03T07:24:44.170Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-03T01:37:39.285Z",
+   "checked": "2026-09-03T07:24:40.230Z",
    "changed": "2026-08-31T22:05:00.252Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-03T01:37:39.723Z",
+   "checked": "2026-09-03T07:24:40.615Z",
    "changed": "2026-09-02T22:52:33.149Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,8 +295,8 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-03T01:37:40.180Z",
-   "changed": "2026-09-03T01:37:40.180Z",
+   "checked": "2026-09-03T07:24:41.001Z",
+   "changed": "2026-09-03T07:24:41.001Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
    "latestMatch": null,
@@ -358,19 +358,19 @@
     },
     {
      "rank": 10,
-     "name": "Mansfield Town",
-     "played": 3,
-     "points": 6
-    },
-    {
-     "rank": 11,
      "name": "Notts County",
      "played": 4,
      "points": 6
     },
     {
-     "rank": 12,
+     "rank": 11,
      "name": "Bradford City",
+     "played": 4,
+     "points": 6
+    },
+    {
+     "rank": 12,
+     "name": "Mansfield Town",
      "played": 4,
      "points": 6
     },
@@ -382,76 +382,76 @@
     },
     {
      "rank": 14,
-     "name": "Oxford United",
+     "name": "Reading",
      "played": 3,
      "points": 4
     },
     {
      "rank": 15,
+     "name": "Oxford United",
+     "played": 3,
+     "points": 4
+    },
+    {
+     "rank": 16,
      "name": "Plymouth Argyle",
      "played": 4,
      "points": 4
     },
     {
-     "rank": 16,
+     "rank": 17,
      "name": "AFC Wimbledon",
      "played": 4,
      "points": 4
     },
     {
-     "rank": 17,
+     "rank": 18,
      "name": "Peterborough United",
      "played": 4,
      "points": 4
     },
     {
-     "rank": 18,
+     "rank": 19,
      "name": "Bromley",
      "played": 4,
      "points": 4
     },
     {
-     "rank": 19,
+     "rank": 20,
      "name": "Doncaster Rovers",
      "played": 4,
      "points": 3
     },
     {
-     "rank": 20,
+     "rank": 21,
      "name": "Stevenage",
      "played": 4,
      "points": 3
     },
     {
-     "rank": 21,
+     "rank": 22,
      "name": "Wigan Athletic",
      "played": 4,
      "points": 3
     },
     {
-     "rank": 22,
+     "rank": 23,
      "name": "Milton Keynes Dons",
      "played": 4,
      "points": 3
     },
     {
-     "rank": 23,
+     "rank": 24,
      "name": "Wycombe Wanderers",
      "played": 4,
      "points": 2
-    },
-    {
-     "rank": 24,
-     "name": "Reading",
-     "played": 2,
-     "points": 1
     }
    ]
   },
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-03T01:37:40.682Z",
+   "checked": "2026-09-03T07:24:41.396Z",
    "changed": "2026-09-01T22:52:03.584Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-03T01:37:41.148Z",
+   "checked": "2026-09-03T07:24:41.775Z",
    "changed": "2026-09-01T22:52:04.064Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-03T01:37:41.696Z",
+   "checked": "2026-09-03T07:24:42.157Z",
    "changed": "2026-08-29T20:03:08.670Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-03T01:37:42.880Z",
+   "checked": "2026-09-03T07:24:43.273Z",
    "changed": "2026-09-01T02:10:58.177Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-03T01:37:43.562Z",
+   "checked": "2026-09-03T07:24:43.815Z",
    "changed": "2026-09-01T02:10:58.740Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
