@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-04T19:56:55.251Z",
+ "updated": "2026-09-04T22:35:28.302Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,12 +7,12 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-04T19:56:50.444Z",
-   "changed": "2026-08-31T22:05:00.252Z",
+   "checked": "2026-09-04T22:35:22.882Z",
+   "changed": "2026-09-04T22:35:22.882Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-08-31",
+   "lastFixture": "2026-09-04",
    "teams": [
     {
      "rank": 1,
@@ -40,57 +40,57 @@
     },
     {
      "rank": 5,
+     "name": "Liverpool",
+     "played": 3,
+     "points": 5
+    },
+    {
+     "rank": 6,
      "name": "Brentford",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 6,
+     "rank": 7,
      "name": "Newcastle United",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 7,
+     "rank": 8,
      "name": "Everton",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 8,
+     "rank": 9,
      "name": "Leeds United",
      "played": 2,
      "points": 4
     },
     {
-     "rank": 9,
+     "rank": 10,
      "name": "Brighton & Hove Albion",
      "played": 2,
      "points": 3
     },
     {
-     "rank": 10,
+     "rank": 11,
      "name": "Manchester United",
      "played": 2,
      "points": 3
     },
     {
-     "rank": 11,
+     "rank": 12,
      "name": "Sunderland",
      "played": 2,
      "points": 3
     },
     {
-     "rank": 12,
-     "name": "Ipswich Town",
-     "played": 2,
-     "points": 3
-    },
-    {
      "rank": 13,
-     "name": "Liverpool",
-     "played": 2,
-     "points": 2
+     "name": "Ipswich Town",
+     "played": 3,
+     "points": 3
     },
     {
      "rank": 14,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-04T19:56:50.936Z",
+   "checked": "2026-09-04T22:35:23.386Z",
    "changed": "2026-09-02T22:52:33.149Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-04T19:56:51.457Z",
+   "checked": "2026-09-04T22:35:23.995Z",
    "changed": "2026-09-03T07:24:41.001Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-04T19:56:51.959Z",
+   "checked": "2026-09-04T22:35:24.534Z",
    "changed": "2026-09-01T22:52:03.584Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,12 +607,12 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-04T19:56:52.437Z",
+   "checked": "2026-09-04T22:35:25.178Z",
    "changed": "2026-09-01T22:52:04.064Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-09-01",
+   "lastFixture": "2026-09-04",
    "teams": [
     {
      "rank": 1,
@@ -763,12 +763,12 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-04T19:56:52.919Z",
+   "checked": "2026-09-04T22:35:25.747Z",
    "changed": "2026-08-29T20:03:08.670Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
    "latestMatch": null,
-   "lastFixture": "2026-08-29",
+   "lastFixture": "2026-09-04",
    "teams": [
     {
      "rank": 1,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-04T19:56:54.037Z",
+   "checked": "2026-09-04T22:35:26.823Z",
    "changed": "2026-09-01T02:10:58.177Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-04T19:56:54.745Z",
+   "checked": "2026-09-04T22:35:27.659Z",
    "changed": "2026-09-01T02:10:58.740Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
