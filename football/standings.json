@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-04T22:35:28.302Z",
+ "updated": "2026-09-05T01:32:44.437Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-04T22:35:22.882Z",
+   "checked": "2026-09-05T01:32:39.838Z",
    "changed": "2026-09-04T22:35:22.882Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-04T22:35:23.386Z",
+   "checked": "2026-09-05T01:32:40.348Z",
    "changed": "2026-09-02T22:52:33.149Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-04T22:35:23.995Z",
+   "checked": "2026-09-05T01:32:40.820Z",
    "changed": "2026-09-03T07:24:41.001Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-04T22:35:24.534Z",
+   "checked": "2026-09-05T01:32:41.289Z",
    "changed": "2026-09-01T22:52:03.584Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,8 +607,8 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-04T22:35:25.178Z",
-   "changed": "2026-09-01T22:52:04.064Z",
+   "checked": "2026-09-05T01:32:41.810Z",
+   "changed": "2026-09-05T01:32:41.810Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
    "latestMatch": null,
@@ -659,54 +659,54 @@
     {
      "rank": 8,
      "name": "Eastleigh",
-     "played": 5,
+     "played": 6,
      "points": 10
     },
     {
      "rank": 9,
+     "name": "Altrincham",
+     "played": 6,
+     "points": 9
+    },
+    {
+     "rank": 10,
      "name": "Carlisle United",
      "played": 5,
      "points": 8
     },
     {
-     "rank": 10,
+     "rank": 11,
      "name": "Aldershot Town",
      "played": 5,
      "points": 8
     },
     {
-     "rank": 11,
+     "rank": 12,
      "name": "Kidderminster Harriers",
      "played": 5,
      "points": 8
     },
     {
-     "rank": 12,
+     "rank": 13,
      "name": "FC Halifax Town",
      "played": 5,
      "points": 6
     },
     {
-     "rank": 13,
+     "rank": 14,
      "name": "Boston United",
      "played": 5,
      "points": 6
     },
     {
-     "rank": 14,
+     "rank": 15,
      "name": "Hartlepool United",
      "played": 5,
      "points": 6
     },
     {
-     "rank": 15,
-     "name": "Worthing",
-     "played": 5,
-     "points": 6
-    },
-    {
      "rank": 16,
-     "name": "Altrincham",
+     "name": "Worthing",
      "played": 5,
      "points": 6
     },
@@ -763,8 +763,8 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-04T22:35:25.747Z",
-   "changed": "2026-08-29T20:03:08.670Z",
+   "checked": "2026-09-05T01:32:42.296Z",
+   "changed": "2026-09-05T01:32:42.296Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
    "latestMatch": null,
@@ -773,8 +773,8 @@
     {
      "rank": 1,
      "name": "Stenhousemuir",
-     "played": 4,
-     "points": 10
+     "played": 5,
+     "points": 13
     },
     {
      "rank": 2,
@@ -797,7 +797,7 @@
     {
      "rank": 5,
      "name": "Livingston",
-     "played": 4,
+     "played": 5,
      "points": 6
     },
     {
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-04T22:35:26.823Z",
+   "checked": "2026-09-05T01:32:43.381Z",
    "changed": "2026-09-01T02:10:58.177Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-04T22:35:27.659Z",
+   "checked": "2026-09-05T01:32:44.052Z",
    "changed": "2026-09-01T02:10:58.740Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
