@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-06T17:22:55.538Z",
+ "updated": "2026-09-06T19:39:07.852Z",
  "source": "mixed",
  "season": 2026,
  "failed": [
@@ -10,8 +10,8 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-06T17:22:50.735Z",
-   "changed": "2026-09-06T17:22:50.735Z",
+   "checked": "2026-09-06T19:39:03.683Z",
+   "changed": "2026-09-06T19:39:03.684Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
    "latestMatch": null,
@@ -25,20 +25,20 @@
     },
     {
      "rank": 2,
+     "name": "Arsenal",
+     "played": 3,
+     "points": 9
+    },
+    {
+     "rank": 3,
      "name": "Hull City",
      "played": 3,
      "points": 7
     },
     {
-     "rank": 3,
-     "name": "Arsenal",
-     "played": 2,
-     "points": 6
-    },
-    {
      "rank": 4,
      "name": "Chelsea",
-     "played": 2,
+     "played": 3,
      "points": 6
     },
     {
@@ -142,7 +142,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-06T17:22:51.308Z",
+   "checked": "2026-09-06T19:39:04.094Z",
    "changed": "2026-09-06T17:22:51.308Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -298,7 +298,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-06T17:22:52.089Z",
+   "checked": "2026-09-06T19:39:04.726Z",
    "changed": "2026-09-05T16:58:30.074Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -454,7 +454,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-06T17:22:52.596Z",
+   "checked": "2026-09-06T19:39:05.141Z",
    "changed": "2026-09-05T22:23:42.913Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -610,7 +610,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-06T17:22:53.041Z",
+   "checked": "2026-09-06T19:39:05.544Z",
    "changed": "2026-09-05T22:23:43.634Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -766,7 +766,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-06T17:22:53.547Z",
+   "checked": "2026-09-06T19:39:05.944Z",
    "changed": "2026-09-05T22:23:44.354Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
