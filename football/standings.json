@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-08T13:06:52.271Z",
+ "updated": "2026-09-08T18:09:03.015Z",
  "source": "mixed",
  "season": 2026,
  "failed": [
@@ -10,7 +10,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-08T13:06:46.725Z",
+   "checked": "2026-09-08T18:08:58.292Z",
    "changed": "2026-09-06T19:39:03.684Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -142,7 +142,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-08T13:06:47.438Z",
+   "checked": "2026-09-08T18:08:58.936Z",
    "changed": "2026-09-06T17:22:51.308Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -298,7 +298,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-08T13:06:48.047Z",
+   "checked": "2026-09-08T18:08:59.540Z",
    "changed": "2026-09-08T01:34:50.666Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -454,7 +454,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-08T13:06:48.837Z",
+   "checked": "2026-09-08T18:09:00.043Z",
    "changed": "2026-09-05T22:23:42.913Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -610,7 +610,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-08T13:06:49.521Z",
+   "checked": "2026-09-08T18:09:00.459Z",
    "changed": "2026-09-05T22:23:43.634Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -766,7 +766,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-08T13:06:50.232Z",
+   "checked": "2026-09-08T18:09:00.918Z",
    "changed": "2026-09-05T22:23:44.354Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
