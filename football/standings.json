@@ -1,16 +1,13 @@
 {
- "updated": "2026-09-10T01:37:31.386Z",
+ "updated": "2026-09-10T07:32:32.768Z",
  "source": "mixed",
  "season": 2026,
- "failed": [
-  "sco_league_one: espn: no standings in the response | football-data.co.uk: HTTP 503",
-  "sco_league_two: espn: no standings in the response | football-data.co.uk: HTTP 503"
- ],
+ "failed": [],
  "leagues": {
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-10T01:37:26.640Z",
+   "checked": "2026-09-10T07:32:28.326Z",
    "changed": "2026-09-06T19:39:03.684Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -142,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-10T01:37:27.217Z",
+   "checked": "2026-09-10T07:32:28.715Z",
    "changed": "2026-09-09T22:48:28.307Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -298,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-10T01:37:27.774Z",
+   "checked": "2026-09-10T07:32:29.117Z",
    "changed": "2026-09-08T01:34:50.666Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -454,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-10T01:37:28.289Z",
+   "checked": "2026-09-10T07:32:29.532Z",
    "changed": "2026-09-05T22:23:42.913Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -610,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-10T01:37:28.818Z",
+   "checked": "2026-09-10T07:32:29.934Z",
    "changed": "2026-09-05T22:23:43.634Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -766,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-10T01:37:29.460Z",
+   "checked": "2026-09-10T07:32:30.322Z",
    "changed": "2026-09-05T22:23:44.354Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -838,144 +835,144 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-05T12:09:53.663Z",
-   "changed": "2026-09-01T02:10:58.177Z",
+   "checked": "2026-09-10T07:32:31.742Z",
+   "changed": "2026-09-10T07:32:31.742Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
-   "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
-   "latestMatch": "2026-08-29",
+   "lastModified": "Mon, 07 Sep 2026 22:39:42 GMT",
+   "latestMatch": "2026-09-05",
    "lastFixture": null,
    "teams": [
     {
      "rank": 1,
      "name": "Hamilton",
-     "played": 5,
-     "points": 13
+     "played": 6,
+     "points": 16
     },
     {
      "rank": 2,
      "name": "Ross County",
-     "played": 4,
-     "points": 12
+     "played": 5,
+     "points": 13
     },
     {
      "rank": 3,
      "name": "Alloa",
-     "played": 5,
-     "points": 8
+     "played": 6,
+     "points": 9
     },
     {
      "rank": 4,
-     "name": "East Kilbride",
-     "played": 5,
-     "points": 7
+     "name": "Montrose",
+     "played": 6,
+     "points": 9
     },
     {
      "rank": 5,
-     "name": "Peterhead",
-     "played": 5,
+     "name": "East Fife",
+     "played": 6,
      "points": 7
     },
     {
      "rank": 6,
-     "name": "East Fife",
-     "played": 5,
-     "points": 6
+     "name": "East Kilbride",
+     "played": 6,
+     "points": 7
     },
     {
      "rank": 7,
-     "name": "Montrose",
-     "played": 5,
-     "points": 6
+     "name": "Peterhead",
+     "played": 6,
+     "points": 7
     },
     {
      "rank": 8,
      "name": "Cove Rangers",
-     "played": 5,
-     "points": 4
+     "played": 6,
+     "points": 5
     },
     {
      "rank": 9,
-     "name": "Airdrie Utd",
+     "name": "Queen of Sth",
      "played": 5,
      "points": 3
     },
     {
      "rank": 10,
-     "name": "Queen of Sth",
-     "played": 4,
-     "points": 0
+     "name": "Airdrie Utd",
+     "played": 6,
+     "points": 3
     }
    ]
   },
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-05T12:09:54.209Z",
-   "changed": "2026-09-01T02:10:58.740Z",
+   "checked": "2026-09-10T07:32:32.410Z",
+   "changed": "2026-09-10T07:32:32.410Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
-   "lastModified": "Mon, 31 Aug 2026 22:42:28 GMT",
-   "latestMatch": "2026-08-29",
+   "lastModified": "Mon, 07 Sep 2026 22:39:42 GMT",
+   "latestMatch": "2026-09-05",
    "lastFixture": null,
    "teams": [
     {
      "rank": 1,
-     "name": "Elgin",
-     "played": 5,
-     "points": 11
+     "name": "Clyde",
+     "played": 6,
+     "points": 13
     },
     {
      "rank": 2,
-     "name": "Clyde",
-     "played": 5,
-     "points": 10
+     "name": "Elgin",
+     "played": 6,
+     "points": 11
     },
     {
      "rank": 3,
-     "name": "Forfar",
-     "played": 5,
-     "points": 8
+     "name": "Stranraer",
+     "played": 6,
+     "points": 10
     },
     {
      "rank": 4,
-     "name": "Edinburgh City",
-     "played": 5,
-     "points": 8
+     "name": "Spartans",
+     "played": 6,
+     "points": 9
     },
     {
      "rank": 5,
-     "name": "Stranraer",
-     "played": 5,
-     "points": 7
+     "name": "Kelty Hearts",
+     "played": 6,
+     "points": 9
     },
     {
      "rank": 6,
-     "name": "Spartans",
-     "played": 5,
-     "points": 6
+     "name": "Edinburgh City",
+     "played": 6,
+     "points": 8
     },
     {
      "rank": 7,
-     "name": "Annan Athletic",
-     "played": 5,
-     "points": 6
+     "name": "Forfar",
+     "played": 6,
+     "points": 8
     },
     {
      "rank": 8,
-     "name": "Kelty Hearts",
-     "played": 5,
+     "name": "Annan Athletic",
+     "played": 6,
      "points": 6
     },
     {
      "rank": 9,
-     "name": "Stirling",
-     "played": 5,
-     "points": 4
+     "name": "Dumbarton",
+     "played": 6,
+     "points": 6
     },
     {
      "rank": 10,
-     "name": "Dumbarton",
-     "played": 5,
-     "points": 3
+     "name": "Stirling",
+     "played": 6,
+     "points": 4
     }
    ]
   }
