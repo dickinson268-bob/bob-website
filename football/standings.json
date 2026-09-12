@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-12T19:43:21.462Z",
+ "updated": "2026-09-12T22:40:38.084Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,8 +7,8 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-12T19:43:16.838Z",
-   "changed": "2026-09-12T19:43:16.838Z",
+   "checked": "2026-09-12T22:40:33.624Z",
+   "changed": "2026-09-12T22:40:33.624Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
    "latestMatch": null,
@@ -16,13 +16,13 @@
    "teams": [
     {
      "rank": 1,
-     "name": "Manchester City",
-     "played": 3,
-     "points": 9
+     "name": "Arsenal",
+     "played": 4,
+     "points": 12
     },
     {
      "rank": 2,
-     "name": "Arsenal",
+     "name": "Manchester City",
      "played": 3,
      "points": 9
     },
@@ -95,7 +95,7 @@
     {
      "rank": 14,
      "name": "Sunderland",
-     "played": 3,
+     "played": 4,
      "points": 4
     },
     {
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-12T19:43:17.265Z",
+   "checked": "2026-09-12T22:40:34.012Z",
    "changed": "2026-09-12T17:28:20.684Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-12T19:43:17.734Z",
+   "checked": "2026-09-12T22:40:34.406Z",
    "changed": "2026-09-12T17:28:21.230Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-12T19:43:18.150Z",
+   "checked": "2026-09-12T22:40:34.836Z",
    "changed": "2026-09-12T17:28:21.914Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,8 +607,8 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-12T19:43:18.585Z",
-   "changed": "2026-09-12T17:28:22.508Z",
+   "checked": "2026-09-12T22:40:35.232Z",
+   "changed": "2026-09-12T22:40:35.232Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
    "latestMatch": null,
@@ -640,15 +640,15 @@
     },
     {
      "rank": 5,
-     "name": "Aldershot Town",
+     "name": "Southend United",
      "played": 7,
      "points": 14
     },
     {
      "rank": 6,
-     "name": "Southend United",
-     "played": 6,
-     "points": 13
+     "name": "Aldershot Town",
+     "played": 7,
+     "points": 14
     },
     {
      "rank": 7,
@@ -682,27 +682,27 @@
     },
     {
      "rank": 12,
-     "name": "FC Halifax Town",
+     "name": "Carlisle United",
      "played": 7,
      "points": 9
     },
     {
      "rank": 13,
-     "name": "Hartlepool United",
+     "name": "FC Halifax Town",
      "played": 7,
      "points": 9
     },
     {
      "rank": 14,
-     "name": "Altrincham",
+     "name": "Hartlepool United",
      "played": 7,
      "points": 9
     },
     {
      "rank": 15,
-     "name": "Carlisle United",
-     "played": 6,
-     "points": 8
+     "name": "Altrincham",
+     "played": 7,
+     "points": 9
     },
     {
      "rank": 16,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-12T19:43:19.152Z",
+   "checked": "2026-09-12T22:40:35.701Z",
    "changed": "2026-09-12T17:28:23.059Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-12T19:43:20.439Z",
+   "checked": "2026-09-12T22:40:37.053Z",
    "changed": "2026-09-10T07:32:31.742Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 07 Sep 2026 22:39:42 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-12T19:43:21.113Z",
+   "checked": "2026-09-12T22:40:37.734Z",
    "changed": "2026-09-10T07:32:32.410Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 07 Sep 2026 22:39:42 GMT",
