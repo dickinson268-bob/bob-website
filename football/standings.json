@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T18:58:46.270Z",
+ "updated": "2026-09-25T23:39:29.951Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-25T18:58:41.007Z",
+   "checked": "2026-09-25T23:39:24.950Z",
    "changed": "2026-09-20T17:44:54.873Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-25T18:58:41.471Z",
+   "checked": "2026-09-25T23:39:25.489Z",
    "changed": "2026-09-20T17:44:55.347Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-25T18:58:42.043Z",
+   "checked": "2026-09-25T23:39:25.897Z",
    "changed": "2026-09-19T17:31:00.391Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-25T18:58:42.510Z",
+   "checked": "2026-09-25T23:39:26.316Z",
    "changed": "2026-09-19T17:31:00.891Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-25T18:58:42.986Z",
+   "checked": "2026-09-25T23:39:26.739Z",
    "changed": "2026-09-19T19:38:51.482Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,8 +763,8 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-25T18:58:43.478Z",
-   "changed": "2026-09-19T19:38:51.922Z",
+   "checked": "2026-09-25T23:39:27.158Z",
+   "changed": "2026-09-25T23:39:27.158Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
    "latestMatch": null,
@@ -773,61 +773,61 @@
     {
      "rank": 1,
      "name": "Stenhousemuir",
-     "played": 7,
-     "points": 19
+     "played": 8,
+     "points": 22
     },
     {
      "rank": 2,
      "name": "Raith Rovers",
-     "played": 7,
+     "played": 8,
      "points": 14
     },
     {
      "rank": 3,
+     "name": "Livingston",
+     "played": 8,
+     "points": 13
+    },
+    {
+     "rank": 4,
      "name": "Partick Thistle",
      "played": 7,
      "points": 12
     },
     {
-     "rank": 4,
+     "rank": 5,
      "name": "Dunfermline Athletic",
      "played": 7,
      "points": 12
     },
     {
-     "rank": 5,
-     "name": "Livingston",
-     "played": 7,
-     "points": 10
-    },
-    {
      "rank": 6,
-     "name": "Ayr United",
-     "played": 7,
-     "points": 8
+     "name": "Arbroath",
+     "played": 8,
+     "points": 11
     },
     {
      "rank": 7,
-     "name": "Arbroath",
-     "played": 7,
-     "points": 8
+     "name": "Inverness Caledonian Thistle",
+     "played": 8,
+     "points": 10
     },
     {
      "rank": 8,
-     "name": "Inverness Caledonian Thistle",
-     "played": 7,
-     "points": 7
+     "name": "Ayr United",
+     "played": 8,
+     "points": 8
     },
     {
      "rank": 9,
      "name": "Queen's Park",
-     "played": 7,
+     "played": 8,
      "points": 4
     },
     {
      "rank": 10,
      "name": "Greenock Morton",
-     "played": 7,
+     "played": 8,
      "points": 1
     }
    ]
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-25T18:58:45.125Z",
+   "checked": "2026-09-25T23:39:28.881Z",
    "changed": "2026-09-21T21:16:43.608Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 21 Sep 2026 17:50:50 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-25T18:58:45.888Z",
+   "checked": "2026-09-25T23:39:29.600Z",
    "changed": "2026-09-21T21:16:44.608Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 21 Sep 2026 17:50:50 GMT",
