@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26T13:25:18.997Z",
+ "updated": "2026-09-26T18:06:42.330Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-09-26T13:25:13.633Z",
+   "checked": "2026-09-26T18:06:36.851Z",
    "changed": "2026-09-20T17:44:54.873Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-09-26T13:25:14.119Z",
+   "checked": "2026-09-26T18:06:37.307Z",
    "changed": "2026-09-20T17:44:55.347Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,8 +295,8 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-09-26T13:25:14.586Z",
-   "changed": "2026-09-19T17:31:00.391Z",
+   "checked": "2026-09-26T18:06:37.796Z",
+   "changed": "2026-09-26T18:06:37.796Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
    "latestMatch": null,
@@ -316,73 +316,73 @@
     },
     {
      "rank": 3,
-     "name": "Plymouth Argyle",
-     "played": 7,
+     "name": "Stockport County",
+     "played": 8,
      "points": 13
     },
     {
      "rank": 4,
+     "name": "Plymouth Argyle",
+     "played": 8,
+     "points": 13
+    },
+    {
+     "rank": 5,
+     "name": "Cambridge United",
+     "played": 8,
+     "points": 13
+    },
+    {
+     "rank": 6,
      "name": "Huddersfield Town",
      "played": 7,
      "points": 12
     },
     {
-     "rank": 5,
-     "name": "Cambridge United",
-     "played": 7,
+     "rank": 7,
+     "name": "Burton Albion",
+     "played": 8,
      "points": 12
     },
     {
-     "rank": 6,
+     "rank": 8,
+     "name": "AFC Wimbledon",
+     "played": 8,
+     "points": 12
+    },
+    {
+     "rank": 9,
+     "name": "Reading",
+     "played": 7,
+     "points": 11
+    },
+    {
+     "rank": 10,
      "name": "Oxford United",
      "played": 6,
      "points": 11
     },
     {
-     "rank": 7,
-     "name": "AFC Wimbledon",
-     "played": 7,
-     "points": 11
-    },
-    {
-     "rank": 8,
-     "name": "Reading",
-     "played": 6,
-     "points": 10
-    },
-    {
-     "rank": 9,
-     "name": "Stockport County",
-     "played": 7,
-     "points": 10
-    },
-    {
-     "rank": 10,
+     "rank": 11,
      "name": "Leyton Orient",
      "played": 7,
      "points": 10
     },
     {
-     "rank": 11,
+     "rank": 12,
+     "name": "Wycombe Wanderers",
+     "played": 8,
+     "points": 10
+    },
+    {
+     "rank": 13,
      "name": "Stevenage",
      "played": 7,
      "points": 9
     },
     {
-     "rank": 12,
-     "name": "Burton Albion",
-     "played": 7,
-     "points": 9
-    },
-    {
-     "rank": 13,
-     "name": "Leicester City",
-     "played": 7,
-     "points": 9
-    },
-    {
      "rank": 14,
-     "name": "Wycombe Wanderers",
+     "name": "Leicester City",
      "played": 7,
      "points": 9
     },
@@ -437,7 +437,7 @@
     {
      "rank": 23,
      "name": "Peterborough United",
-     "played": 7,
+     "played": 8,
      "points": 5
     },
     {
@@ -451,8 +451,8 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-09-26T13:25:15.056Z",
-   "changed": "2026-09-19T17:31:00.891Z",
+   "checked": "2026-09-26T18:06:38.252Z",
+   "changed": "2026-09-26T18:06:38.252Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
    "latestMatch": null,
@@ -466,122 +466,122 @@
     },
     {
      "rank": 2,
-     "name": "Walsall",
-     "played": 7,
-     "points": 13
+     "name": "Cheltenham Town",
+     "played": 8,
+     "points": 15
     },
     {
      "rank": 3,
-     "name": "Grimsby Town",
-     "played": 7,
-     "points": 13
+     "name": "Bristol Rovers",
+     "played": 8,
+     "points": 15
     },
     {
      "rank": 4,
-     "name": "Gillingham",
-     "played": 7,
-     "points": 12
+     "name": "York City",
+     "played": 8,
+     "points": 14
     },
     {
      "rank": 5,
-     "name": "Cheltenham Town",
-     "played": 7,
-     "points": 12
+     "name": "Walsall",
+     "played": 8,
+     "points": 14
     },
     {
      "rank": 6,
-     "name": "Bristol Rovers",
-     "played": 7,
-     "points": 12
+     "name": "Grimsby Town",
+     "played": 8,
+     "points": 13
     },
     {
      "rank": 7,
-     "name": "York City",
-     "played": 7,
-     "points": 11
+     "name": "Gillingham",
+     "played": 8,
+     "points": 12
     },
     {
      "rank": 8,
-     "name": "Chesterfield",
-     "played": 7,
-     "points": 11
+     "name": "Crewe Alexandra",
+     "played": 8,
+     "points": 12
     },
     {
      "rank": 9,
-     "name": "Crewe Alexandra",
-     "played": 7,
+     "name": "Tranmere Rovers",
+     "played": 8,
      "points": 11
     },
     {
      "rank": 10,
-     "name": "Tranmere Rovers",
-     "played": 7,
-     "points": 10
+     "name": "Chesterfield",
+     "played": 8,
+     "points": 11
     },
     {
      "rank": 11,
-     "name": "Fleetwood Town",
-     "played": 7,
-     "points": 10
+     "name": "Swindon Town",
+     "played": 8,
+     "points": 11
     },
     {
      "rank": 12,
+     "name": "Rotherham United",
+     "played": 8,
+     "points": 10
+    },
+    {
+     "rank": 13,
+     "name": "Fleetwood Town",
+     "played": 8,
+     "points": 10
+    },
+    {
+     "rank": 14,
      "name": "Salford City",
      "played": 7,
      "points": 10
     },
     {
-     "rank": 13,
-     "name": "Swindon Town",
-     "played": 7,
+     "rank": 15,
+     "name": "Colchester United",
+     "played": 8,
      "points": 10
     },
     {
-     "rank": 14,
-     "name": "Rotherham United",
-     "played": 7,
-     "points": 9
-    },
-    {
-     "rank": 15,
-     "name": "Colchester United",
-     "played": 7,
-     "points": 9
-    },
-    {
      "rank": 16,
+     "name": "Rochdale",
+     "played": 8,
+     "points": 10
+    },
+    {
+     "rank": 17,
+     "name": "Newport County",
+     "played": 8,
+     "points": 9
+    },
+    {
+     "rank": 18,
+     "name": "Shrewsbury Town",
+     "played": 8,
+     "points": 8
+    },
+    {
+     "rank": 19,
      "name": "Oldham Athletic",
      "played": 7,
      "points": 7
     },
     {
-     "rank": 17,
-     "name": "Rochdale",
-     "played": 7,
-     "points": 7
-    },
-    {
-     "rank": 18,
-     "name": "Shrewsbury Town",
-     "played": 7,
-     "points": 7
-    },
-    {
-     "rank": 19,
-     "name": "Newport County",
-     "played": 7,
-     "points": 6
-    },
-    {
      "rank": 20,
-     "name": "Exeter City",
-     "played": 7,
-     "points": 6
+     "name": "Accrington Stanley",
+     "played": 8,
+     "points": 7
     },
     {
      "rank": 21,
-     "name": "Accrington Stanley",
-     "played": 7,
+     "name": "Exeter City",
+     "played": 8,
      "points": 6
     },
     {
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-09-26T13:25:15.521Z",
+   "checked": "2026-09-26T18:06:38.681Z",
    "changed": "2026-09-19T19:38:51.482Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-09-26T13:25:15.992Z",
+   "checked": "2026-09-26T18:06:39.162Z",
    "changed": "2026-09-25T23:39:27.158Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-09-26T13:25:17.687Z",
+   "checked": "2026-09-26T18:06:41.039Z",
    "changed": "2026-09-21T21:16:43.608Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 21 Sep 2026 17:50:50 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-09-26T13:25:18.605Z",
+   "checked": "2026-09-26T18:06:41.970Z",
    "changed": "2026-09-21T21:16:44.608Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 21 Sep 2026 17:50:50 GMT",
