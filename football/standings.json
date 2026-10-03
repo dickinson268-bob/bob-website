@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-03T18:22:20.145Z",
+ "updated": "2026-10-03T23:24:10.620Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-10-03T18:22:15.480Z",
+   "checked": "2026-10-03T23:24:05.862Z",
    "changed": "2026-09-20T17:44:54.873Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-10-03T18:22:15.922Z",
+   "checked": "2026-10-03T23:24:06.297Z",
    "changed": "2026-09-20T17:44:55.347Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-10-03T18:22:16.379Z",
+   "checked": "2026-10-03T23:24:06.695Z",
    "changed": "2026-10-03T18:22:16.379Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-10-03T18:22:16.874Z",
+   "checked": "2026-10-03T23:24:07.237Z",
    "changed": "2026-10-03T18:22:16.874Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-10-03T18:22:17.304Z",
+   "checked": "2026-10-03T23:24:07.720Z",
    "changed": "2026-10-03T18:22:17.304Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,8 +763,8 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-10-03T18:22:17.708Z",
-   "changed": "2026-09-25T23:39:27.158Z",
+   "checked": "2026-10-03T23:24:08.131Z",
+   "changed": "2026-10-03T23:24:08.131Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
    "latestMatch": null,
@@ -779,20 +779,20 @@
     {
      "rank": 2,
      "name": "Raith Rovers",
-     "played": 8,
-     "points": 14
+     "played": 9,
+     "points": 17
     },
     {
      "rank": 3,
-     "name": "Livingston",
+     "name": "Partick Thistle",
      "played": 8,
-     "points": 13
+     "points": 15
     },
     {
      "rank": 4,
-     "name": "Partick Thistle",
-     "played": 7,
-     "points": 12
+     "name": "Livingston",
+     "played": 9,
+     "points": 13
     },
     {
      "rank": 5,
@@ -802,21 +802,21 @@
     },
     {
      "rank": 6,
-     "name": "Arbroath",
-     "played": 8,
+     "name": "Ayr United",
+     "played": 9,
      "points": 11
     },
     {
      "rank": 7,
-     "name": "Inverness Caledonian Thistle",
-     "played": 8,
-     "points": 10
+     "name": "Arbroath",
+     "played": 9,
+     "points": 11
     },
     {
      "rank": 8,
-     "name": "Ayr United",
+     "name": "Inverness Caledonian Thistle",
      "played": 8,
-     "points": 8
+     "points": 10
     },
     {
      "rank": 9,
@@ -827,7 +827,7 @@
     {
      "rank": 10,
      "name": "Greenock Morton",
-     "played": 8,
+     "played": 9,
      "points": 1
     }
    ]
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-10-03T18:22:19.019Z",
+   "checked": "2026-10-03T23:24:09.480Z",
    "changed": "2026-09-21T21:16:43.608Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 21 Sep 2026 17:50:50 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-10-03T18:22:19.723Z",
+   "checked": "2026-10-03T23:24:10.198Z",
    "changed": "2026-09-21T21:16:44.608Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 21 Sep 2026 17:50:50 GMT",
