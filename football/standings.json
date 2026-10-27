@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T21:57:25.886Z",
+ "updated": "2026-10-27T02:32:59.982Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-10-26T21:57:21.006Z",
+   "checked": "2026-10-27T02:32:55.271Z",
    "changed": "2026-10-25T20:02:37.356Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-10-26T21:57:21.443Z",
+   "checked": "2026-10-27T02:32:55.693Z",
    "changed": "2026-10-24T17:41:18.356Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-10-26T21:57:21.888Z",
+   "checked": "2026-10-27T02:32:56.087Z",
    "changed": "2026-10-24T17:41:18.848Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,8 +451,8 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-10-26T21:57:22.325Z",
-   "changed": "2026-10-24T17:41:19.290Z",
+   "checked": "2026-10-27T02:32:56.516Z",
+   "changed": "2026-10-27T02:32:56.516Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
    "latestMatch": null,
@@ -461,8 +461,8 @@
     {
      "rank": 1,
      "name": "Salford City",
-     "played": 12,
-     "points": 25
+     "played": 13,
+     "points": 28
     },
     {
      "rank": 2,
@@ -491,7 +491,7 @@
     {
      "rank": 6,
      "name": "Walsall",
-     "played": 11,
+     "played": 12,
      "points": 19
     },
     {
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-10-26T21:57:22.785Z",
+   "checked": "2026-10-27T02:32:56.925Z",
    "changed": "2026-10-24T19:52:59.319Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-10-26T21:57:23.227Z",
+   "checked": "2026-10-27T02:32:57.367Z",
    "changed": "2026-10-24T17:41:20.302Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,65 +835,65 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-10-26T21:57:24.691Z",
-   "changed": "2026-10-20T13:54:19.847Z",
+   "checked": "2026-10-27T02:32:58.939Z",
+   "changed": "2026-10-27T02:32:58.939Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
-   "lastModified": "Tue, 20 Oct 2026 09:06:14 GMT",
-   "latestMatch": "2026-10-17",
+   "lastModified": "Mon, 26 Oct 2026 23:12:23 GMT",
+   "latestMatch": "2026-10-24",
    "lastFixture": null,
    "teams": [
     {
      "rank": 1,
      "name": "Ross County",
-     "played": 10,
-     "points": 28
+     "played": 11,
+     "points": 31
     },
     {
      "rank": 2,
      "name": "Hamilton",
-     "played": 10,
-     "points": 28
+     "played": 11,
+     "points": 31
     },
     {
      "rank": 3,
+     "name": "Montrose",
+     "played": 12,
+     "points": 19
+    },
+    {
+     "rank": 4,
      "name": "East Kilbride",
      "played": 11,
      "points": 18
     },
     {
-     "rank": 4,
-     "name": "Montrose",
-     "played": 11,
-     "points": 16
-    },
-    {
      "rank": 5,
      "name": "Airdrie Utd",
-     "played": 11,
+     "played": 12,
      "points": 13
     },
     {
      "rank": 6,
-     "name": "Alloa",
-     "played": 11,
-     "points": 12
+     "name": "Queen of Sth",
+     "played": 12,
+     "points": 13
     },
     {
      "rank": 7,
-     "name": "Peterhead",
-     "played": 11,
-     "points": 10
+     "name": "Alloa",
+     "played": 12,
+     "points": 12
     },
     {
      "rank": 8,
-     "name": "Queen of Sth",
-     "played": 11,
+     "name": "Peterhead",
+     "played": 12,
      "points": 10
     },
     {
      "rank": 9,
      "name": "East Fife",
-     "played": 11,
+     "played": 12,
      "points": 9
     },
     {
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-10-26T21:57:25.508Z",
+   "checked": "2026-10-27T02:32:59.623Z",
    "changed": "2026-10-20T13:54:20.649Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Tue, 20 Oct 2026 09:06:14 GMT",
