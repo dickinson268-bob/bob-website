@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T03:01:18.387Z",
+ "updated": "2026-10-29T11:51:07.443Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-10-29T03:01:13.300Z",
+   "checked": "2026-10-29T11:51:02.470Z",
    "changed": "2026-10-25T20:02:37.356Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-10-29T03:01:13.767Z",
+   "checked": "2026-10-29T11:51:02.973Z",
    "changed": "2026-10-24T17:41:18.356Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-10-29T03:01:14.171Z",
+   "checked": "2026-10-29T11:51:03.437Z",
    "changed": "2026-10-28T00:06:58.986Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-10-29T03:01:14.603Z",
+   "checked": "2026-10-29T11:51:03.916Z",
    "changed": "2026-10-28T00:06:59.518Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-10-29T03:01:15.032Z",
+   "checked": "2026-10-29T11:51:04.368Z",
    "changed": "2026-10-28T21:56:10.219Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-10-29T03:01:15.499Z",
+   "checked": "2026-10-29T11:51:04.824Z",
    "changed": "2026-10-28T00:07:00.547Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,24 +835,24 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-10-29T03:01:17.277Z",
-   "changed": "2026-10-27T02:32:58.939Z",
+   "checked": "2026-10-29T11:51:06.281Z",
+   "changed": "2026-10-29T11:51:06.281Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
-   "lastModified": "Mon, 26 Oct 2026 23:12:23 GMT",
-   "latestMatch": "2026-10-24",
+   "lastModified": "Thu, 29 Oct 2026 11:25:26 GMT",
+   "latestMatch": "2026-10-27",
    "lastFixture": null,
    "teams": [
     {
      "rank": 1,
      "name": "Ross County",
-     "played": 11,
-     "points": 31
+     "played": 12,
+     "points": 32
     },
     {
      "rank": 2,
      "name": "Hamilton",
-     "played": 11,
-     "points": 31
+     "played": 12,
+     "points": 32
     },
     {
      "rank": 3,
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-10-29T03:01:18.030Z",
+   "checked": "2026-10-29T11:51:07.043Z",
    "changed": "2026-10-20T13:54:20.649Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Tue, 20 Oct 2026 09:06:14 GMT",
