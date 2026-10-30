@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T17:17:10.816Z",
+ "updated": "2026-10-30T21:43:22.915Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-10-30T17:17:06.372Z",
+   "checked": "2026-10-30T21:43:17.989Z",
    "changed": "2026-10-25T20:02:37.356Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-10-30T17:17:06.770Z",
+   "checked": "2026-10-30T21:43:18.397Z",
    "changed": "2026-10-24T17:41:18.356Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-10-30T17:17:07.176Z",
+   "checked": "2026-10-30T21:43:18.836Z",
    "changed": "2026-10-28T00:06:58.986Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-10-30T17:17:07.592Z",
+   "checked": "2026-10-30T21:43:19.311Z",
    "changed": "2026-10-28T00:06:59.518Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-10-30T17:17:07.970Z",
+   "checked": "2026-10-30T21:43:19.724Z",
    "changed": "2026-10-28T21:56:10.219Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,8 +763,8 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-10-30T17:17:08.365Z",
-   "changed": "2026-10-28T00:07:00.547Z",
+   "checked": "2026-10-30T21:43:20.143Z",
+   "changed": "2026-10-30T21:43:20.143Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
    "latestMatch": null,
@@ -779,7 +779,7 @@
     {
      "rank": 2,
      "name": "Stenhousemuir",
-     "played": 12,
+     "played": 13,
      "points": 23
     },
     {
@@ -796,15 +796,15 @@
     },
     {
      "rank": 5,
-     "name": "Inverness Caledonian Thistle",
-     "played": 12,
-     "points": 19
+     "name": "Livingston",
+     "played": 13,
+     "points": 20
     },
     {
      "rank": 6,
-     "name": "Livingston",
+     "name": "Inverness Caledonian Thistle",
      "played": 12,
-     "points": 17
+     "points": 19
     },
     {
      "rank": 7,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-10-30T17:17:09.732Z",
+   "checked": "2026-10-30T21:43:21.834Z",
    "changed": "2026-10-29T11:51:06.281Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Thu, 29 Oct 2026 11:25:26 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-10-30T17:17:10.465Z",
+   "checked": "2026-10-30T21:43:22.552Z",
    "changed": "2026-10-20T13:54:20.649Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Tue, 20 Oct 2026 09:06:14 GMT",
