@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T21:43:22.915Z",
+ "updated": "2026-10-31T02:52:13.557Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-10-30T21:43:17.989Z",
+   "checked": "2026-10-31T02:52:08.693Z",
    "changed": "2026-10-25T20:02:37.356Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,8 +139,8 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-10-30T21:43:18.397Z",
-   "changed": "2026-10-24T17:41:18.356Z",
+   "checked": "2026-10-31T02:52:09.095Z",
+   "changed": "2026-10-31T02:52:09.095Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
    "latestMatch": null,
@@ -202,21 +202,21 @@
     },
     {
      "rank": 10,
+     "name": "Sheffield United",
+     "played": 13,
+     "points": 19
+    },
+    {
+     "rank": 11,
      "name": "Blackburn Rovers",
      "played": 12,
      "points": 18
     },
     {
-     "rank": 11,
+     "rank": 12,
      "name": "Portsmouth",
      "played": 12,
      "points": 18
-    },
-    {
-     "rank": 12,
-     "name": "Sheffield United",
-     "played": 12,
-     "points": 16
     },
     {
      "rank": 13,
@@ -245,7 +245,7 @@
     {
      "rank": 17,
      "name": "Wrexham",
-     "played": 12,
+     "played": 13,
      "points": 14
     },
     {
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-10-30T21:43:18.836Z",
+   "checked": "2026-10-31T02:52:09.468Z",
    "changed": "2026-10-28T00:06:58.986Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,8 +451,8 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-10-30T21:43:19.311Z",
-   "changed": "2026-10-28T00:06:59.518Z",
+   "checked": "2026-10-31T02:52:09.900Z",
+   "changed": "2026-10-31T02:52:09.900Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
    "latestMatch": null,
@@ -497,7 +497,7 @@
     {
      "rank": 7,
      "name": "Chesterfield",
-     "played": 13,
+     "played": 14,
      "points": 19
     },
     {
@@ -514,45 +514,45 @@
     },
     {
      "rank": 10,
+     "name": "Newport County",
+     "played": 14,
+     "points": 18
+    },
+    {
+     "rank": 11,
      "name": "Shrewsbury Town",
      "played": 13,
      "points": 18
     },
     {
-     "rank": 11,
+     "rank": 12,
      "name": "Grimsby Town",
      "played": 13,
      "points": 17
     },
     {
-     "rank": 12,
+     "rank": 13,
      "name": "Gillingham",
      "played": 13,
      "points": 17
     },
     {
-     "rank": 13,
+     "rank": 14,
      "name": "Tranmere Rovers",
      "played": 13,
      "points": 16
     },
     {
-     "rank": 14,
+     "rank": 15,
      "name": "Swindon Town",
      "played": 13,
      "points": 16
     },
     {
-     "rank": 15,
+     "rank": 16,
      "name": "Bristol Rovers",
      "played": 13,
      "points": 16
-    },
-    {
-     "rank": 16,
-     "name": "Newport County",
-     "played": 13,
-     "points": 15
     },
     {
      "rank": 17,
@@ -607,8 +607,8 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-10-30T21:43:19.724Z",
-   "changed": "2026-10-28T21:56:10.219Z",
+   "checked": "2026-10-31T02:52:10.279Z",
+   "changed": "2026-10-31T02:52:10.279Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
    "latestMatch": null,
@@ -634,27 +634,27 @@
     },
     {
      "rank": 4,
+     "name": "AFC Fylde",
+     "played": 16,
+     "points": 29
+    },
+    {
+     "rank": 5,
      "name": "Yeovil Town",
      "played": 15,
      "points": 28
     },
     {
-     "rank": 5,
+     "rank": 6,
      "name": "Worthing",
      "played": 15,
      "points": 28
     },
     {
-     "rank": 6,
+     "rank": 7,
      "name": "Altrincham",
      "played": 15,
      "points": 28
-    },
-    {
-     "rank": 7,
-     "name": "AFC Fylde",
-     "played": 15,
-     "points": 26
     },
     {
      "rank": 8,
@@ -689,7 +689,7 @@
     {
      "rank": 13,
      "name": "AFC Hornchurch",
-     "played": 15,
+     "played": 16,
      "points": 21
     },
     {
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-10-30T21:43:20.143Z",
+   "checked": "2026-10-31T02:52:10.672Z",
    "changed": "2026-10-30T21:43:20.143Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-10-30T21:43:21.834Z",
+   "checked": "2026-10-31T02:52:12.415Z",
    "changed": "2026-10-29T11:51:06.281Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Thu, 29 Oct 2026 11:25:26 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-10-30T21:43:22.552Z",
+   "checked": "2026-10-31T02:52:13.193Z",
    "changed": "2026-10-20T13:54:20.649Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Tue, 20 Oct 2026 09:06:14 GMT",
