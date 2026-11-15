@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T19:31:48.482Z",
+ "updated": "2026-11-15T00:27:35.792Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-11-14T19:31:43.664Z",
+   "checked": "2026-11-15T00:27:31.164Z",
    "changed": "2026-11-08T21:23:54.702Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-11-14T19:31:44.121Z",
+   "checked": "2026-11-15T00:27:31.688Z",
    "changed": "2026-11-07T21:07:28.408Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,7 +295,7 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-11-14T19:31:44.575Z",
+   "checked": "2026-11-15T00:27:32.124Z",
    "changed": "2026-11-14T19:31:44.575Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
@@ -451,8 +451,8 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-11-14T19:31:44.981Z",
-   "changed": "2026-11-14T19:31:44.981Z",
+   "checked": "2026-11-15T00:27:32.552Z",
+   "changed": "2026-11-15T00:27:32.552Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
    "latestMatch": null,
@@ -520,45 +520,45 @@
     },
     {
      "rank": 11,
-     "name": "Gillingham",
+     "name": "Fleetwood Town",
      "played": 15,
      "points": 20
     },
     {
      "rank": 12,
+     "name": "Gillingham",
+     "played": 15,
+     "points": 20
+    },
+    {
+     "rank": 13,
      "name": "Accrington Stanley",
      "played": 15,
      "points": 19
     },
     {
-     "rank": 13,
+     "rank": 14,
      "name": "Newport County",
      "played": 15,
      "points": 19
     },
     {
-     "rank": 14,
-     "name": "Tranmere Rovers",
-     "played": 14,
-     "points": 19
-    },
-    {
      "rank": 15,
-     "name": "Swindon Town",
+     "name": "Tranmere Rovers",
      "played": 15,
      "points": 19
     },
     {
      "rank": 16,
-     "name": "Port Vale",
-     "played": 13,
-     "points": 18
+     "name": "Swindon Town",
+     "played": 15,
+     "points": 19
     },
     {
      "rank": 17,
-     "name": "Fleetwood Town",
-     "played": 14,
-     "points": 17
+     "name": "Port Vale",
+     "played": 13,
+     "points": 18
     },
     {
      "rank": 18,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-11-14T19:31:45.458Z",
+   "checked": "2026-11-15T00:27:32.964Z",
    "changed": "2026-11-14T19:31:45.458Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-11-14T19:31:45.868Z",
+   "checked": "2026-11-15T00:27:33.364Z",
    "changed": "2026-11-14T19:31:45.868Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-11-14T19:31:47.325Z",
+   "checked": "2026-11-15T00:27:34.705Z",
    "changed": "2026-11-09T14:27:45.591Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 09 Nov 2026 10:03:06 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-11-14T19:31:48.117Z",
+   "checked": "2026-11-15T00:27:35.435Z",
    "changed": "2026-11-09T14:27:46.364Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 09 Nov 2026 10:03:06 GMT",
