@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T21:59:56.443Z",
+ "updated": "2026-11-21T04:25:05.341Z",
  "source": "mixed",
  "season": 2026,
  "failed": [],
@@ -7,7 +7,7 @@
   "eng_premier": {
    "name": "England Premier League",
    "source": "espn",
-   "checked": "2026-11-20T21:59:51.827Z",
+   "checked": "2026-11-21T04:25:00.329Z",
    "changed": "2026-11-18T22:23:27.402Z",
    "watchingSince": "2026-08-20T23:19:14.861Z",
    "lastModified": null,
@@ -139,7 +139,7 @@
   "eng_championship": {
    "name": "England Championship",
    "source": "espn",
-   "checked": "2026-11-20T21:59:52.226Z",
+   "checked": "2026-11-21T04:25:00.780Z",
    "changed": "2026-11-07T21:07:28.408Z",
    "watchingSince": "2026-08-20T23:19:15.461Z",
    "lastModified": null,
@@ -295,8 +295,8 @@
   "eng_league_one": {
    "name": "England League One",
    "source": "espn",
-   "checked": "2026-11-20T21:59:52.713Z",
-   "changed": "2026-11-14T19:31:44.575Z",
+   "checked": "2026-11-21T04:25:01.236Z",
+   "changed": "2026-11-21T04:25:01.236Z",
    "watchingSince": "2026-08-20T23:19:15.988Z",
    "lastModified": null,
    "latestMatch": null,
@@ -316,21 +316,21 @@
     },
     {
      "rank": 3,
+     "name": "Sheffield Wednesday",
+     "played": 15,
+     "points": 26
+    },
+    {
+     "rank": 4,
      "name": "Oxford United",
      "played": 13,
      "points": 26
     },
     {
-     "rank": 4,
+     "rank": 5,
      "name": "Luton Town",
      "played": 14,
      "points": 24
-    },
-    {
-     "rank": 5,
-     "name": "Sheffield Wednesday",
-     "played": 14,
-     "points": 23
     },
     {
      "rank": 6,
@@ -437,7 +437,7 @@
     {
      "rank": 23,
      "name": "Barnsley",
-     "played": 13,
+     "played": 14,
      "points": 9
     },
     {
@@ -451,7 +451,7 @@
   "eng_league_two": {
    "name": "England League Two",
    "source": "espn",
-   "checked": "2026-11-20T21:59:53.154Z",
+   "checked": "2026-11-21T04:25:01.722Z",
    "changed": "2026-11-15T00:27:32.552Z",
    "watchingSince": "2026-08-20T23:19:16.446Z",
    "lastModified": null,
@@ -607,7 +607,7 @@
   "eng_national": {
    "name": "England National League",
    "source": "espn",
-   "checked": "2026-11-20T21:59:53.612Z",
+   "checked": "2026-11-21T04:25:02.195Z",
    "changed": "2026-11-20T21:59:53.612Z",
    "watchingSince": "2026-08-20T23:19:16.929Z",
    "lastModified": null,
@@ -763,7 +763,7 @@
   "sco_championship": {
    "name": "Scotland Championship",
    "source": "espn",
-   "checked": "2026-11-20T21:59:54.061Z",
+   "checked": "2026-11-21T04:25:02.649Z",
    "changed": "2026-11-20T21:59:54.061Z",
    "watchingSince": "2026-08-20T23:19:17.412Z",
    "lastModified": null,
@@ -835,7 +835,7 @@
   "sco_league_one": {
    "name": "Scotland League One",
    "source": "football-data.co.uk",
-   "checked": "2026-11-20T21:59:55.394Z",
+   "checked": "2026-11-21T04:25:04.171Z",
    "changed": "2026-11-16T21:18:21.932Z",
    "watchingSince": "2026-08-20T23:19:18.340Z",
    "lastModified": "Mon, 16 Nov 2026 12:06:22 GMT",
@@ -907,7 +907,7 @@
   "sco_league_two": {
    "name": "Scotland League Two",
    "source": "football-data.co.uk",
-   "checked": "2026-11-20T21:59:56.111Z",
+   "checked": "2026-11-21T04:25:04.943Z",
    "changed": "2026-11-16T21:18:22.946Z",
    "watchingSince": "2026-08-20T23:19:19.004Z",
    "lastModified": "Mon, 16 Nov 2026 12:06:22 GMT",
